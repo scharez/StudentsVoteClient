@@ -1,21 +1,35 @@
 <div id="login_body">
 
-  <div id="body_header">
-    <h2>Student's Vote</h2>
-    <img src="../../assets/htl_logo.png" id="htl_logo">
-  </div>
+  <mat-toolbar>
+    <img src="../../assets/htl-logo.png" id="htl_logo">
+    <a>Student's Vote</a>
+  </mat-toolbar>
 
-
-  <div id="login_box">
-    <h4>Login</h4>
-
-    <form id="login_form" >
-      <input type="text" name="userid" placeholder="username">
-      <br><br>
-      <input type="password" name="psw" placeholder="password">
+  <mat-card class="mat-card">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <table>
+        <tr>
+          <td>
+            <mat-form-field style="color: grey!important">
+              <input matInput placeholder="Username" name="username" required >
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td><mat-form-field>
+            <input matInput placeholder="Password" type="password" name="password" required>
+          </mat-form-field></td>
+        </tr>
+      </table>
     </form>
-
-    <button mat-stroked-button>Basic</button>
-
-  </div>
+    <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button>Login</button>
+  </mat-card-actions>
+  </mat-card>
 </div>

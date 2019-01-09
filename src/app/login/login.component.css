@@ -1,12 +1,24 @@
-.login_body{
-  background: red;
+/*Login Layout Mat-Card --------------------------------------------------------------------------------------*/
+.mat-card {
+  width: 500px;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
 }
 
-.body_header{}
-
-.hlt_logo{
-  height: 20%;
-  width: 20%;
+mat-card-title {
+  font-size: 20px;
 }
+
+mat-card-content table, mat-spinner {
+  margin: 0 auto;
+}
+
+.mat-card mat-card-header{
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
 
 
