@@ -5,7 +5,7 @@ export class User {
 
   constructor(username: String, password: String) {
     this.username = username;
-    this.passowrd = Password;
+    this.password = password;
   }
 
 }

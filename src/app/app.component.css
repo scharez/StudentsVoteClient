@@ -1,3 +1,12 @@
 .fill-remaining-space {
   flex: 1 1 auto;
 }
+
+mat-toolbar a{
+  font-size: 150%;
+  margin-left: 30%;
+}
+
+mat-toolbar img{
+  height: 55%;
+}

@@ -5,20 +5,4 @@
 }
 
 
-/*Leiste -----------------------------------------------------------------------------------------------------*/
-mat-toolbar{
-  height: 90%;
-}
-
-/*HTL Leonding Logo*/
-mat-toolbar a{
-  font-size: 150%;
-  margin-left: 30%;
-}
-/*Student's Vote*/
-mat-toolbar img{
-
-  height: 55%;
-}
-
 
