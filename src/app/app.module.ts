@@ -11,13 +11,15 @@ import { AuthService} from './services/auth.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { ElectionComponent } from './election/election.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    ElectionComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

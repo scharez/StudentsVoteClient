@@ -1,3 +1,8 @@
+*{
+
+}
+
+
 .fill-remaining-space {
   flex: 1 1 auto;
 }
@@ -10,3 +15,4 @@ mat-toolbar a{
 mat-toolbar img{
   height: 55%;
 }
+
