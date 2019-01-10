@@ -1,0 +1,30 @@
+h2{
+  font-size: 120%;
+  font-style: none;
+}
+
+
+/*Abstimmung-Card ---------------------------------------------------------------------------------------------*/
+.mat-card {
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+}
+
+mat-card-title {
+  font-size: 20px;
+}
+
+mat-card-content table, mat-spinner {
+  margin: 0 auto;
+}
+
+.mat-card mat-card-header{
+  justify-content: center;
+  margin-top: 20px;
+}
+
+td .tableWahl{
+  margin-right: 35%;
+}
