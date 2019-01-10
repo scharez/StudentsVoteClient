@@ -5,19 +5,64 @@
   <mat-card-content>
     <form>
       <table>
-        <tr>
-          <td>
+        <td class="tableWahl">
+          <tr>
             <h2>Schulsprecher</h2>
-          </td>
-        </tr>
-        <tr>
-          <h2></h2>
-        </tr>
+            <h3>Kandidat 1</h3>
+          </tr>
+        </td>
+        <td>
+          <tr>
+            <h2>6</h2>
+            <mat-radio-group>
+              <mat-radio-button value="6"></mat-radio-button>
+            </mat-radio-group>
+          </tr>
+        </td><td>
+          <tr>
+            <h2>5</h2>
+            <mat-radio-group>
+              <mat-radio-button value="5"></mat-radio-button>
+            </mat-radio-group>
+          </tr>
+        </td><td>
+          <tr>
+            <h2>4</h2>
+            <mat-radio-group>
+              <mat-radio-button value="4"></mat-radio-button>
+            </mat-radio-group>
+          </tr>
+        </td><td>
+          <tr>
+            <h2>3</h2>
+            <mat-radio-group>
+              <mat-radio-button value="3"></mat-radio-button>
+            </mat-radio-group>
+          </tr>
+        </td><td>
+          <tr>
+            <h2>2</h2>
+            <mat-radio-group>
+              <mat-radio-button value="2"></mat-radio-button>
+            </mat-radio-group>
+          </tr>
+        </td><td>
+          <tr>
+            <h2>1</h2>
+            <mat-radio-group>
+              <mat-radio-button value="1"></mat-radio-button>
+            </mat-radio-group>
+          </tr>
+        </td>
+
+
+
+
       </table>
     </form>
     <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button>Login</button>
+    <button mat-raised-button>Stimme abgeben</button>
   </mat-card-actions>
 </mat-card>
