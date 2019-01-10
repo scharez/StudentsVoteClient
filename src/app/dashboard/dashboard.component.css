@@ -1,0 +1,49 @@
+/*Dashboard 'Überlayout'  --------------------------------------------------------------------------------------*/
+*{
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+/*Dashboard Header  --------------------------------------------------------------------------------------*/
+h1{
+  margin-top:1.5%;
+  margin-bottom: 0.6%;
+}
+
+hr{
+  width: 80%;
+}
+
+
+/*Dashboard Layout Mat-Cards --------------------------------------------------------------------------------------*/
+.mat-card{
+  width: 30%;
+  height: 400px;/*************************AENDERN*/
+  background-color: yellow;
+}
+
+/*Dashboard Layout Mat-Cards einzelne Karten--------------------------------------------------------------------------------------*/
+#schueler1{
+  margin: 4% auto 4% 6%;
+}
+
+/*schueler img*/
+.schueler-img{
+  width: 100px;
+  height: 150px;
+  margin: 3% 2% auto 4%;
+  float: left;
+}
+
+#schueler2{
+  margin: 4% auto 4% 6%;
+}
+
+#schueler3{
+  margin: 4% auto 4% 6%;
+}
+
+#schueler4{
+  margin: 4% auto 4% 6%;
+}
