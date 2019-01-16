@@ -4,86 +4,113 @@
 <h2>Schulsprecher</h2>
 
 
-<mat-card class="mat-card" class="mat-card-schulsprecher" id="schueler1">
-  <mat-card-content>
-    <img src="" class="schueler-img">
+<button mat-raised-button id="addStudent" class="addButton" (click)="addStudent()">+</button>
 
-    <input type='file' onchange="readURL(this);" />
-    <img id="blah" src="http://placehold.it/180" alt="your image" />
+<div *ngIf="anzahlKandidaten.length != 0">
+  <div *ngFor="let anzahl of anzahlKandidaten">
+    <mat-card class="mat-card" class="mat-card-schulsprecher" [id]="schuelerId()">
+      <mat-card-content>
+        <div class="schueler_text">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" value="">
+          </mat-form-field>
 
+          <br>
 
-    <!--
-    <label for="singleFile">Upload file</label>
-    <input id="singleFile" type="file" [fileUploadInputFor]= "fileUploadQueue"/>
-    <br>
+          <mat-form-field>
+            <mat-select placeholder="Klasse">
+              <mat-option *ngFor="let class of classes" [value]="class.value">
+                {{class.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-    <mat-file-upload-queue #fileUploadQueue
-                           [fileAlias]="'file'"
-                           [httpUrl]="'http://localhost:8180/jax-rs-jersey-application-sample'">
+          <br>
 
-      <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
-    </mat-file-upload-queue>
-    -->
+          <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Zweig" aria-label="Number" matInput [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of options" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
 
-    <div id="schueler_text">
-
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Name" value="">
-      </mat-form-field>
-
-      <br>
-
-      <mat-form-field>
-        <mat-select placeholder="Klasse">
-          <mat-option *ngFor="let class of classes" [value]="class.value">
-            {{class.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <br>
-
-      <mat-form-field class="example-full-width">
-        <input type="text" placeholder="Zweig" aria-label="Number" matInput [formControl]="myControl"
-               [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of options" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-
-    </div>
+        </div>
 
 
-    <div>
-      <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <textarea matInput placeholder="Wahlversprechen"></textarea>
-        </mat-form-field>
-      </form>
-    </div>
+        <div>
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Wahlversprechen"></textarea>
+            </mat-form-field>
+          </form>
+        </div>
 
 
-    <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card-content>
-</mat-card>
+        <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
 
 
 <hr>
 <br>
 <h2>Abteilungssprecher</h2>
 
-<mat-card class="mat-card" class="mat-card-schulsprecher" id="">
-  <mat-card-content>
-    <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card-content>
-</mat-card>
+<button mat-raised-button id="addDep" class="addButton" (click)="addStudentDep()">+</button>
+
+<div *ngIf="anzahlKandidatenPerDep.length != 0">
+  <div *ngFor="let anzahlDep of anzahlKandidatenDep">
+    <mat-card class="mat-card" class="mat-card-abteilungssprecher" >
+      <mat-card-content>
+        <img src="" class="schueler-img">
+
+        <div class="schueler_text">
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" value="">
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field>
+            <mat-select placeholder="Klasse">
+              <mat-option *ngFor="let class of classes" [value]="class.value">
+                {{class.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Zweig" aria-label="Number" matInput [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of options" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+        </div>
 
 
-<mat-card class="mat-card" class="mat-card-schulsprecher" id="schueler2">
-  <mat-card-content>
-    <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card-content>
-</mat-card>
+        <div>
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Wahlversprechen"></textarea>
+            </mat-form-field>
+          </form>
+        </div>
+
+
+        <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
 
