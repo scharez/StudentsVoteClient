@@ -11,19 +11,22 @@
           </tr>
         </td>
       </table>
-        <br>
-        <div class="kan1" *ngFor="let test of tests">
-          {{test}}
-            <mat-radio-group>
-              <mat-radio-button value="1"></mat-radio-button>
-              <mat-radio-button value="2"></mat-radio-button>
-              <mat-radio-button value="3"></mat-radio-button>
-              <mat-radio-button value="4"></mat-radio-button>
-              <mat-radio-button value="5"></mat-radio-button>
-              <mat-radio-button value="6"></mat-radio-button>
-            </mat-radio-group>
-        </div>
     </form>
+
+    <br>
+        <div class="kan1" *ngFor="let test of tests; let i = index">
+          {{test}}
+
+            <mat-radio-group [(ngModel)]="buttonValue[i]">
+              <mat-radio-button (click)="getValue(i)" value="1" [disabled]="">1</mat-radio-button>
+              <mat-radio-button (click)="getValue(i)" value="2" [disabled]="">2</mat-radio-button>
+              <mat-radio-button (click)="getValue(i)" value="3" [disabled]="">3</mat-radio-button>
+              <mat-radio-button (click)="getValue(i)" value="4" [disabled]="">4</mat-radio-button>
+              <mat-radio-button (click)="getValue(i)" value="5" [disabled]="">5</mat-radio-button>
+              <mat-radio-button (click)="getValue(i)" value="6" [disabled]="">6</mat-radio-button>
+            </mat-radio-group>
+          {{buttonValue}}
+        </div>
     <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
   <mat-card-actions>
