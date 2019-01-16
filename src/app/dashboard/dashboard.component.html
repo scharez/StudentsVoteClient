@@ -8,6 +8,9 @@
   <mat-card-content>
     <img src="" class="schueler-img">
 
+    <input type='file' onchange="readURL(this);" />
+    <img id="blah" src="http://placehold.it/180" alt="your image" />
+
 
     <!--
     <label for="singleFile">Upload file</label>
@@ -22,7 +25,7 @@
     </mat-file-upload-queue>
     -->
 
-    <div id="text">
+    <div id="schueler_text">
 
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Name" value="">
@@ -41,7 +44,8 @@
       <br>
 
       <mat-form-field class="example-full-width">
-        <input type="text" placeholder="Zweig" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <input type="text" placeholder="Zweig" aria-label="Number" matInput [formControl]="myControl"
+               [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let option of options" [value]="option">
             {{option}}
@@ -53,11 +57,11 @@
 
 
     <div>
-      <mat-form-field class="example-full-width">
-        <input matInput #message maxlength="256" placeholder="Message">
-        <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
-        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
-      </mat-form-field>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Wahlversprechen"></textarea>
+        </mat-form-field>
+      </form>
     </div>
 
 
@@ -70,7 +74,7 @@
 <br>
 <h2>Abteilungssprecher</h2>
 
-<mat-card class="mat-card" class="mat-card-schulsprecher" id="schueler1">
+<mat-card class="mat-card" class="mat-card-schulsprecher" id="">
   <mat-card-content>
     <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
