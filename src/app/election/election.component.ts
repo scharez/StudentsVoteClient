@@ -8,7 +8,9 @@ import {Kandidat} from '../Kandidat';
 })
 export class ElectionComponent implements OnInit {
 
-  kandidat: Kandidat[] = []
+  kandidats: Kandidat[] = [];
+  tests: String[] = ['Martin Mayr', 'Markus Berger', 'Max Mustermann', 'Florentina Gruber', 'Melanie Leitner', 'Ernst Lutzky'];
+
 
   constructor() { }
 

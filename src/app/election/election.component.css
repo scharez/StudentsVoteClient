@@ -28,3 +28,13 @@ mat-card-content table, mat-spinner {
 td .tableWahl {
   margin-right: 35%;
 }
+
+.contentCard{
+  text-align: right;
+  font-size: 130%;
+}
+
+
+mat-radio-button{
+  margin-left: 10%;
+}
