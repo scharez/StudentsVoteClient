@@ -1,4 +1,4 @@
-h2{
+h2 {
   font-size: 120%;
   font-style: none;
 }
@@ -20,11 +20,11 @@ mat-card-content table, mat-spinner {
   margin: 0 auto;
 }
 
-.mat-card mat-card-header{
+.mat-card mat-card-header {
   justify-content: center;
   margin-top: 20px;
 }
 
-td .tableWahl{
+td .tableWahl {
   margin-right: 35%;
 }

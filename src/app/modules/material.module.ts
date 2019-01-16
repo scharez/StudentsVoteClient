@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 
 
 //Angular Material Components
@@ -39,8 +39,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     FormsModule,
@@ -116,4 +115,5 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatPaginatorModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {
+}

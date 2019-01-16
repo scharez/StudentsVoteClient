@@ -3,24 +3,71 @@
 <hr>
 <h2>Schulsprecher</h2>
 
+
 <mat-card class="mat-card" class="mat-card-schulsprecher" id="schueler1">
   <mat-card-content>
     <img src="" class="schueler-img">
+
+
+    <!--
+    <label for="singleFile">Upload file</label>
+    <input id="singleFile" type="file" [fileUploadInputFor]= "fileUploadQueue"/>
+    <br>
+
+    <mat-file-upload-queue #fileUploadQueue
+                           [fileAlias]="'file'"
+                           [httpUrl]="'http://localhost:8180/jax-rs-jersey-application-sample'">
+
+      <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
+    </mat-file-upload-queue>
+    -->
+
     <div id="text">
-      <p id="">Name</p>
-      <p>Klasse</p>
-      <p>Zweig</p>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name" value="">
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field>
+        <mat-select placeholder="Klasse">
+          <mat-option *ngFor="let class of classes" [value]="class.value">
+            {{class.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Zweig" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of options" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
     </div>
-    <div><p>Wahlversprechen</p></div>
+
+
+    <div>
+      <mat-form-field class="example-full-width">
+        <input matInput #message maxlength="256" placeholder="Message">
+        <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+      </mat-form-field>
+    </div>
+
+
     <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
 </mat-card>
 
 
-
-
-
 <hr>
+<br>
 <h2>Abteilungssprecher</h2>
 
 <mat-card class="mat-card" class="mat-card-schulsprecher" id="schueler1">
@@ -28,6 +75,7 @@
     <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
 </mat-card>
+
 
 <mat-card class="mat-card" class="mat-card-schulsprecher" id="schueler2">
   <mat-card-content>
