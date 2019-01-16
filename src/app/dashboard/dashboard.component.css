@@ -25,7 +25,7 @@ hr {
 .mat-card {
   width: 30%;
   height: 400px; /*************************AENDERN*/
-  background-color: yellow;
+  background-color: transparent;
   margin: 0% auto auto auto;
 }
 
@@ -56,9 +56,38 @@ hr {
 
 /*Dashboard Text auf Mat-Cards --------------------------------------------------------------------------------------*/
 #schueler_text {
-
+  float: right;
+  margin: 0.2% 28% auto auto;
 }
 
-#schueler_text p {
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
 
+.example-container > * {
+  width: 100%;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  float:left;
+  max-height: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+/*Dashboard Image auf Mat-Cards --------------------------------------------------------------------------------------*/
+#blah{
+  max-width:180px;
+}
+
+input[type=file]{
+  padding:10px;
+  background:#2d2d2d;
 }
