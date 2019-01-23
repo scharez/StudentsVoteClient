@@ -4,6 +4,8 @@ import {LoginComponent} from '../login/login.component';
 import {ElectionComponent} from '../election/election.component';
 import {DashboardComponent} from '../dashboard/dashboard.component';
 import {CreateComponent} from '../dashboard/create/create.component';
+import {ElectComponent} from '../dashboard/elect/elect.component';
+import {ProfilsettingsComponent} from '../dashboard/profilsettings/profilsettings.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -11,7 +13,9 @@ const routes: Routes = [
   {path: 'election', component: ElectionComponent},
   {path: 'dashboard', component: DashboardComponent,
   children: [
-    { path: 'create', component: CreateComponent}
+    { path: 'create', component: CreateComponent},
+    {path: 'elect', component: ElectComponent},
+    {path: 'profilsettings', component: ProfilsettingsComponent}
   ]}
 
 ];
