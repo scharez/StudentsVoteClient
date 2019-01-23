@@ -13,14 +13,14 @@
       <mat-card-content>
         <div class="schueler_text">
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name" value="">
+            <input matInput placeholder="Name" [(ngModel)]="sName">
           </mat-form-field>
 
           <br>
 
           <mat-form-field>
-            <mat-select placeholder="Klasse">
-              <mat-option *ngFor="let class of classes" [value]="class.value" [(ngModel)]="class">
+            <mat-select placeholder="Klasse" (change)="selectOptionClass($event)">
+              <mat-option *ngFor="let class of classes" [value]="class.value" [(ngModel)]="class" >
                 {{class.viewValue}}
               </mat-option>
             </mat-select>
@@ -31,8 +31,8 @@
           <mat-form-field class="example-full-width">
             <input type="text" placeholder="Zweig" aria-label="Number" matInput [formControl]="myControl"
                    [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let option of options" [value]="option">
+            <mat-autocomplete #auto="matAutocomplete" (change)="selectOptionDepartment($event)">
+              <mat-option *ngFor="let option of options" [value]="option" >
                 {{option}}
               </mat-option>
             </mat-autocomplete>
@@ -50,6 +50,9 @@
         </div>
 
         <button mat-raised-button id="send" class="sendButton" (click)="sendStudent()">hinzufügen</button>
+        <button mat-raised-button  (click)="addStudentValues()">GET</button>
+
+        {{studentNew.sName}}, {{studentNew.sClass}}, {{studentNew.sDeparture}}
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
