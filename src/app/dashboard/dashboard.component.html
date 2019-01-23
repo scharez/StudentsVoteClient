@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<h1>Benutzer ändern</h1><br>
+
+<script>
+  function mouseDown() {
+    var x = document.getElementById("myInput");
+    x.type = "text";
+  }
+
+  function mouseUp() {
+    var x = document.getElementById("myInput");
+    x.type = "password";
+  }
+</script>
+
+Password: <input type="password" value="FakePSW" id="myInput">
+<input type="button" onmousedown="mouseDown()" onmouseup="mouseUp()">Show Password
