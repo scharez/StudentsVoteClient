@@ -1,0 +1,100 @@
+/*Dashboard 'Überlayout'  --------------------------------------------------------------------------------------*/
+* {
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+/*Dashboard Header  --------------------------------------------------------------------------------------*/
+h1 {
+  margin-top: 1.5%;
+  margin-bottom: 0.6%;
+}
+
+h2 {
+  margin-top: 1.5%;
+  margin-bottom: 0%;
+}
+
+hr {
+  width: 80%;
+}
+
+/*Dashboard Header  --------------------------------------------------------------------------------------*/
+.addButton {
+  width: 20%;
+  font-size: 380%;
+  margin-left: 40%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+
+/*Dashboard Layout Mat-Cards --------------------------------------------------------------------------------------*/
+.mat-card {
+  width: 30%;
+  height: 400px; /*************************AENDERN*/
+  background-color: transparent;
+  margin: 2% auto 4% 10%;
+  float: left;
+}
+
+/*Dashboard Layout Mat-Cards einzelne Karten--------------------------------------------------------------------------------------*/
+#schueler1 {
+  padding: 2%;
+  float: left;
+}
+
+#schueler1 {
+  padding: 2%;
+  float: right;
+  background: aliceblue;
+}
+
+#schueler2{
+  background: beige;
+}
+
+#schueler3{
+  background: brown;
+}
+
+#schueler2{
+  background: lightgreen;
+}
+
+/*Dashboard Text auf Mat-Cards --------------------------------------------------------------------------------------*/
+.schueler_text {
+  float: right;
+  margin: 0.2% 28% auto auto;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  float: left;
+  max-height: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+  max-height: 180px;
+}
+
+/*Dashboard Image auf Mat-Cards --------------------------------------------------------------------------------------*/
+
+/*Dashboard Send auf Mat-Cards --------------------------------------------------------------------------------------*/
+#send{
+  margin: auto;
+}
