@@ -13,13 +13,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ElectionComponent } from './election/election.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateComponent } from './dashboard/create/create.component';
+import { ElectComponent } from './dashboard/elect/elect.component';
+import { ProfilsettingsComponent } from './dashboard/profilsettings/profilsettings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ElectionComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateComponent,
+    ElectComponent,
+    ProfilsettingsComponent
   ],
   imports: [
     BrowserModule,
