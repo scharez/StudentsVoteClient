@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Kandidat} from '../../Kandidat';
+import {Student} from '../../Student';
 
 export interface Class {
   value: string;
@@ -19,6 +20,14 @@ export class CreateComponent implements OnInit {
   countDep = -1;
   begin = 0;
   activeCandidate: Kandidat = new Kandidat();
+
+  /*Student ngModel*/
+  sName: String = '';
+  sDepartment: String = ''
+  sClass: String = ''
+
+  studentNew: Student = new Student()
+  studentsTest: Student[] = [];
 
 
   classes: Class[] = [
@@ -58,6 +67,23 @@ export class CreateComponent implements OnInit {
     /*let newPerson = Object.assign({}, this.activeCandidate);
     this.persons.push(newPerson);*/
   }
+
+  selectOptionDepartment(event: any) {
+    this.sDepartment = event.target.value;
+    this.sDepartment = 'Medientechnik';
+  }
+
+  addStudentValues() {
+    this.studentNew.sName = this.sName;
+    this.studentNew.sClass = this.sClass;
+    this.studentNew.sDeparture = this.sDepartment;
+  }
+
+  selectOptionClass(event: any){
+    this.sClass = event.target.value;
+    this.sClass = '4AHITM';
+  }
+
 
 
 }
