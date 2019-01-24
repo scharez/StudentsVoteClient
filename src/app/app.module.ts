@@ -7,7 +7,6 @@ import { MaterialModule } from '../app/modules/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpService} from './services/http.service';
-import { AuthService} from './services/auth.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +15,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateComponent } from './dashboard/create/create.component';
 import { ElectComponent } from './dashboard/elect/elect.component';
 import { ProfilsettingsComponent } from './dashboard/profilsettings/profilsettings.component';
+import { SideNavComponent } from './dashboard/side-nav/side-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { HomeComponent } from './dashboard/home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,17 +28,25 @@ import { ProfilsettingsComponent } from './dashboard/profilsettings/profilsettin
     DashboardComponent,
     CreateComponent,
     ElectComponent,
-    ProfilsettingsComponent
+    ProfilsettingsComponent,
+    SideNavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
 
   ],
-  providers: [HttpService, AuthService],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
