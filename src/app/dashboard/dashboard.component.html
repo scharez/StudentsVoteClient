@@ -1,16 +1,16 @@
 <h1>Benutzer ändern</h1><br>
-
-<script>
-  function mouseDown() {
-    var x = document.getElementById("myInput");
-    x.type = "text";
-  }
-
-  function mouseUp() {
-    var x = document.getElementById("myInput");
-    x.type = "password";
-  }
-</script>
-
-Password: <input type="password" value="FakePSW" id="myInput">
-<input type="button" onmousedown="mouseDown()" onmouseup="mouseUp()">Show Password
+Username:<br>
+<input type="text" value={{username}}>
+<button (click)="changeUsername()">Edit</button>
+<div *ngIf="changeUsr">
+  <input type="text" [(ngModel)]="newUsername">
+</div>
+<br><br>
+Password:<br>
+<input type={{passwordType}} value={{password}}>
+<input type="button" (mousedown)="mouseDown()" (mouseup)="mouseUp()">
+<button (click)="changePassword()">Edit</button>
+<div *ngIf="changePwd">
+  <input type={{passwordType}} [(ngModel)]="newPassword">
+  <input type="button" (mousedown)="mouseDown()" (mouseup)="mouseUp()">
+</div>
