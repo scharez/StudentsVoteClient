@@ -11,7 +11,7 @@ export class ElectionComponent implements OnInit {
 
   kandidats: Kandidat[] = [];
   tests: String[] = ['Martin Mayr', 'Markus Berger', 'Max Mustermann', 'Florentina Gruber', 'Melanie Leitner', 'Ernst Lutzky'];
-  tests2: String[] = [];
+  tests2: String[] = ['Martin Mayr', 'Markus Berger', 'Max Mustermann'];
   buttonValue: number[][] = [[], []];
   arrayValue: boolean[][] = [[] , []];
   constructor() { }
@@ -19,7 +19,7 @@ export class ElectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  getValue(getI: number, val: number){
+  getValue(getI: number, val: number) {
     this.buttonValue[getI][val] = val;
     for (let i = 0; i < this.tests.length; i++) {
       for (let j = 0; j < 6; j++ ) {

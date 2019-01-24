@@ -36,5 +36,37 @@ td .tableWahl {
 
 
 mat-radio-button{
-  margin-left: 10%;
+  margin-left: 8%;
+
+}
+
+.kan1 mat-radio-button{
+  margin-bottom: 1.5%;
+  margin-right: 3%;
+  text-align: right;
+}
+
+.kan1FuerLinks{
+  width: 100%;
+}
+
+.kan1FuerLinks a{
+  margin-left: -5%
+}
+
+.kan2 mat-radio-button{
+  margin-bottom: 1.5%;
+  margin-right: 3%;
+  text-align: right;
+
+}
+
+.kan2{
+  text-align: right;
+  margin-left:5%;
+}
+
+.kan2FuerLinks{
+  margin-left: 0%;
+  width: 35%;
 }
