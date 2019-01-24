@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './profilsettings.component.html',
   styleUrls: ['./profilsettings.component.css']
 })
+
 export class ProfilsettingsComponent implements OnInit {
 
   username: string = "tempUser";

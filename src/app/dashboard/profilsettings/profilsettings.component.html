@@ -1,6 +1,11 @@
 <h1>Benutzer ändern</h1><br>
 Username:<br>
 <input type="text" value={{username}}>
+<!--<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Username" value={{username}}>
+  </mat-form-field>
+</form>-->
 <i class="material-icons" (click)="changeUsername()" style="cursor: pointer;">create</i>
 <div *ngIf="changeUsr">
   New username:<br>
