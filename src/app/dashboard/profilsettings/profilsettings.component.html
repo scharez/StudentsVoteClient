@@ -1,16 +1,21 @@
 <h1>Benutzer ändern</h1><br>
 Username:<br>
 <input type="text" value={{username}}>
-<button (click)="changeUsername()">Edit</button>
+<i class="material-icons" (click)="changeUsername()" style="cursor: pointer;">create</i>
 <div *ngIf="changeUsr">
+  New username:<br>
   <input type="text" [(ngModel)]="newUsername">
 </div>
 <br><br>
 Password:<br>
-<input type={{passwordType}} value={{password}}>
-<input type="button" (mousedown)="mouseDown()" (mouseup)="mouseUp()">
-<button (click)="changePassword()">Edit</button>
+<input type={{pwdVisibility[0]}} value={{password}}>
+<i class="material-icons" (mousedown)="mouseDown(0)" (mouseup)="mouseUp(0)" style="cursor: pointer;">{{pwdVisibility[3]}}</i>
+<i class="material-icons" (click)="changePassword()" style="cursor: pointer;">create</i>
 <div *ngIf="changePwd">
-  <input type={{passwordType}} [(ngModel)]="newPassword">
-  <input type="button" (mousedown)="mouseDown()" (mouseup)="mouseUp()">
+  New password:<br>
+  <input type={{pwdVisibility[1]}} [(ngModel)]="newPassword">
+  <i class="material-icons" (mousedown)="mouseDown(1)" (mouseup)="mouseUp(1)" style="cursor: pointer;">{{pwdVisibility[4]}}</i><br>
+  Confirm password:<br>
+  <input type={{pwdVisibility[2]}} [(ngModel)]="confNewPassword">
+  <i class="material-icons" (mousedown)="mouseDown(2)" (mouseup)="mouseUp(2)" style="cursor: pointer;">{{pwdVisibility[5]}}</i><br>
 </div>

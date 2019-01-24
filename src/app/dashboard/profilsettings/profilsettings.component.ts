@@ -12,29 +12,43 @@ export class ProfilsettingsComponent implements OnInit {
 
   newUsername: string;
   newPassword: string;
+  confNewPassword: string;
 
   changeUsr: boolean = false;
   changePwd: boolean = false;
 
-  passwordType: string = "password";
+  pwdVisibility: string[] = ["password", "password", "password", "visibility", "visibility", "visibility"];
 
   changeUsername() {
-    this.changeUsr = true;
+    this.newUsername = "";
+    if(!this.changeUsr) {
+      this.changeUsr = true;
+    } else {
+      this.changeUsr = false;
+    }
   }
 
   changePassword() {
-    this.changePwd = true;
+    this.newPassword = "";
+    this.confNewPassword = "";
+    if(!this.changePwd) {
+      this.changePwd = true;
+    } else {
+      this.changePwd = false;
+    }
   }
 
-  mouseDown() {
-    this.passwordType = "text";
+  mouseDown(temp: number) {
+    this.pwdVisibility[temp] = "text";
+    this.pwdVisibility[temp + 3] = "visibility_off"
   }
 
-  mouseUp() {
-    this.passwordType = "password";
+  mouseUp(temp: number) {
+    this.pwdVisibility[temp] = "password";
+    this.pwdVisibility[temp + 3] = "visibility"
   }
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
