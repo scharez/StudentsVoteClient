@@ -1,4 +1,4 @@
-<!--  mat-card class="mat-card">
+<mat-card class="mat-card">
   <mat-card-header>
     <mat-card-title>Abstimmung</mat-card-title>
   </mat-card-header>
@@ -12,26 +12,59 @@
         </td>
       </table>
     </form>
-
     <br>
-    <div class="kan1" *ngFor="let test of tests; let i = index">
-      {{test}}
+    <hr>
+    <br>
+    <div class="kan1FuerLinks">
+        <div class="kan1" *ngFor="let test of tests; let i = index">
+         <a>{{test}}</a>
+            <mat-radio-group >
+              <mat-radio-button (click)="getValue(i, 1)" value="1" [disabled]="arrayValue[i][1]">1</mat-radio-button>
+              <mat-radio-button (click)="getValue(i, 2)" value="2" [disabled]="arrayValue[i][2]">2</mat-radio-button>
+              <mat-radio-button (click)="getValue(i, 3)" value="3" [disabled]="arrayValue[i][3]">3</mat-radio-button>
+              <mat-radio-button (click)="getValue(i, 4)" value="4" [disabled]="arrayValue[i][4]">4</mat-radio-button>
+              <mat-radio-button (click)="getValue(i, 5)" value="5" [disabled]="arrayValue[i][5]">5</mat-radio-button>
+              <mat-radio-button (click)="getValue(i, 6)" value="6" [disabled]="arrayValue[i][6]">6</mat-radio-button>
+            </mat-radio-group>
+          {{buttonValue}}
+        </div>
+    </div>
+
+
+    <form>
+      <table>
+        <td class="tableWahl">
+          <tr>
+            <h2>Abteilungssprecher</h2>
+          </tr>
+        </td>
+      </table>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="kan2FuerLinks">
+    <div class="kan2" *ngFor="let test2 of tests2; let a = index">
+      <a>{{test2}}</a>
 
       <mat-radio-group >
-        <mat-radio-button (click)="" [value]="" [disabled]="">1</mat-radio-button>
-        <mat-radio-button (click)="" value="2" [disabled]="">2</mat-radio-button>
-        <mat-radio-button (click)="" value="3" [disabled]="">3</mat-radio-button>
-        <mat-radio-button (click)="" value="4" [disabled]="">4</mat-radio-button>
-        <mat-radio-button (click)="" value="5" [disabled]="">5</mat-radio-button>
-        <mat-radio-button (click)="" value="6" [disabled]="">6</mat-radio-button>
+        <mat-radio-button value="1">1</mat-radio-button>
+        <mat-radio-button value="2">2</mat-radio-button>
       </mat-radio-group>
       {{buttonValue}}
     </div>
+    </div>
+
+
+
+
+
     <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button>Bestätigen</button>
+    <button mat-raised-button>Stimme abgeben</button>
   </mat-card-actions>
 </mat-card>
-
--->
