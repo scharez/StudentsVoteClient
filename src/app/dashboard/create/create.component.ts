@@ -37,7 +37,7 @@ export class CreateComponent implements OnInit {
   ];
 
   myControl = new FormControl();
-  options: string[] = ['Elektronik', 'Infomatik', 'Medientechnik', 'Medizintechnik'];
+  options: string[] = ['Elektronik', 'Informatik', 'Medientechnik', 'Medizintechnik'];
 
 
   constructor() {
@@ -68,22 +68,10 @@ export class CreateComponent implements OnInit {
     this.persons.push(newPerson);*/
   }
 
-  selectOptionDepartment(event: any) {
-    this.sDepartment = event.target.value;
-    this.sDepartment = 'Medientechnik';
-  }
-
   addStudentValues() {
     this.studentNew.sName = this.sName;
     this.studentNew.sClass = this.sClass;
     this.studentNew.sDeparture = this.sDepartment;
   }
-
-  selectOptionClass(event: any){
-    this.sClass = event.target.value;
-    this.sClass = '4AHITM';
-  }
-
-
 
 }

@@ -18,13 +18,13 @@
     <div class="kan1FuerLinks">
         <div class="kan1" *ngFor="let test of tests; let i = index">
          <a>{{test}}</a>
-            <mat-radio-group >
-              <mat-radio-button (click)="getValue(i, 1)" value="1" [disabled]="arrayValue[i][1]">1</mat-radio-button>
-              <mat-radio-button (click)="getValue(i, 2)" value="2" [disabled]="arrayValue[i][2]">2</mat-radio-button>
-              <mat-radio-button (click)="getValue(i, 3)" value="3" [disabled]="arrayValue[i][3]">3</mat-radio-button>
-              <mat-radio-button (click)="getValue(i, 4)" value="4" [disabled]="arrayValue[i][4]">4</mat-radio-button>
-              <mat-radio-button (click)="getValue(i, 5)" value="5" [disabled]="arrayValue[i][5]">5</mat-radio-button>
-              <mat-radio-button (click)="getValue(i, 6)" value="6" [disabled]="arrayValue[i][6]">6</mat-radio-button>
+            <mat-radio-group value="{{getKa(i)}}">
+              <mat-radio-button (click)="getValue(i, 1)" value="1" >1</mat-radio-button>
+              <mat-radio-button (click)="getValue(i, 2)" value="2" >2</mat-radio-button>
+              <mat-radio-button (click)="getValue(i, 3)" value="3" >3</mat-radio-button>
+              <mat-radio-button (click)="getValue(i, 4)" value="4" >4</mat-radio-button>
+              <mat-radio-button (click)="getValue(i, 5)" value="5" >5</mat-radio-button>
+              <mat-radio-button (click)="getValue(i, 6)" value="6" >6</mat-radio-button>
             </mat-radio-group>
           {{buttonValue}}
         </div>

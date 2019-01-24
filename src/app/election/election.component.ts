@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Kandidat} from '../Kandidat';
 import {forEachComment} from 'tslint';
 
@@ -12,23 +12,26 @@ export class ElectionComponent implements OnInit {
   kandidats: Kandidat[] = [];
   tests: String[] = ['Martin Mayr', 'Markus Berger', 'Max Mustermann', 'Florentina Gruber', 'Melanie Leitner', 'Ernst Lutzky'];
   tests2: String[] = ['Martin Mayr', 'Markus Berger', 'Max Mustermann'];
-  buttonValue: number[][] = [[], []];
-  arrayValue: boolean[][] = [[] , []];
-  constructor() { }
+  buttonValue: number[][] = [[], [], []];
+  arrayValue: boolean[][] = [[], [], []];
+  seletedValueOfRow: number[] = new Array<number>(30);
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+
   getValue(getI: number, val: number) {
-    this.buttonValue[getI][val] = val;
-    for (let i = 0; i < this.tests.length; i++) {
-      for (let j = 0; j < 6; j++ ) {
-        if (this.buttonValue[getI][j] === this.buttonValue[i][j] && this.buttonValue[getI] !== this.buttonValue[getI]) {
-          this.arrayValue[getI][val] = true;
-        } else {
-        }
+    for (let i = 0; i < this.seletedValueOfRow.length; i++) {
+      if (this.seletedValueOfRow[i] === val) {
+        this.seletedValueOfRow[i] = 0;
       }
     }
+    this.seletedValueOfRow[getI] = val;
   }
 
+  getKa(i: number) {
+    return this.seletedValueOfRow[i];
+  }
 }
