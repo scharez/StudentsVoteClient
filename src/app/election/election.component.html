@@ -1,4 +1,4 @@
-<mat-card class="mat-card">
+<!--  mat-card class="mat-card">
   <mat-card-header>
     <mat-card-title>Abstimmung</mat-card-title>
   </mat-card-header>
@@ -14,22 +14,24 @@
     </form>
 
     <br>
-        <div class="kan1" *ngFor="let test of tests; let i = index">
-          {{test}}
+    <div class="kan1" *ngFor="let test of tests; let i = index">
+      {{test}}
 
-            <mat-radio-group >
-              <mat-radio-button (click)="getValue(i, 1)" value="1" [disabled]="arrayValue[0]">1</mat-radio-button>
-              <mat-radio-button (click)="getValue(i, 2)" value="2" [disabled]="arrayValue[1]">2</mat-radio-button>
-              <mat-radio-button (click)="getValue(i, 3)" value="3" [disabled]="arrayValue[2]">3</mat-radio-button>
-              <mat-radio-button (click)="getValue(i, 4)" value="4" [disabled]="arrayValue[3]">4</mat-radio-button>
-              <mat-radio-button (click)="getValue(i, 5)" value="5" [disabled]="arrayValue[4]">5</mat-radio-button>
-              <mat-radio-button (click)="getValue(i, 6)" value="6" [disabled]="arrayValue[5]">6</mat-radio-button>
-            </mat-radio-group>
-          {{buttonValue}}
-        </div>
+      <mat-radio-group >
+        <mat-radio-button (click)="" [value]="" [disabled]="">1</mat-radio-button>
+        <mat-radio-button (click)="" value="2" [disabled]="">2</mat-radio-button>
+        <mat-radio-button (click)="" value="3" [disabled]="">3</mat-radio-button>
+        <mat-radio-button (click)="" value="4" [disabled]="">4</mat-radio-button>
+        <mat-radio-button (click)="" value="5" [disabled]="">5</mat-radio-button>
+        <mat-radio-button (click)="" value="6" [disabled]="">6</mat-radio-button>
+      </mat-radio-group>
+      {{buttonValue}}
+    </div>
     <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button>Stimme abgeben</button>
+    <button mat-raised-button>Bestätigen</button>
   </mat-card-actions>
 </mat-card>
+
+-->

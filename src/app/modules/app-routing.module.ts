@@ -6,6 +6,7 @@ import {DashboardComponent} from '../dashboard/dashboard.component';
 import {CreateComponent} from '../dashboard/create/create.component';
 import {ElectComponent} from '../dashboard/elect/elect.component';
 import {ProfilsettingsComponent} from '../dashboard/profilsettings/profilsettings.component';
+import {HomeComponent} from '../dashboard/home/home.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -13,11 +14,11 @@ const routes: Routes = [
   {path: 'election', component: ElectionComponent},
   {path: 'dashboard', component: DashboardComponent,
   children: [
+    { path: '', component: HomeComponent},
     { path: 'create', component: CreateComponent},
-    {path: 'elect', component: ElectComponent},
-    {path: 'profilsettings', component: ProfilsettingsComponent}
+    { path: 'elect', component: ElectComponent},
+    { path: 'profilsettings', component: ProfilsettingsComponent}
   ]}
-
 ];
 
 @NgModule({
