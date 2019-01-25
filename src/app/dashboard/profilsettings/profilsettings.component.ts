@@ -49,6 +49,15 @@ export class ProfilsettingsComponent implements OnInit {
     this.pwdVisibility[temp + 3] = "visibility"
   }
 
+  saveChanges() {
+    if(this.newUsername != null) {
+      this.username = this.newUsername;
+    }
+    if(this.newPassword != null && this.newPassword == this.confNewPassword) {
+      this.password = this.newPassword;
+    }
+  }
+
   constructor() {}
 
   ngOnInit() {
