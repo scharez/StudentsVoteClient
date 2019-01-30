@@ -37,7 +37,8 @@
           <!--Choose Zweig-->
           <mat-form-field class="example-full-width">
             <mat-select placeholder="Department" [(ngModel)]="sDepartment">
-              <mat-option *ngFor="let option of options" [value]="option" >
+              <mat-option
+                *ngFor="let option of options" [value]="option" >
                 {{option}}
               </mat-option>
             </mat-select>
@@ -61,8 +62,8 @@
         <!--write Wahlversprechen-->
         <div>
           <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <textarea matInput placeholder="Wahlversprechen"></textarea>
+            <mat-form-field class="example-full-width" >
+              <textarea matInput placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
             </mat-form-field>
           </form>
         </div>
@@ -74,7 +75,7 @@
 
         <!--Jetzige Daten Ausgeben-->
         <button mat-raised-button  (click)="addStudentValues()">GET</button>
-        {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sClass}}, {{studentNew.sDeparture}}
+        {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sDeparture}}, {{studentNew.sClass}}, {{studentNew.sWahlversprechen}}
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
