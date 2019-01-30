@@ -26,7 +26,6 @@
               <mat-radio-button (click)="getValue(i, 5)" value="5" >5</mat-radio-button>
               <mat-radio-button (click)="getValue(i, 6)" value="6" >6</mat-radio-button>
             </mat-radio-group>
-          {{buttonValue}}
         </div>
     </div>
 
@@ -50,11 +49,10 @@
     <div class="kan2" *ngFor="let test2 of tests2; let a = index">
       <a>{{test2}}</a>
 
-      <mat-radio-group >
-        <mat-radio-button value="1">1</mat-radio-button>
-        <mat-radio-button value="2">2</mat-radio-button>
+      <mat-radio-group value="{{getAb(a)}}">
+        <mat-radio-button (click)="getValueAb(a, 1)" value="1">1</mat-radio-button>
+        <mat-radio-button (click)="getValueAb(a, 2)" value="2">2</mat-radio-button>
       </mat-radio-group>
-      {{buttonValue}}
     </div>
     </div>
 
