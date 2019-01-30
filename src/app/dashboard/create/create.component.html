@@ -37,7 +37,7 @@
           <!--Choose Zweig-->
           <mat-form-field class="example-full-width">
             <mat-select placeholder="Department" [(ngModel)]="sDepartment">
-              <mat-option *ngFor="let option of options" [value]="option">
+              <mat-option *ngFor="let option of options" [value]="option" >
                 {{option}}
               </mat-option>
             </mat-select>
@@ -48,8 +48,8 @@
 
           <!--Choose Klasse-->
           <mat-form-field>
-            <mat-select placeholder="Klasse" [(ngModel)]="sClass" (opened)="classForDep()">
-              <mat-option *ngFor="let class of classes" [value]="class.value">
+            <mat-select placeholder="Klasse" [(ngModel)]="sClass" (opened)="classForDep()" >
+              <mat-option *ngFor="let class of classes" [value]="class.value" >
                 {{class.viewValue}}
               </mat-option>
             </mat-select>
@@ -73,7 +73,7 @@
 
 
         <!--Jetzige Daten Ausgeben-->
-        <button mat-raised-button (click)="addStudentValues()">GET</button>
+        <button mat-raised-button  (click)="addStudentValues()">GET</button>
         {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sClass}}, {{studentNew.sDeparture}}
 
 
@@ -94,29 +94,28 @@
 
 <div *ngIf="anzahlKandidatenDep.length != 0">
   <div *ngFor="let anzahlDep of anzahlKandidatenDep">
-    <mat-card class="mat-card" class="mat-card-abteilungssprecher">
+    <mat-card class="mat-card" class="mat-card-abteilungssprecher" >
       <mat-card-content>
         <img src="" class="schueler-img">
 
         <div class="schueler_text">
 
-          <!--Vorname-->
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Vorname" [(ngModel)]="">
+            <input matInput placeholder="Name" value="">
           </mat-form-field>
 
           <br>
 
-
-          <!--Nachname-->
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nachname" [(ngModel)]="">
+          <mat-form-field>
+            <mat-select placeholder="Klasse">
+              <mat-option *ngFor="let class of classes" [value]="class.value">
+                {{class.viewValue}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
 
           <br>
 
-
-          <!--Zweig-->
           <mat-form-field class="example-full-width">
             <input type="text" placeholder="Zweig" aria-label="Number" matInput [formControl]="myControl"
                    [matAutocomplete]="auto">
@@ -127,22 +126,9 @@
             </mat-autocomplete>
           </mat-form-field>
 
-
-          <br>
-
-
-          <!--Klasse-->
-          <mat-form-field>
-            <mat-select placeholder="Klasse">
-              <mat-option *ngFor="let class of classes" [value]="class.value">
-                {{class.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
         </div>
 
-        <!--Wahlversprechen-->
+
         <div>
           <form class="example-form">
             <mat-form-field class="example-full-width">
