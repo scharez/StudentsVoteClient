@@ -4,6 +4,7 @@
 <h2>Schulsprecher</h2>
 
 
+<!--Schueler hinzufügen-->
 <button mat-raised-button id="addStudent" class="addButton" (click)="addStudent()">+</button>
 
 <div *ngIf="anzahlKandidaten.length != 0">
@@ -12,23 +13,31 @@
     <!-- Beginn Matcard -->
     <mat-card class="mat-card" class="mat-card-schulsprecher" [id]="schuelerId()">
 
+      <!--Inhalt von Mathcad-->
       <mat-card-content>
         <div class="schueler_text">
+
+
+          <!--Vorname-->
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Vorname" [(ngModel)]="firstName">
           </mat-form-field>
 
           <br>
 
+
+          <!--Nachname-->
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Nachname" [(ngModel)]="lastName">
           </mat-form-field>
 
           <br>
 
+
+          <!--Choose Zweig-->
           <mat-form-field class="example-full-width">
             <mat-select placeholder="Department" [(ngModel)]="sDepartment">
-              <mat-option *ngFor="let option of options" [value]="option" >
+              <mat-option *ngFor="let option of options" [value]="option">
                 {{option}}
               </mat-option>
             </mat-select>
@@ -36,9 +45,11 @@
 
           <br>
 
+
+          <!--Choose Klasse-->
           <mat-form-field>
-            <mat-select placeholder="Klasse" [(ngModel)]="sClass" (opened)="classForDep()" >
-              <mat-option *ngFor="let class of classes" [value]="class.value" >
+            <mat-select placeholder="Klasse" [(ngModel)]="sClass" (opened)="classForDep()">
+              <mat-option *ngFor="let class of classes" [value]="class.value">
                 {{class.viewValue}}
               </mat-option>
             </mat-select>
@@ -47,6 +58,7 @@
         </div>
 
 
+        <!--write Wahlversprechen-->
         <div>
           <form class="example-form">
             <mat-form-field class="example-full-width">
@@ -55,9 +67,13 @@
           </form>
         </div>
 
-        <button mat-raised-button id="send" class="sendButton" (click)="sendStudent()">hinzufügen</button>
-        <button mat-raised-button  (click)="addStudentValues()">GET</button>
 
+        <!--Daten absenden-->
+        <button mat-raised-button id="send" class="sendButton" (click)="sendStudent()">hinzufügen</button>
+
+
+        <!--Jetzige Daten Ausgeben-->
+        <button mat-raised-button (click)="addStudentValues()">GET</button>
         {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sClass}}, {{studentNew.sDeparture}}
 
 
@@ -73,32 +89,34 @@
 <br>
 <h2>Abteilungssprecher</h2>
 
+<!--Schueler hinzufügen-->
 <button mat-raised-button id="addDep" class="addButton" (click)="addStudentDep()">+</button>
 
 <div *ngIf="anzahlKandidatenDep.length != 0">
   <div *ngFor="let anzahlDep of anzahlKandidatenDep">
-    <mat-card class="mat-card" class="mat-card-abteilungssprecher" >
+    <mat-card class="mat-card" class="mat-card-abteilungssprecher">
       <mat-card-content>
         <img src="" class="schueler-img">
 
         <div class="schueler_text">
 
+          <!--Vorname-->
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name" value="">
+            <input matInput placeholder="Vorname" [(ngModel)]="">
           </mat-form-field>
 
           <br>
 
-          <mat-form-field>
-            <mat-select placeholder="Klasse">
-              <mat-option *ngFor="let class of classes" [value]="class.value">
-                {{class.viewValue}}
-              </mat-option>
-            </mat-select>
+
+          <!--Nachname-->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nachname" [(ngModel)]="">
           </mat-form-field>
 
           <br>
 
+
+          <!--Zweig-->
           <mat-form-field class="example-full-width">
             <input type="text" placeholder="Zweig" aria-label="Number" matInput [formControl]="myControl"
                    [matAutocomplete]="auto">
@@ -109,9 +127,22 @@
             </mat-autocomplete>
           </mat-form-field>
 
+
+          <br>
+
+
+          <!--Klasse-->
+          <mat-form-field>
+            <mat-select placeholder="Klasse">
+              <mat-option *ngFor="let class of classes" [value]="class.value">
+                {{class.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
         </div>
 
-
+        <!--Wahlversprechen-->
         <div>
           <form class="example-form">
             <mat-form-field class="example-full-width">
