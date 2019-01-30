@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import {DataService} from '../services/data.service';
 
 
 export interface Class {
@@ -7,7 +8,6 @@ export interface Class {
   viewValue: string;
 }
 
-// @ts-ignore
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
@@ -15,12 +15,12 @@ export interface Class {
 })
 export class DashboardComponent implements OnInit {
 
+  constructor(public dataService: DataService, private router: Router) {
 
-
-  constructor(private router: Router) {
   }
 
   ngOnInit() {
+    this.dataService.showToolBar = false;
   }
 
   goToDashboard() {
