@@ -22,7 +22,8 @@ export class CreateComponent implements OnInit {
   activeCandidate: Kandidat = new Kandidat();
 
   /*Student ngModel*/
-  sName: String = '';
+  firstName: String = ''
+  lastName: String = ''
   sDepartment: String = ''
   sClass: String = ''
 
@@ -69,7 +70,8 @@ export class CreateComponent implements OnInit {
   }
 
   addStudentValues() {
-    this.studentNew.sName = this.sName;
+    this.studentNew.firstName = this.firstName;
+    this.studentNew.lastName = this.lastName;
     this.studentNew.sClass = this.sClass;
     this.studentNew.sDeparture = this.sDepartment;
   }

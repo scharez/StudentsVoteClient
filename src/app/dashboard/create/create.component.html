@@ -15,25 +15,31 @@
       <mat-card-content>
         <div class="schueler_text">
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name" [(ngModel)]="sName">
+            <input matInput placeholder="Vorname" [(ngModel)]="firstName">
           </mat-form-field>
 
           <br>
 
-          <mat-form-field>
-            <mat-select placeholder="Klasse" [(ngModel)]="sClass" >
-              <mat-option *ngFor="let class of classes" [value]="class.value" >
-                {{class.viewValue}}
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nachname" [(ngModel)]="lastName">
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Department" [(ngModel)]="sDepartment">
+              <mat-option *ngFor="let option of options" [value]="option" >
+                {{option}}
               </mat-option>
             </mat-select>
           </mat-form-field>
 
           <br>
 
-          <mat-form-field class="example-full-width">
-            <mat-select placeholder="Department" [(ngModel)]="sDepartment" >
-              <mat-option *ngFor="let option of options" [value]="option" >
-                {{option}}
+          <mat-form-field>
+            <mat-select placeholder="Klasse" [(ngModel)]="sClass" (opened)="classForDep()" >
+              <mat-option *ngFor="let class of classes" [value]="class.value" >
+                {{class.viewValue}}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -52,7 +58,7 @@
         <button mat-raised-button id="send" class="sendButton" (click)="sendStudent()">hinzufügen</button>
         <button mat-raised-button  (click)="addStudentValues()">GET</button>
 
-        {{studentNew.sName}}, {{studentNew.sClass}}, {{studentNew.sDeparture}}
+        {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sClass}}, {{studentNew.sDeparture}}
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
