@@ -1,0 +1,33 @@
+<mat-card>
+  <h1>Benutzer ändern</h1><br>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Username" value={{username}} disabled="true" style="color: black">
+    </mat-form-field>
+    <i class="material-icons" (click)="changeUsername()" style="cursor: pointer;">create</i>
+    <br>
+    <div *ngIf="changeUsr">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="New username" type="text" [(ngModel)]="newUsername" name="newUsr">
+      </mat-form-field>
+      <br>
+    </div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" type={{pwdVisibility[0]}} value={{password}} disabled="true" style="color: black">
+    </mat-form-field>
+    <i class="material-icons" (mousedown)="mouseDown(0)" (mouseup)="mouseUp(0)" style="cursor: pointer;">{{pwdVisibility[3]}}</i>
+    <i class="material-icons" (click)="changePassword()" style="cursor: pointer;">create</i>
+    <div *ngIf="changePwd">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="New password" type={{pwdVisibility[1]}} [(ngModel)]="newPassword" name="newPwd">
+      </mat-form-field>
+      <i class="material-icons" (mousedown)="mouseDown(1)" (mouseup)="mouseUp(1)" style="cursor: pointer;">{{pwdVisibility[4]}}</i>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Confirm new password" type={{pwdVisibility[2]}} [(ngModel)]="confNewPassword" name="confNewPwd">
+      </mat-form-field>
+      <i class="material-icons" (mousedown)="mouseDown(2)" (mouseup)="mouseUp(2)" style="cursor: pointer;">{{pwdVisibility[5]}}</i>
+    </div>
+  </form>
+  <button mat-button (click)="saveChanges()">Änderungen speichern</button>
+</mat-card>

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import {DataService} from '../services/data.service';
 
 
 export interface Class {
@@ -7,7 +8,6 @@ export interface Class {
   viewValue: string;
 }
 
-// @ts-ignore
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
@@ -15,37 +15,12 @@ export interface Class {
 })
 export class DashboardComponent implements OnInit {
 
-  username: string = "tempUser";
-  password: string = "tempPassword";
+  constructor(public dataService: DataService, private router: Router) {
 
-  newUsername: string;
-  newPassword: string;
-
-  changeUsr: boolean = false;
-  changePwd: boolean = false;
-
-  passwordType: string = "password";
-
-  changeUsername() {
-    this.changeUsr = true;
-  }
-
-  changePassword() {
-    this.changePwd = true;
-  }
-
-   mouseDown() {
-     this.passwordType = "text";
-  }
-
-  mouseUp() {
-    this.passwordType = "password";
-  }
-
-  constructor(private router: Router) {
   }
 
   ngOnInit() {
+    this.dataService.showToolBar = false;
   }
 
   goToDashboard() {
