@@ -3,18 +3,10 @@
     <mat-card-title>Abstimmung</mat-card-title>
   </mat-card-header>
   <mat-card-content class="contentCard">
-    <form>
-      <table>
-        <td class="tableWahl">
-          <tr>
-            <h2>Schulsprecher</h2>
-          </tr>
-        </td>
-      </table>
-    </form>
-    <br>
-    <hr>
-    <br>
+
+    <-- Schulsprecher Radio-Button Wahl -->
+    <h2>Schulsprecher</h2>
+
     <div class="kan1FuerLinks">
         <div class="kan1" *ngFor="let test of tests; let i = index">
          <a>{{test}}</a>
@@ -30,21 +22,10 @@
     </div>
 
 
-    <form>
-      <table>
-        <td class="tableWahl">
-          <tr>
-            <h2>Abteilungssprecher</h2>
-          </tr>
-        </td>
-      </table>
-    </form>
-    <br>
-    <hr>
-    <br>
-    <br>
-    <br>
-    <br>
+
+    <-- Abteilungssprecher Radio-Button Wahl -->
+    <h2>Abteilungssprecher</h2>
+
     <div class="kan2FuerLinks">
     <div class="kan2" *ngFor="let test2 of tests2; let a = index">
       <a>{{test2}}</a>

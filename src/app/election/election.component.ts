@@ -24,7 +24,7 @@ export class ElectionComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  //Schulsprecher nur 1 Radio-Button auswählen
   getValue(getI: number, val: number) {
     for (let i = 0; i < this.seletedValueOfRow.length; i++) {
       if (this.seletedValueOfRow[i] === val) {
@@ -34,6 +34,12 @@ export class ElectionComponent implements OnInit {
     this.seletedValueOfRow[getI] = val;
   }
 
+  getKa(i: number) {
+    return this.seletedValueOfRow[i];
+  }
+
+
+  //Abteilungssprecher nur 1 Radio-Button auswählen
   getValueAb(getI: number, val: number) {
     for (let i = 0; i < this.seletedValueOfRowAb.length; i++) {
       if (this.seletedValueOfRowAb[i] === val) {
@@ -43,12 +49,7 @@ export class ElectionComponent implements OnInit {
     this.seletedValueOfRowAb[getI] = val;
   }
 
-  getKa(i: number) {
-    return this.seletedValueOfRow[i];
-  }
-
   getAb(i: number) {
     return this.seletedValueOfRowAb[i];
-    console.log(i);
   }
 }
