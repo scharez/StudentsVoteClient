@@ -1,12 +1,12 @@
 import { LayoutModule } from '@angular/cdk/layout';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   MatButtonModule,
+  MatCardModule,
+  MatGridListModule,
   MatIconModule,
-  MatListModule,
-  MatSidenavModule,
-  MatToolbarModule,
+  MatMenuModule,
 } from '@angular/material';
 
 import { HomeComponent } from './home.component';
@@ -22,10 +22,10 @@ describe('HomeComponent', () => {
         NoopAnimationsModule,
         LayoutModule,
         MatButtonModule,
+        MatCardModule,
+        MatGridListModule,
         MatIconModule,
-        MatListModule,
-        MatSidenavModule,
-        MatToolbarModule,
+        MatMenuModule,
       ]
     }).compileComponents();
   }));
