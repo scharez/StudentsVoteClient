@@ -1,10 +1,8 @@
-h2 {
-  font-size: 120%;
-  font-style: none;
+/*Abstimmung-Card ----------------------------------------*/
+.contentCard{
+  margin: auto;
 }
 
-
-/*Abstimmung-Card ---------------------------------------------------------------------------------------------*/
 .mat-card {
   width: 80%;
   margin: 0 auto;
@@ -12,53 +10,40 @@ h2 {
   text-align: center;
 }
 
-mat-card-title {
-  font-size: 20px;
-}
-
-mat-card-content table, mat-spinner {
-  margin: 0 auto;
-}
-
 .mat-card mat-card-header {
   justify-content: center;
   margin-top: 20px;
 }
 
-td .tableWahl {
-  margin-right: 35%;
+#election_heading{
+  font-size: 220%;
 }
 
-.contentCard{
+/*Schulsprecher ----------------------------------------*/
+#schoolsp_heading{
+  font-size: 180%;
+  margin: 2% auto 2% 0%;
+  font-weight: normal;
+}
+
+.kan1{
   text-align: right;
-  font-size: 130%;
-}
-
-
-mat-radio-button{
-  margin-left: 8%;
-
-}
-
-.kan1 mat-radio-button{
-  margin-bottom: 1.5%;
-  margin-right: 3%;
-  text-align: right;
+  margin-left:5%;
 }
 
 .kan1FuerLinks{
-  width: 100%;
+  margin-left: 0%;
+  width: 35%;
 }
 
-.kan1FuerLinks a{
-  margin-left: -5%
-}
 
-.kan2 mat-radio-button{
-  margin-bottom: 1.5%;
-  margin-right: 3%;
-  text-align: right;
 
+
+/*Abteilungssprecher ----------------------------------------*/
+#abteilungssp_heading{
+  font-size: 180%;
+  margin: 3% auto 2% 0%;
+  font-weight: normal;
 }
 
 .kan2{
@@ -70,3 +55,48 @@ mat-radio-button{
   margin-left: 0%;
   width: 35%;
 }
+
+
+/*Wahl Buttons ----------------------------------------*/
+.votePoints td{
+  font-size: 140%;
+}
+
+hr{
+  margin-bottom: 2%;
+}
+
+.kan2FuerLinks a{
+  margin: 0 auto auto 5%;
+  float: left;
+  font-size: 140%;
+}
+
+.kan1FuerLinks a{
+  margin: 0 auto auto 5%;
+  float: left;
+}
+
+/*
+#kandidaten_schulsprecher{
+  width: 50%;
+  float:left;
+  margin-right:0;
+}*/
+
+
+.kan1 mat-radio-button{
+  margin-bottom: 2%;
+  margin-right: 4%;
+  text-align: right;
+
+}
+
+.kan2 mat-radio-button{
+  margin-bottom: 2%;
+  margin-right: 5%;
+  text-align: right;
+
+}
+
+
