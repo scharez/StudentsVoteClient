@@ -13,8 +13,8 @@ export class HttpService {
     this.http = http;
   }
 
-  loginCheck(user: User) {
-    return this.http.post('http://localhost:8080/rest/login', user);
+  loginCheck(username: string, password: string) {
+    return this.http.post('http://localhost:8080/sv/login', username, password);
   }
 
 }

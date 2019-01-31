@@ -21,9 +21,9 @@
         </tr>
       </table>
     </form>
-    <mat-spinner [value]="5"></mat-spinner>
+    <!-- <mat-spinner [value]="5"></mat-spinner> -->
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button>Login</button>
+    <button mat-raised-button (click) = "login()">Login</button>
   </mat-card-actions>
 </mat-card>
