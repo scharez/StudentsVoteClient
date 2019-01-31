@@ -4,6 +4,7 @@
 <h2>Schulsprecher</h2>
 
 
+<!--Schueler hinzufügen-->
 <button mat-raised-button id="addStudent" class="addButton" (click)="addStudent()">+</button>
 
 <div *ngIf="anzahlKandidaten.length != 0">
@@ -12,47 +13,69 @@
     <!-- Beginn Matcard -->
     <mat-card class="mat-card" class="mat-card-schulsprecher" [id]="schuelerId()">
 
+      <!--Inhalt von Mathcad-->
       <mat-card-content>
         <div class="schueler_text">
+
+
+          <!--Vorname-->
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name" [(ngModel)]="sName">
+            <input matInput placeholder="Vorname" [(ngModel)]="firstName">
           </mat-form-field>
 
           <br>
 
+
+          <!--Nachname-->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nachname" [(ngModel)]="lastName">
+          </mat-form-field>
+
+          <br>
+
+
+          <!--Choose Zweig-->
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Department" [(ngModel)]="sDepartment">
+              <mat-option
+                *ngFor="let option of options" [value]="option" >
+                {{option}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <br>
+
+
+          <!--Choose Klasse-->
           <mat-form-field>
-            <mat-select placeholder="Klasse" [(ngModel)]="sClass" >
+            <mat-select placeholder="Klasse" [(ngModel)]="sClass" (opened)="classForDep()" >
               <mat-option *ngFor="let class of classes" [value]="class.value" >
                 {{class.viewValue}}
               </mat-option>
             </mat-select>
           </mat-form-field>
 
-          <br>
-
-          <mat-form-field class="example-full-width">
-            <mat-select placeholder="Department" [(ngModel)]="sDepartment" >
-              <mat-option *ngFor="let option of options" [value]="option" >
-                {{option}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
         </div>
 
 
+        <!--write Wahlversprechen-->
         <div>
           <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <textarea matInput placeholder="Wahlversprechen"></textarea>
+            <mat-form-field class="example-full-width" >
+              <textarea matInput placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
             </mat-form-field>
           </form>
         </div>
 
-        <button mat-raised-button id="send" class="sendButton" (click)="sendStudent()">hinzufügen</button>
-        <button mat-raised-button  (click)="addStudentValues()">GET</button>
 
-        {{studentNew.sName}}, {{studentNew.sClass}}, {{studentNew.sDeparture}}
+        <!--Daten absenden-->
+        <button mat-raised-button id="send" class="sendButton" (click)="sendStudent()">hinzufügen</button>
+
+
+        <!--Jetzige Daten Ausgeben-->
+        <button mat-raised-button  (click)="addStudentValues()">GET</button>
+        {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sDeparture}}, {{studentNew.sClass}}, {{studentNew.sWahlversprechen}}
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
@@ -67,6 +90,7 @@
 <br>
 <h2>Abteilungssprecher</h2>
 
+<!--Schueler hinzufügen-->
 <button mat-raised-button id="addDep" class="addButton" (click)="addStudentDep()">+</button>
 
 <div *ngIf="anzahlKandidatenDep.length != 0">

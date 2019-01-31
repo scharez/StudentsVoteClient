@@ -1,9 +1,12 @@
 export class Student {
 
   constructor(
-    public sName: String = '',
+    public firstName: String = '',
+    public lastName: String = '',
+    public sDeparture: String  = '',
     public sClass: String  = '',
-    public sDeparture: String  = ''
+    public sWahlversprechen = '',
+    public sImage = ''
   ) {
   }
 

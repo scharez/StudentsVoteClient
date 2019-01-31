@@ -19,3 +19,7 @@
 .fill-remaining-space {
   flex: 1 1 auto;
 }
+
+.mat-drawer-inner-container{
+  margin: 5%;
+}
