@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { Router } from '@angular/router';
+import { User} from '../services/app.user';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +19,13 @@ export class LoginComponent implements OnInit {
     this.router = router;
   }
 
-  username: string;
-  password: string;
+
+  user: User = new User();
 
 
   login(): void {
 
-    this.httpService.loginCheck(this.username, this.password).subscribe((res) => this.parseLogin(res));
+    this.httpService.loginCheck(this.user).subscribe((res) => this.parseLogin(res));
 
 
   }
