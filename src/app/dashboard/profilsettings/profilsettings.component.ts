@@ -50,12 +50,16 @@ export class ProfilsettingsComponent implements OnInit {
   }
 
   saveChanges() {
-    if(this.newUsername != null) {
+    if(this.newUsername != null && this.newUsername != "") {
       this.username = this.newUsername;
     }
-    if(this.newPassword != null && this.newPassword == this.confNewPassword) {
+    if(this.newPassword != null && this.newPassword != "" && this.newPassword == this.confNewPassword) {
       this.password = this.newPassword;
     }
+    this.changeUsr = false;
+    this.changePwd = false;
+    this.newUsername = "";
+    this.newPassword = "";
   }
 
   constructor() {}

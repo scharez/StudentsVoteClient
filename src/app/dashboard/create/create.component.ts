@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Kandidat} from '../../Kandidat';
 import {Student} from '../../Student';
+import { HttpClient } from '@angular/common/http';
 
 export interface Class {
   value: string;

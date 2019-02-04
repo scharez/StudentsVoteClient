@@ -1,3 +1,7 @@
-<p>
-  elect works!
-</p>
+<div class="image-preview">
+  <img [src]="imagePreview">
+</div>
+
+<input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
+<button (click)="selectFile.click()">Select File</button>
+<button (click)="OnUploadFile()">Upload</button>
