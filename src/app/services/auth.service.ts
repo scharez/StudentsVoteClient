@@ -8,15 +8,15 @@ export class AuthService implements CanActivate {
 
   router: Router;
 
-  constructor(router: Router) {
-    this.router = router;
+  constructor() {
+   // this.router = router;
   }
 
   canActivate() {
     if (localStorage.getItem('logged').localeCompare('true') === 0) {
       return true;
-    } else {
-      this.router.navigate(['login']);
+    } else {return false;
+      //this.router.navigate(['login']);
     }
   }
 

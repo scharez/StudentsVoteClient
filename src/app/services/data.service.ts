@@ -7,6 +7,6 @@ export class DataService {
 
   constructor() { }
 
-  public showToolBar: boolean;
+  public showToolBar = true;
 
 }

@@ -38,7 +38,7 @@
           <mat-form-field class="example-full-width">
             <mat-select placeholder="Department" [(ngModel)]="sDepartment">
               <mat-option
-                *ngFor="let option of options" [value]="option" >
+                *ngFor="let option of options" [value]="option">
                 {{option}}
               </mat-option>
             </mat-select>
@@ -49,9 +49,9 @@
 
           <!--Choose Klasse-->
           <mat-form-field>
-            <mat-select placeholder="Klasse" [(ngModel)]="sClass" (opened)="classForDep()" >
-              <mat-option *ngFor="let class of classes" [value]="class.value" >
-                {{class.viewValue}}
+            <mat-select placeholder="Klasse" [(ngModel)]="sClass">
+              <mat-option *ngFor="let classe of classes" [value]="classe">
+                <!--{{classe.viewValue}}-->
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -62,7 +62,7 @@
         <!--write Wahlversprechen-->
         <div>
           <form class="example-form">
-            <mat-form-field class="example-full-width" >
+            <mat-form-field class="example-full-width">
               <textarea matInput placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
             </mat-form-field>
           </form>
@@ -74,8 +74,9 @@
 
 
         <!--Jetzige Daten Ausgeben-->
-        <button mat-raised-button  (click)="addStudentValues()">GET</button>
-        {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sDeparture}}, {{studentNew.sClass}}, {{studentNew.sWahlversprechen}}
+        <button mat-raised-button (click)="addStudentValues()">GET</button>
+        {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sDeparture}}, {{studentNew.sClass}}
+        , {{studentNew.sWahlversprechen}}
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
@@ -95,7 +96,7 @@
 
 <div *ngIf="anzahlKandidatenDep.length != 0">
   <div *ngFor="let anzahlDep of anzahlKandidatenDep">
-    <mat-card class="mat-card" class="mat-card-abteilungssprecher" >
+    <mat-card class="mat-card" class="mat-card-abteilungssprecher">
       <mat-card-content>
         <img src="" class="schueler-img">
 

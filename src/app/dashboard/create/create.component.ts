@@ -44,6 +44,7 @@ export class CreateComponent implements OnInit {
   options: string[] = ['Elektronik', 'Informatik', 'Medientechnik', 'Medizintechnik'];
 
 
+
   constructor() {
   }
 
@@ -72,6 +73,8 @@ export class CreateComponent implements OnInit {
     this.persons.push(newPerson);*/
   }
 
+  /*
+
   addStudentValues() {
     this.studentNew.firstName = this.firstName;
     this.studentNew.lastName = this.lastName;
@@ -80,8 +83,8 @@ export class CreateComponent implements OnInit {
     this.studentNew.sWahlversprechen = this.sWahlversprechen;
     this.studentNew.sImage = this.sImage;
   }
-
-  /*Abteilung*/
+*//*
+  /*Abteilung*//*
   getDepartment() {
     if (this.sDepartment === 'Medientechnik') {
       this.classes = this.medientechnikClass;
@@ -92,6 +95,7 @@ export class CreateComponent implements OnInit {
     } else if (this.sDepartment === 'Elektronik') {
       this.classes = this.elektronikClass;
     }
-  }
 
+
+  }*/
 }
