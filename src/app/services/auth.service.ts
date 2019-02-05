@@ -6,17 +6,13 @@ import { CanActivate, Router } from '@angular/router';
 })
 export class AuthService implements CanActivate {
 
-  router: Router;
-
-  constructor() {
-   // this.router = router;
-  }
+  constructor(public router: Router) {}
 
   canActivate() {
     if (localStorage.getItem('logged').localeCompare('true') === 0) {
       return true;
-    } else {return false;
-      //this.router.navigate(['login']);
+    } else {
+      this.router.navigate(['login']);
     }
   }
 
