@@ -23,21 +23,4 @@ export class DashboardComponent implements OnInit {
     this.dataService.showToolBar = false;
   }
 
-  goToDashboard() {
-    this.router.navigate(['dashboard']);
-  }
-
-  goToCreate() {
-    this.router.navigate(['dashboard/create']);
-  }
-
-  goToElect() {
-    this.router.navigate(['dashboard/elect']);
-  }
-
-  goToProfil() {
-    this.router.navigate(['dashboard/profilsettings']);
-  }
-
-
 }
