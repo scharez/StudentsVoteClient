@@ -12,13 +12,13 @@ import {AuthService} from '../services/auth.service';
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'election', component: ElectionComponent, canActivate: [AuthService]},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthService],
+  {path: 'election', component: ElectionComponent, /*canActivate: [AuthService]*/},
+  {path: 'dashboard', component: DashboardComponent, /*canActivate: [AuthService]*/
   children: [
-    { path: '', component: HomeComponent, canActivate: [AuthService]},
-    { path: 'create', component: CreateComponent, canActivate: [AuthService]},
-    { path: 'elect', component: ElectComponent, canActivate: [AuthService]},
-    { path: 'profilsettings', component: ProfilsettingsComponent, canActivate: [AuthService]}
+    { path: '', component: HomeComponent, /*canActivate: [AuthService]*/},
+    { path: 'create', component: CreateComponent, /*canActivate: [AuthService]*/},
+    { path: 'elect', component: ElectComponent, /*canActivate: [AuthService]*/},
+    { path: 'profilsettings', component: ProfilsettingsComponent, /*canActivate: [AuthService]*/}
   ]}
 ];
 
