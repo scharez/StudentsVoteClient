@@ -18,9 +18,14 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span (click)="this.logout()" >Logout bitte</span>
+        <button mat-menu-item routerLink="./dashboard">
+          Dashboard
+        </button>
+        <button mat-menu-item routerLink="./election">
+          Wahl
+        </button>
+        <button mat-menu-item routerLink="./login">
+          <span (click)="this.logout()">Logout bitte</span>
         </button>
       </mat-menu>
     </mat-toolbar>
