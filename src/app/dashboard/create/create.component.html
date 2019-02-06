@@ -16,17 +16,15 @@
       <!--Inhalt von Mathcad-->
       <mat-card-content>
 
-        <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
-        <button mat-stroked-button (click)="selectFile.click()" class="chooseFile">Select File</button>
-        <!--<button (click)="OnUploadFile()">Upload</button>-->
-
-        <br>
-
         <div class="image-preview">
           <img class="uploadedFile" [src]="imagePreview">
         </div>
 
+        <input style="display: none" type="file" (change)="onFileUpload($event, i)" #selectFile>
+        <button (click)="selectFile.click()">Select File</button>
+        <!--<button (click)="OnUploadFile(i)">Upload</button>-->
 
+        <br>
 
         <div class="schueler_text">
 
@@ -120,12 +118,12 @@
       <mat-card-content>
 
         <div class="image-preview">
-          <img class="uploadedFile" [src]="imagePreview">
-        </div>
+        <img class="uploadedFile" [src]="imagePreview">
+      </div>
 
-        <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
-        <button mat-stroked-button (click)="selectFile.click()" class="chooseFile">Select File</button>
-        <!--<button (click)="OnUploadFile()">Upload</button>-->
+        <input style="display: none" type="file" (change)="onFileUpload($event, i)" #selectFile>
+        <button (click)="selectFile.click()">Select File</button>
+        <!--<button (click)="OnUploadFile(i)">Upload</button>-->
 
         <div class="schueler_text">
 

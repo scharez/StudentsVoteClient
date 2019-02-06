@@ -50,9 +50,8 @@ export class CreateComponent implements OnInit {
   options: string[] = ['Elektronik', 'Informatik', 'Medientechnik', 'Medizintechnik'];
 
 
-  selectedFile: File;
+  selectedFile: File[] = [];
   imagePreview: string;
-  fileURL: string;
 
 
   constructor(private http: HttpClient) {
@@ -92,22 +91,20 @@ export class CreateComponent implements OnInit {
   }
 
 
-  onFileUpload(event) {
+  onFileUpload(event, index){
     this.selectedFile = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = reader.result.toString();
     };
-
-    // @ts-ignore
-    this.fileURL = reader.readAsDataURL(this.selectedFile);
-
-    alert(this.selectedFile);
+    reader.readAsDataURL(this.selectedFile[index]);
   }
 
-  OnUploadFile() {
-    this.http.post('http://', this.selectedFile).subscribe();
+  /*
+  OnUploadFile(index) {
+    this.http.post('http://', this.selectedFile[index]).subscribe();
   }
+  '/
 
   /*
 
