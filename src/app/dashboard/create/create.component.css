@@ -22,51 +22,67 @@ hr {
 
 /*Dashboard Header  --------------------------------------------------------------------------------------*/
 .addButton {
-  width: 20%;
-  font-size: 380%;
-  margin-left: 40%;
-  margin-top: 2%;
-  margin-bottom: 3%;
+  width: 50px;
+  height: 50px;
+  font-size: 160%;
+  margin: 2% auto 3% 48%;
 }
 
 
 /*Dashboard Layout Mat-Cards --------------------------------------------------------------------------------------*/
 .mat-card {
   width: 30%;
-  height: 400px; /*************************AENDERN*/
-  background-color: transparent;
+  height: 480px; /*************************AENDERN*/
+  background-color: white;
   margin: 2% auto 4% 10%;
   float: left;
 }
 
 /*Dashboard Layout Mat-Cards einzelne Karten--------------------------------------------------------------------------------------*/
-#schueler1 {
-  padding: 2%;
+#schueler0 {
+  padding: 80%;
   float: left;
+  display: none;
+  visibility: hidden;
 }
 
 #schueler1 {
-  padding: 2%;
-  float: right;
-  background: aliceblue;
+  background: indigo;
 }
 
-#schueler2{
+#schueler2 {
   background: beige;
 }
 
-#schueler3{
+#schueler3 {
   background: brown;
 }
 
-#schueler2{
+#schueler2 {
   background: lightgreen;
 }
 
 /*Dashboard Text auf Mat-Cards --------------------------------------------------------------------------------------*/
-.schueler_text {
+.uploadedFile {
+  height: 160px;
+  width: auto;
   float: right;
-  margin: 0.2% 28% auto auto;
+  margin: 10% -6% auto auto;
+}
+
+.chooseFile {
+  margin: 2% 2% 2% auto;
+  float: right;
+  height: 60%;
+  width: auto;
+  padding: 1%;
+  font-size: 80%;
+}
+
+.schueler_text {
+  float: left;
+  margin: 0.2% auto auto auto;
+  padding-left: 5%;
 }
 
 .example-container {
@@ -82,9 +98,12 @@ hr {
 .example-form {
   min-width: 150px;
   max-width: 500px;
-  width: 100%;
+  min-height: 190px;
+  max-height: 200px;
+  width: 95%;
   float: left;
-  max-height: 20px;
+  margin-left: 5%;
+  margin-bottom: 4%;
 }
 
 .example-full-width {
@@ -95,6 +114,12 @@ hr {
 /*Dashboard Image auf Mat-Cards --------------------------------------------------------------------------------------*/
 
 /*Dashboard Send auf Mat-Cards --------------------------------------------------------------------------------------*/
-#send{
+#send {
   margin: auto;
+}
+
+.sendButton {
+  float: right;
+  margin-bottom: 0%;
+  position: sticky;
 }

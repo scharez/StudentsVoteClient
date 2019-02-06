@@ -1,20 +1,33 @@
-<h1>Kandidaten</h1>
+<h1 class="mat-h1">Kandidaten</h1>
 
 <hr>
-<h2>Schulsprecher</h2>
+<h2 class="mat-h2">Schulsprecher</h2>
 
 
 <!--Schueler hinzufügen-->
 <button mat-raised-button id="addStudent" class="addButton" (click)="addStudent()">+</button>
 
 <div *ngIf="anzahlKandidaten.length != 0">
-  <div *ngFor="let anzahl of anzahlKandidaten, let i = index">
+  <div *ngFor="let anzahl of anzahlKandidaten; let i = index">
 
     <!-- Beginn Matcard -->
-    <mat-card class="mat-card" class="mat-card-schulsprecher" [id]="schuelerId()">
+    <mat-card class="mat-card" class="mat-card-schulsprecher" [id]="schuelerId(i)">
 
       <!--Inhalt von Mathcad-->
       <mat-card-content>
+
+        <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
+        <button mat-stroked-button (click)="selectFile.click()" class="chooseFile">Select File</button>
+        <!--<button (click)="OnUploadFile()">Upload</button>-->
+
+        <br>
+
+        <div class="image-preview">
+          <img class="uploadedFile" [src]="imagePreview">
+        </div>
+
+
+
         <div class="schueler_text">
 
 
@@ -73,10 +86,11 @@
         <button mat-raised-button id="send" class="sendButton" (click)="sendStudent()">hinzufügen</button>
 
 
-        <!--Jetzige Daten Ausgeben-->
+
+        <!--Jetzige Daten Ausgeben
         <button mat-raised-button (click)="addStudentValues()">GET</button>
         {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sDeparture}}, {{studentNew.sClass}}
-        , {{studentNew.sWahlversprechen}}
+        , {{studentNew.sWahlversprechen}}-->
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
@@ -87,45 +101,67 @@
 </div>
 
 
+
+
+
 <hr>
 <br>
-<h2>Abteilungssprecher</h2>
+<h2 class="mat-h2">Abteilungssprecher</h2>
 
 <!--Schueler hinzufügen-->
 <button mat-raised-button id="addDep" class="addButton" (click)="addStudentDep()">+</button>
 
 <div *ngIf="anzahlKandidatenDep.length != 0">
-  <div *ngFor="let anzahlDep of anzahlKandidatenDep">
-    <mat-card class="mat-card" class="mat-card-abteilungssprecher">
+  <div *ngFor="let anzahlDep of anzahlKandidatenDep; let j = index">
+
+    <!-- Beginn Matcard -->
+    <mat-card class="mat-card" class="mat-card-abteilungssprecher" [id]="abteilungId(j)">
+
       <mat-card-content>
-        <img src="" class="schueler-img">
+
+        <div class="image-preview">
+          <img class="uploadedFile" [src]="imagePreview">
+        </div>
+
+        <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
+        <button mat-stroked-button (click)="selectFile.click()" class="chooseFile">Select File</button>
+        <!--<button (click)="OnUploadFile()">Upload</button>-->
 
         <div class="schueler_text">
 
+          <!--Vorname-->
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name" value="">
+            <input matInput placeholder="Vorname" [(ngModel)]="firstName">
           </mat-form-field>
 
           <br>
 
+          <!--Nachname-->
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nachname" [(ngModel)]="lastName">
+          </mat-form-field>
+
+          <br>
+
+          <!--Choose Klasse-->
           <mat-form-field>
-            <mat-select placeholder="Klasse">
-              <mat-option *ngFor="let class of classes" [value]="class.value">
-                {{class.viewValue}}
+            <mat-select placeholder="Klasse" [(ngModel)]="sClass">
+              <mat-option *ngFor="let classe of classes" [value]="classe">
+                <!--{{classe.viewValue}}-->
               </mat-option>
             </mat-select>
           </mat-form-field>
 
           <br>
 
+          <!--Choose Zweig-->
           <mat-form-field class="example-full-width">
-            <input type="text" placeholder="Zweig" aria-label="Number" matInput [formControl]="myControl"
-                   [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let option of options" [value]="option">
+            <mat-select placeholder="Department" [(ngModel)]="sDepartment">
+              <mat-option
+                *ngFor="let option of options" [value]="option">
                 {{option}}
               </mat-option>
-            </mat-autocomplete>
+            </mat-select>
           </mat-form-field>
 
         </div>
@@ -138,6 +174,10 @@
             </mat-form-field>
           </form>
         </div>
+
+
+        <!--Daten absenden-->
+        <button mat-raised-button id="sendAb" class="sendButton" (click)="sendStudent()">hinzufügen</button>
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>

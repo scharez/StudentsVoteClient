@@ -6,7 +6,7 @@
   <mat-card-content class="contentCard">
 
     <!-- Schulsprecher Radio-Button Wahl -->
-    <h2 id="schoolsp_heading">Schulsprecher</h2>
+    <h2 class="mat-h2" id="schoolsp_heading">Schulsprecher</h2>
 
     <div class="votePoints" style="margin-left: 9.1%">
       <table cellspacing="30">
@@ -26,8 +26,8 @@
     <div class="kan1FuerLinks">
       <div class="kan1" *ngFor="let test of tests; let i = index">
         <a id="kandidaten_schulsprecher">{{test}}</a>
-        <div class="election_buttons">
-          <mat-radio-group value="{{getKa(i)}}">
+        <div >
+          <mat-radio-group class="election_buttons" value="{{getKa(i)}}">
             <mat-radio-button (click)="getValue(i, 1)" value="1"></mat-radio-button>
             <mat-radio-button (click)="getValue(i, 2)" value="2"></mat-radio-button>
             <mat-radio-button (click)="getValue(i, 3)" value="3"></mat-radio-button>
@@ -39,9 +39,10 @@
       </div>
     </div>
 
-
+<br>
+<br>
     <!-- Abteilungssprecher Radio-Button Wahl -->
-    <h2 id="abteilungssp_heading">Abteilungssprecher</h2>
+    <h2 class="mat-h2" id="abteilungssp_heading">Abteilungssprecher</h2>
 
     <div class="votePoints" style="margin-left: 24.3%">
       <table cellspacing="30">
@@ -57,8 +58,8 @@
     <div class="kan2FuerLinks">
       <div class="kan2" *ngFor="let test2 of tests2; let a = index">
         <a id="kandidaten_abteilungssprecher">{{test2}}</a>
-        <div class="election_buttons">
-          <mat-radio-group value="{{getAb(a)}}">
+        <div >
+          <mat-radio-group class="election_buttons" value="{{getAb(a)}}">
             <mat-radio-button (click)="getValueAb(a, 1)" value="1"></mat-radio-button>
             <mat-radio-button (click)="getValueAb(a, 2)" value="2"></mat-radio-button>
           </mat-radio-group>
