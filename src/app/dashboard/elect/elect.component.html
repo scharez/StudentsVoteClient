@@ -1,7 +1,11 @@
-<div class="image-preview">
-  <img [src]="imagePreview">
-</div>
+<div *ngFor="let anzahl of anzahlKandidaten; let i = index">
 
-<input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
-<button (click)="selectFile.click()">Select File</button>
-<button (click)="OnUploadFile()">Upload</button>
+  <div class="image-preview">
+    <img [src]="imagePreview">
+  </div>
+
+  <input style="display: none" type="file" (change)="onFileUpload($event, i)" #selectFile>
+  <button (click)="selectFile.click()">Select File</button>
+  <button (click)="OnUploadFile(i)">Upload</button>
+
+</div>
