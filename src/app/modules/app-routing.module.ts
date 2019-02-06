@@ -12,14 +12,15 @@ import {AuthService} from '../services/auth.service';
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'election', component: ElectionComponent },
-  {path: 'dashboard', component: DashboardComponent ,
+  {path: 'election', component: ElectionComponent, /*canActivate: [AuthService]*/},
+  {path: 'dashboard', component: DashboardComponent, /*canActivate: [AuthService]*/
   children: [
-    { path: '', component: HomeComponent},
-    { path: 'create', component: CreateComponent},
-    { path: 'elect', component: ElectComponent},
-    { path: 'profilsettings', component: ProfilsettingsComponent}
-  ]}
+    { path: 'home', component: HomeComponent, /*canActivate: [AuthService]*/},
+    { path: 'create', component: CreateComponent, /*canActivate: [AuthService]*/},
+    { path: 'elect', component: ElectComponent, /*canActivate: [AuthService]*/},
+    { path: 'profilsettings', component: ProfilsettingsComponent, /*canActivate: [AuthService]*/},
+    {path: '**', redirectTo: 'home', pathMatch: 'full'}
+    ]}
 ];
 
 @NgModule({

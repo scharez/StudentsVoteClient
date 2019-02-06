@@ -2,18 +2,23 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Kandidat} from '../../Kandidat';
 import {Student} from '../../Student';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {log} from 'util';
 
 export interface Class {
   value: string;
   viewValue: string;
 }
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
+
+  studentIdent: string
+  studentAbtIdent: string
 
   anzahlKandidaten: number[] = [];
   anzahlKandidatenDep: number[] = [];
@@ -23,14 +28,14 @@ export class CreateComponent implements OnInit {
   activeCandidate: Kandidat = new Kandidat();
 
   /*Student ngModel*/
-  firstName: String = ''
-  lastName: String = ''
-  sDepartment: String = ''
-  sClass: String = ''
-  sWahlversprechen = ''
-  sImage = ''
+  firstName: String = '';
+  lastName: String = '';
+  sDepartment: String = '';
+  sClass: String = '';
+  sWahlversprechen = '';
+  sImage = '';
 
-  studentNew: Student = new Student()
+  studentNew: Student = new Student();
   studentsTest: Student[] = [];
 
 
@@ -45,8 +50,12 @@ export class CreateComponent implements OnInit {
   options: string[] = ['Elektronik', 'Informatik', 'Medientechnik', 'Medizintechnik'];
 
 
+  selectedFile: File;
+  imagePreview: string;
+  fileURL: string;
 
-  constructor() {
+
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
@@ -65,13 +74,39 @@ export class CreateComponent implements OnInit {
     this.anzahlKandidatenDep[this.countDep] = 1;
   }
 
-  schuelerId(): string {
-    return 'schueler' + this.begin;
+  schuelerId(i): string {
+    this.studentIdent = 'schueler' + i;
+    log(this.studentIdent);
+    return this.studentIdent;
+  }
+
+  abteilungId(j): string {
+    this.studentAbtIdent = 'schuelerAbt' + j;
+    log(this.studentAbtIdent);
+    return this.studentAbtIdent;
   }
 
   sendStudent() {
     /*let newPerson = Object.assign({}, this.activeCandidate);
     this.persons.push(newPerson);*/
+  }
+
+
+  onFileUpload(event) {
+    this.selectedFile = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result.toString();
+    };
+
+    // @ts-ignore
+    this.fileURL = reader.readAsDataURL(this.selectedFile);
+
+    alert(this.selectedFile);
+  }
+
+  OnUploadFile() {
+    this.http.post('http://', this.selectedFile).subscribe();
   }
 
   /*
