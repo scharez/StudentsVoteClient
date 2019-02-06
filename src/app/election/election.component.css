@@ -1,11 +1,3 @@
-.votePoints td{
-  font-size: 140%;
-}
-
-hr{
-  margin-bottom: 2%;
-}
-
 /*Abstimmung-Card ----------------------------------------*/
 .contentCard{
   margin: auto;
@@ -27,68 +19,43 @@ hr{
   font-size: 220%;
 }
 
-/*Schulsprecher ----------------------------------------*/
 #schoolsp_heading{
   font-size: 180%;
   margin: 2% auto 2% 0%;
   font-weight: normal;
+  background-color: blueviolet;
 }
 
-.kan1{
-  text-align: right;
-  margin-left:5%;
+/*Schulsprecher ----------------------------------------*/
+#kandidaten_schulsprecher{
+  float: left;
+  size:auto;
+  margin: 4% auto auto 2%;
+  font-size: 180%;
+}
+
+.election_button_group{
+  background-color: darkcyan;
+  width: 60%;
+  size: 200%;
+  float:right;
+  margin: 4%;
+  padding: 3%;
 }
 
 .kan1FuerLinks{
-  margin-left: 0%;
-  width: 35%;
+  margin-bottom: 15%;
 }
 
-.kan1FuerLinks a{
-  margin: 0 auto auto 5%;
-  float: left;
-  font-size: 120%;
-}
-
-
-/*Abteilungssprecher ----------------------------------------*/
-#abteilungssp_heading{
-  font-size: 180%;
-  margin: 3% auto 2% 0%;
-  font-weight: normal;
-}
-
-.kan2{
-  text-align: right;
-  margin-left:5%;
-}
-
-.kan2FuerLinks{
-  margin-left: 0%;
-  width: 35%;
-}
-
-.kan2FuerLinks a{
-  margin: 0 auto auto 5%;
-  float: left;
-  font-size: 120%;
-}
 
 /*Wahl Buttons ----------------------------------------*/
-.election_buttons{
-  background-color: transparent;
-}
 
-.kan1 mat-radio-button{
-  margin-bottom: 2%;
-  margin-right: 2%;
-  text-align: right;
 
-}
 
-.kan2 mat-radio-button{
-  margin-bottom: 2%;
-  margin-right: 2%;
-  text-align: right;
 
-}
+
+
+
+/*************************************/
+/*************************************/
+/*************von vorher**************/

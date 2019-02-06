@@ -7,7 +7,7 @@
 
     <!-- Schulsprecher Radio-Button Wahl -->
     <h2 class="mat-h2" id="schoolsp_heading">Schulsprecher</h2>
-<!--
+
     <div class="votePoints" style="margin-left: 9.1%">
       <table cellspacing="30">
         <tr>
@@ -20,14 +20,14 @@
         </tr>
       </table>
     </div>
--->
+
     <hr>
 
     <div class="kan1FuerLinks">
       <div class="kan1" *ngFor="let test of tests; let i = index">
         <a id="kandidaten_schulsprecher">{{test}}</a>
-        <div >
-          <mat-radio-group class="election_buttons" value="{{getKa(i)}}">
+        <div class="election_button_group" >
+          <mat-radio-group class="election_button" value="{{getKa(i)}}">
             <mat-radio-button (click)="getValue(i, 1)" value="1"></mat-radio-button>
             <mat-radio-button (click)="getValue(i, 2)" value="2"></mat-radio-button>
             <mat-radio-button (click)="getValue(i, 3)" value="3"></mat-radio-button>
@@ -43,7 +43,7 @@
 <br>
     <!-- Abteilungssprecher Radio-Button Wahl -->
     <h2 class="mat-h2" id="abteilungssp_heading">Abteilungssprecher</h2>
-<!--
+
     <div class="votePoints" style="margin-left: 24.3%">
       <table cellspacing="30">
         <tr>
@@ -52,7 +52,7 @@
         </tr>
       </table>
     </div>
--->
+
     <hr>
 
     <div class="kan2FuerLinks">
