@@ -15,11 +15,12 @@ const routes: Routes = [
   {path: 'election', component: ElectionComponent, /*canActivate: [AuthService]*/},
   {path: 'dashboard', component: DashboardComponent, /*canActivate: [AuthService]*/
   children: [
-    { path: '', component: HomeComponent, /*canActivate: [AuthService]*/},
+    { path: 'home', component: HomeComponent, /*canActivate: [AuthService]*/},
     { path: 'create', component: CreateComponent, /*canActivate: [AuthService]*/},
     { path: 'elect', component: ElectComponent, /*canActivate: [AuthService]*/},
-    { path: 'profilsettings', component: ProfilsettingsComponent, /*canActivate: [AuthService]*/}
-  ]}
+    { path: 'profilsettings', component: ProfilsettingsComponent, /*canActivate: [AuthService]*/},
+    {path: '**', redirectTo: 'home', pathMatch: 'full'}
+    ]}
 ];
 
 @NgModule({

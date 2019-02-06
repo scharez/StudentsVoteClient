@@ -5,7 +5,7 @@
                [opened]="!(isHandset$ | async)">
     <mat-toolbar>Dashboard</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="./dashboard">Dashboard</a>
+      <a mat-list-item routerLink="home">Dashboard</a>
       <a mat-list-item routerLink="create">Kandidaten erstellen</a>
       <!--<a mat-list-item routerLink="elect">Wahl</a>
       <a mat-list-item routerLink="profilsettings">Profileinstellungen</a>-->
@@ -18,10 +18,10 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="./dashboard">
+        <button mat-menu-item routerLink="home">
           Dashboard
         </button>
-        <button mat-menu-item routerLink="./election">
+        <button mat-menu-item (click)="this.election()">
           Wahl
         </button>
         <button mat-menu-item >

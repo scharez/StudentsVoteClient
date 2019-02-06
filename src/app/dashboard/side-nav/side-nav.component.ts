@@ -20,10 +20,15 @@ export class SideNavComponent {
   constructor(private breakpointObserver: BreakpointObserver, private router: Router, private dataService: DataService) {}
 
   logout(): void {
-
     localStorage.clear();
     this.dataService.showToolBar = true;
     this.router.navigate(['login']);
+  }
+
+  election(): void {
+    localStorage.clear();
+    this.dataService.showToolBar = true;
+    this.router.navigate(['election']);
   }
 
 }
