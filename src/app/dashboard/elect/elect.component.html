@@ -4,7 +4,7 @@
     <img [src]="imagePreview">
   </div>
 
-  <input style="display: none" type="file" (change)="onFileUpload($event, i)" #selectFile>
+  <input style="display: none" type="file" (change)="onFileUpload($event, i)" #selectFile >
   <button (click)="selectFile.click()">Select File</button>
   <button (click)="OnUploadFile(i)">Upload</button>
 

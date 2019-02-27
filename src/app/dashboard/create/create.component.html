@@ -16,10 +16,13 @@
       <!--Inhalt von Mathcad-->
       <mat-card-content>
 
+
+        <!----SCHÜLER---->
         <div class="image-preview">
           <img class="uploadedFile" [src]="imagePreview">
         </div>
 
+        <!-- FileUpLoad -->
         <input style="display: none" type="file" (change)="onFileUpload($event, i)" #selectFile>
         <button (click)="selectFile.click()">Select File</button>
         <!--<button (click)="OnUploadFile(i)">Upload</button>-->
@@ -47,7 +50,7 @@
 
           <!--Choose Zweig-->
           <mat-form-field class="example-full-width">
-            <mat-select placeholder="Department" [(ngModel)]="sDepartment">
+            <mat-select placeholder="Department" [(ngModel)]="sDepartment" (ngModelChange)="getDepartment()">
               <mat-option
                 *ngFor="let option of options" [value]="option">
                 {{option}}
@@ -61,8 +64,8 @@
           <!--Choose Klasse-->
           <mat-form-field>
             <mat-select placeholder="Klasse" [(ngModel)]="sClass">
-              <mat-option *ngFor="let classe of classes" [value]="classe">
-                <!--{{classe.viewValue}}-->
+              <mat-option *ngFor="let class of classes" [value]="class">
+                {{class}}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -72,23 +75,22 @@
 
         <!--write Wahlversprechen-->
         <div>
-          <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <textarea matInput placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
-            </mat-form-field>
-          </form>
+          <mat-form-field class="example-full-width" >
+            <textarea matInput placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
+          </mat-form-field>
         </div>
+
 
 
         <!--Daten absenden-->
         <button mat-raised-button id="send" class="sendButton" (click)="sendStudent()">hinzufügen</button>
 
-
-
-        <!--Jetzige Daten Ausgeben
         <button mat-raised-button (click)="addStudentValues()">GET</button>
         {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sDeparture}}, {{studentNew.sClass}}
-        , {{studentNew.sWahlversprechen}}-->
+        , {{studentNew.sWahlversprechen}}
+
+
+
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
@@ -97,9 +99,6 @@
     <!-- Ende Matcard -->
   </div>
 </div>
-
-
-
 
 
 <hr>
@@ -117,65 +116,8 @@
 
       <mat-card-content>
 
-        <div class="image-preview">
-        <img class="uploadedFile" [src]="imagePreview">
-      </div>
 
-        <input style="display: none" type="file" (change)="onFileUpload($event, i)" #selectFile>
-        <button (click)="selectFile.click()">Select File</button>
-        <!--<button (click)="OnUploadFile(i)">Upload</button>-->
-
-        <div class="schueler_text">
-
-          <!--Vorname-->
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Vorname" [(ngModel)]="firstName">
-          </mat-form-field>
-
-          <br>
-
-          <!--Nachname-->
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nachname" [(ngModel)]="lastName">
-          </mat-form-field>
-
-          <br>
-
-          <!--Choose Klasse-->
-          <mat-form-field>
-            <mat-select placeholder="Klasse" [(ngModel)]="sClass">
-              <mat-option *ngFor="let classe of classes" [value]="classe">
-                <!--{{classe.viewValue}}-->
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <br>
-
-          <!--Choose Zweig-->
-          <mat-form-field class="example-full-width">
-            <mat-select placeholder="Department" [(ngModel)]="sDepartment">
-              <mat-option
-                *ngFor="let option of options" [value]="option">
-                {{option}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-        </div>
-
-
-        <div>
-          <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <textarea matInput placeholder="Wahlversprechen"></textarea>
-            </mat-form-field>
-          </form>
-        </div>
-
-
-        <!--Daten absenden-->
-        <button mat-raised-button id="sendAb" class="sendButton" (click)="sendStudent()">hinzufügen</button>
+        <!---SCHÜLER ABTEILUNG--->
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
