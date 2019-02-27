@@ -1,6 +1,7 @@
 /*Abstimmung-Card ----------------------------------------*/
 .contentCard{
   margin: auto;
+  height:100%;
 }
 
 .mat-card {
@@ -8,6 +9,9 @@
   margin: 0 auto;
   justify-content: center;
   text-align: center;
+  /*fxLayoutAlign: start start;
+  fxFlex: 47.5%;*/
+  height: 1200px;
 }
 
 .mat-card mat-card-header {
@@ -19,28 +23,91 @@
   font-size: 220%;
 }
 
+
+/*SchulSP oder AbeteilungsSP ----------------------------------------*/
 #schoolsp_heading{
   font-size: 180%;
   margin: 2% auto 2% 0%;
   font-weight: normal;
 }
 
+#kandidat_allinklusive{
+  margin-bottom: 10%;
+}
+
 
 #abteilungssp_heading{
   font-size: 180%;
-  margin: 2% auto 2% 0%;
+  margin: 10% auto 2% 0%;
+  margin-top: 20%;
   font-weight: normal;
+}
+
+#abteilungssprecher_allinklusive{
+
 }
 
 /*Stimmabgabe ----------------------------------------*/
 .votePoints{
-  background-color: darkslategrey;
   width: 20%;
-  margin-left: 32%;
+  margin-left: 35%;
+}
+
+.votePoints2{
+  width: 20%;
+  margin-left: 35%;
 }
 
 .voteP{
-  padding-right: 20%;
+  font-size: 180%;
+  padding-left: 60%;
+}
+
+#voteP6{
+  /*padding-left: 10%;*/
+  font-size: 180%;
+
+}
+
+#voteP5{
+  padding-left: 19%;
+  width: 20%;
+  font-size: 180%;
+}
+
+#voteP4{
+  padding-left: 38%;
+  width: 20%;
+  font-size: 180%;
+}
+
+#voteP3{
+  padding-left: 57.5%;
+  width: 20%;
+  font-size: 180%;
+}
+
+#voteP2{
+  padding-left: 76.5%;
+  width: 20%;
+  font-size: 180%;
+}
+
+#voteP1{
+  padding-left: 96.5%;
+  width: 20%;
+  font-size: 180%;
+}
+
+#voteA2{
+  padding-left: 120%;
+  width: 20%;
+  font-size: 180%;
+}
+
+#voteA1{
+  padding-left: 140%;
+  width: 20%;
   font-size: 180%;
 }
 
@@ -68,16 +135,29 @@
   padding-right: 10%;
 }
 
+/*Abteilungssprecher ----------------------------------------*/
+.kan2{
+  background-color: green;
+}
 
+#kandidaten_abteilungssprecher{
+  width: 30%;
+  float: left;
+  box-sizing: border-box;
+  font-size: 180%;
+  padding-top: 1%;
+}
 
-/*Wahl Buttons ----------------------------------------*/
+.election_button_group{
+  width: 60%;
+  box-sizing: border-box;
+  float: left;
+  padding: 2%;
+}
 
+.simple_button{
+  padding-right: 10%;
+}
 
-
-
-
-
-
-/*************************************/
-/*************************************/
-/*************von vorher**************/
+/*Senden ----------------------------------------*/
+.voteButton{}

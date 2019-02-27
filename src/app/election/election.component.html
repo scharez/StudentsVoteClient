@@ -1,78 +1,78 @@
-<mat-card class="mat-card">
+<mat-card class="mat-card" >
   <mat-card-header>
     <mat-card-title id="election_heading">Abstimmung</mat-card-title>
   </mat-card-header>
 
-  <mat-card-content class="contentCard">
+  <mat-card-content class="contentCard" >
 
     <!-- Schulsprecher Radio-Button Wahl -->
-    <h2 class="mat-h2" id="schoolsp_heading">Schulsprecher</h2>
+    <div id="kandidat_allinklusive">
+      <h2 class="mat-h2" id="schoolsp_heading">Schulsprecher</h2>
 
-    <div class="votePoints" >
-      <table cellspacing="30">
-        <tr>
-          <td class="voteP">6</td>
-          <td class="voteP">5</td>
-          <td class="voteP">4</td>
-          <td class="voteP">3</td>
-          <td class="voteP">2</td>
-          <td class="voteP">1</td>
-        </tr>
-      </table>
-    </div>
-
-    <hr>
-
-    <div class="kan1" *ngFor="let test of tests; let i = index">
-      <a id="kandidaten_schulsprecher">{{test}}</a>
-
-      <div class="election_button_group">
-        <mat-radio-group class="election_button" value="{{getKa(i)}}">
-          <mat-radio-button class="simple_button" (click)="getValue(i, 1)" value="1"></mat-radio-button>
-          <mat-radio-button class="simple_button" (click)="getValue(i, 2)" value="2"></mat-radio-button>
-          <mat-radio-button class="simple_button" (click)="getValue(i, 3)" value="3"></mat-radio-button>
-          <mat-radio-button class="simple_button" (click)="getValue(i, 4)" value="4"></mat-radio-button>
-          <mat-radio-button class="simple_button" (click)="getValue(i, 5)" value="5"></mat-radio-button>
-          <mat-radio-button class="simple_button" (click)="getValue(i, 6)" value="6"></mat-radio-button>
-        </mat-radio-group>
+      <div class="votePoints">
+        <table cellspacing="30">
+          <tr>
+            <td id="voteP6">6</td>
+            <td id="voteP5">5</td>
+            <td id="voteP4">4</td>
+            <td id="voteP3">3</td>
+            <td id="voteP2">2</td>
+            <td id="voteP1">1</td>
+          </tr>
+        </table>
       </div>
 
-    </div>
+      <hr>
 
-    <br>
-    <br>
-    <!-- Abteilungssprecher Radio-Button Wahl -->
-    <h2 class="mat-h2" id="abteilungssp_heading">Abteilungssprecher</h2>
+      <div class="kan1" *ngFor="let test of tests; let i = index">
+        <a id="kandidaten_schulsprecher">{{test}}</a>
 
-    <div class="votePoints" >
-      <table cellspacing="30">
-        <tr>
-          <td>2</td>
-          <td>1</td>
-        </tr>
-      </table>
-    </div>
-
-    <hr>
-
-    <div class="kan2FuerLinks">
-      <div class="kan2" *ngFor="let test2 of tests2; let a = index">
-        <a id="kandidaten_abteilungssprecher">{{test2}}</a>
-        <div>
-          <mat-radio-group class="election_buttons" value="{{getAb(a)}}">
-            <mat-radio-button (click)="getValueAb(a, 1)" value="1"></mat-radio-button>
-            <mat-radio-button (click)="getValueAb(a, 2)" value="2"></mat-radio-button>
+        <div class="election_button_group">
+          <mat-radio-group class="election_button" value="{{getKa(i)}}">
+            <mat-radio-button class="simple_button" (click)="getValue(i, 1)" value="1"></mat-radio-button>
+            <mat-radio-button class="simple_button" (click)="getValue(i, 2)" value="2"></mat-radio-button>
+            <mat-radio-button class="simple_button" (click)="getValue(i, 3)" value="3"></mat-radio-button>
+            <mat-radio-button class="simple_button" (click)="getValue(i, 4)" value="4"></mat-radio-button>
+            <mat-radio-button class="simple_button" (click)="getValue(i, 5)" value="5"></mat-radio-button>
+            <mat-radio-button class="simple_button" (click)="getValue(i, 6)" value="6"></mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
     </div>
 
+    <!--------------------------------------------->
 
-    <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    <!-- Abteilungssprecher Radio-Button Wahl -->
+    <div id="abteilungssprecher_allinklusive">
+      <h2 class="mat-h2" id="abteilungssp_heading">Abteilungssprecher</h2>
+
+      <div class="votePoints2">
+        <table cellspacing="30">
+          <tr>
+            <td id="voteA2">2</td>
+            <td id="voteA1">1</td>
+          </tr>
+        </table>
+      </div>
+
+      <hr>
+
+      <div class="kan2" *ngFor="let test2 of tests2; let a = index">
+        <a id="kandidaten_abteilungssprecher">{{test2}}</a>
+
+        <div class="election_button_group">
+          <mat-radio-group class="election_button" value="{{getAb(a)}}">
+            <mat-radio-button class="simple_button" (click)="getValueAb(a, 1)" value="1"></mat-radio-button>
+            <mat-radio-button class="simple_button" (click)="getValueAb(a, 2)" value="2"></mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-raised-button>Stimme abgeben</button>
+    <button mat-raised-button >Stimme abgeben</button>
   </mat-card-actions>
 
 </mat-card>
