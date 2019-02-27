@@ -17,16 +17,17 @@ export interface Class {
 })
 export class CreateComponent implements OnInit {
 
-  studentIdent: string
-  studentAbtIdent: string
 
+  studentIdent: string;
+  studentAbtIdent: string;
+  /*Test Array für FileUpLoad*/
+  anzahlKandidatenBild: string[] = [];
   anzahlKandidaten: number[] = [];
   anzahlKandidatenDep: number[] = [];
   count = -1;
   countDep = -1;
   begin = 0;
   activeCandidate: Kandidat = new Kandidat();
-
   /*Student ngModel*/
   firstName: String = '';
   lastName: String = '';
@@ -34,28 +35,25 @@ export class CreateComponent implements OnInit {
   sClass: String = '';
   sWahlversprechen = '';
   sImage = '';
-
   studentNew: Student = new Student();
   studentsTest: Student[] = [];
-
-
-  classes: String[] = new Array<String>(30);
-
+  /*Für Klassenauswahl nach Abteilungen*/
+  classes: String[] = new Array<String>(50);
   medientechnikClass: String[] = ['1AHITM', '1BHITM', '2AHITM', '2BHITM', '3AHITM', '3BHITM', '4AHTIM', '4BHITM', '5AHITM', '5BHITM'];
   informatikClass: String[] = ['1AHIF', '1BHIF', '1CHIF', '2AHIF', '2BHIF', '2CHIF', '3AHIF', '3BHIF', '3CHIF', '4AHIF', '4BHIF'];
-  medizintechnikClass: String[] = ['1AHEL', '2AHEL', '3AHEL', '4AHEL', '5AHEL'];
-  elektronikClass: String[] = ['1AHBG', '2AHBG', '3AHBG', '4AHBG', '5AHBG'];
-
+  elektronikClass: String[] = ['1AHEL', '2AHEL', '3AHEL', '4AHEL', '5AHEL'];
+  medizintechnikClass: String[] = ['1AHBG', '2AHBG', '3AHBG', '4AHBG', '5AHBG'];
   myControl = new FormControl();
   options: string[] = ['Elektronik', 'Informatik', 'Medientechnik', 'Medizintechnik'];
-
-
   selectedFile: File[] = [];
   imagePreview: string;
 
-
   constructor(private http: HttpClient) {
   }
+
+
+
+
 
   ngOnInit() {
   }
@@ -91,11 +89,12 @@ export class CreateComponent implements OnInit {
   }
 
 
-  onFileUpload(event, index){
+  onFileUpload(event, index) {
     this.selectedFile = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = reader.result.toString();
+      this.anzahlKandidatenBild[index] = this.imagePreview;
     };
     reader.readAsDataURL(this.selectedFile[index]);
   }
@@ -105,8 +104,8 @@ export class CreateComponent implements OnInit {
     this.http.post('http://', this.selectedFile[index]).subscribe();
   }
   '/
+*/
 
-  /*
 
   addStudentValues() {
     this.studentNew.firstName = this.firstName;
@@ -116,8 +115,8 @@ export class CreateComponent implements OnInit {
     this.studentNew.sWahlversprechen = this.sWahlversprechen;
     this.studentNew.sImage = this.sImage;
   }
-*//*
-  /*Abteilung*//*
+
+  /*Abteilung*/
   getDepartment() {
     if (this.sDepartment === 'Medientechnik') {
       this.classes = this.medientechnikClass;
@@ -130,5 +129,7 @@ export class CreateComponent implements OnInit {
     }
 
 
-  }*/
+  }
+
+
 }

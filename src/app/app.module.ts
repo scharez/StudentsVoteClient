@@ -21,6 +21,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { HomeComponent } from './dashboard/home/home.component';
 import {AuthService} from './services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
+import { CreateCandidateComponent } from './dashboard/create/create-candidate/create-candidate.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {HttpClientModule} from '@angular/common/http';
     ElectComponent,
     ProfilsettingsComponent,
     SideNavComponent,
-    HomeComponent
+    HomeComponent,
+    CreateCandidateComponent
   ],
   imports: [
     BrowserModule,
