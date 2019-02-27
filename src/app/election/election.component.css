@@ -23,29 +23,51 @@
   font-size: 180%;
   margin: 2% auto 2% 0%;
   font-weight: normal;
-  background-color: blueviolet;
 }
 
-/*Schulsprecher ----------------------------------------*/
-#kandidaten_schulsprecher{
-  float: left;
-  size:auto;
-  margin: 4% auto auto 2%;
+
+#abteilungssp_heading{
+  font-size: 180%;
+  margin: 2% auto 2% 0%;
+  font-weight: normal;
+}
+
+/*Stimmabgabe ----------------------------------------*/
+.votePoints{
+  background-color: darkslategrey;
+  width: 20%;
+  margin-left: 32%;
+}
+
+.voteP{
+  padding-right: 20%;
   font-size: 180%;
 }
 
-.election_button_group{
-  background-color: darkcyan;
-  width: 60%;
-  size: 200%;
-  float:right;
-  margin: 4%;
-  padding: 3%;
+/*Schulsprecher ----------------------------------------*/
+.kan1{
+  background-color: green;
 }
 
-.kan1FuerLinks{
-  margin-bottom: 15%;
+#kandidaten_schulsprecher{
+  width: 30%;
+  float: left;
+  box-sizing: border-box;
+  font-size: 180%;
+  padding-top: 1%;
 }
+
+.election_button_group{
+  width: 60%;
+  box-sizing: border-box;
+  float: left;
+  padding: 2%;
+}
+
+.simple_button{
+  padding-right: 10%;
+}
+
 
 
 /*Wahl Buttons ----------------------------------------*/
