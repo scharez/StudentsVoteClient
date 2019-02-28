@@ -18,79 +18,7 @@
 
 
         <!----SCHÜLER---->
-        <div class="image-preview">
-          <img class="uploadedFile" [src]="imagePreview">
-        </div>
-
-        <!-- FileUpLoad -->
-        <input style="display: none" type="file" (change)="onFileUpload($event, i)" #selectFile>
-        <button (click)="selectFile.click()">Select File</button>
-        <!--<button (click)="OnUploadFile(i)">Upload</button>-->
-
-        <br>
-
-        <div class="schueler_text">
-
-
-          <!--Vorname-->
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Vorname" [(ngModel)]="firstName">
-          </mat-form-field>
-
-          <br>
-
-
-          <!--Nachname-->
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nachname" [(ngModel)]="lastName">
-          </mat-form-field>
-
-          <br>
-
-
-          <!--Choose Zweig-->
-          <mat-form-field class="example-full-width">
-            <mat-select placeholder="Department" [(ngModel)]="sDepartment" (ngModelChange)="getDepartment()">
-              <mat-option
-                *ngFor="let option of options" [value]="option">
-                {{option}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <br>
-
-
-          <!--Choose Klasse-->
-          <mat-form-field>
-            <mat-select placeholder="Klasse" [(ngModel)]="sClass">
-              <mat-option *ngFor="let class of classes" [value]="class">
-                {{class}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-        </div>
-
-
-        <!--write Wahlversprechen-->
-        <div>
-          <mat-form-field class="example-full-width" >
-            <textarea matInput placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
-          </mat-form-field>
-        </div>
-
-
-
-        <!--Daten absenden-->
-        <button mat-raised-button id="send" class="sendButton" (click)="sendStudent()">hinzufügen</button>
-
-        <button mat-raised-button (click)="addStudentValues()">GET</button>
-        {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sDeparture}}, {{studentNew.sClass}}
-        , {{studentNew.sWahlversprechen}}
-
-
-
+        <create-candidate></create-candidate>
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
@@ -118,6 +46,7 @@
 
 
         <!---SCHÜLER ABTEILUNG--->
+        <create-candidate></create-candidate>
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
