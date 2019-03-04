@@ -26,8 +26,9 @@ export class CreateComponent implements OnInit {
   anzahlKandidatenDep: number[] = [];
   count = -1;
   countDep = -1;
-  selectedFile: File[] = [];
-  imagePreview: string;
+
+  selectedFiles: File[] = [null];
+  imagePreviews: string[] = [""];
 
   constructor(private http: HttpClient) {
   }
@@ -69,21 +70,17 @@ export class CreateComponent implements OnInit {
   }
 
 
-  onFileUpload(event, index) {
-    this.selectedFile = event.target.files[0];
+  onFileUpload(event, index){
+    this.selectedFiles.push(event.target.files[0]);
     const reader = new FileReader();
     reader.onload = () => {
-      this.imagePreview = reader.result.toString();
-      this.anzahlKandidatenBild[index] = this.imagePreview;
+      this.imagePreviews.push(reader.result.toString());
     };
-    reader.readAsDataURL(this.selectedFile[index]);
+    reader.readAsDataURL(this.selectedFiles[index + 1]);
   }
 
-  /*
-  OnUploadFile(index) {
-    this.http.post('http://', this.selectedFile[index]).subscribe();
+  OnUploadFile(index: number) {
+    /*this.http.post('http://', this.selectedFiles[index + 1]).subscribe();*/
   }
-  '/
-*/
 
 }

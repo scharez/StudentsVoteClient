@@ -23,6 +23,16 @@
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
       </mat-card-content>
+      <mat-card-content>
+        {{i}}
+        <div class="image-preview">
+          <img [src]="imagePreviews[i]">
+        </div>
+
+        <input style="display: none" type="file" (change)="onFileUpload($event, i - 1)" #selectFile>
+        <button (click)="selectFile.click()">Select File</button>
+        <button (click)="OnUploadFile(i - 1)">Upload</button>
+      </mat-card-content>
     </mat-card>
     <!-- Ende Matcard -->
   </div>
@@ -50,6 +60,16 @@
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+      <mat-card-content>
+        {{j}}
+        <div class="image-preview">
+          <img [src]="imagePreviews[j + 1]">
+        </div>
+
+        <input style="display: none" type="file" (change)="onFileUpload($event, j)" #selectFile>
+        <button (click)="selectFile.click()">Select File</button>
+        <button (click)="OnUploadFile(j)">Upload</button>
       </mat-card-content>
     </mat-card>
   </div>
