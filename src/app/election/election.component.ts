@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Kandidat} from '../Kandidat';
 import {forEachComment} from 'tslint';
 
 @Component({
@@ -9,7 +8,6 @@ import {forEachComment} from 'tslint';
 })
 export class ElectionComponent implements OnInit {
 
-  kandidats: Kandidat[] = [];
   /*Array der Kandidaten*/
   tests: String[] = ['Martin Mayr', 'Markus Berger', 'Max Mustermann', 'Florentina Gruber', 'Melanie Leitner', 'Ernst Lutzky'];
   tests2: String[] = ['Martin Mayr', 'Markus Berger', 'Max Mustermann'];
