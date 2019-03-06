@@ -26,11 +26,6 @@ export class CreateComponent implements OnInit {
   count = -1;
   countDep = -1;
 
-  selectedFilesS: File[] = [null];
-  imagePreviewsS: string[] = [""];
-
-  selectedFilesA: File[] = [null];
-  imagePreviewsA: string[] = [""];
 
   constructor(private http: HttpClient) {
   }
@@ -66,37 +61,5 @@ export class CreateComponent implements OnInit {
     return this.studentAbtIdent;
   }
 
-  sendStudent() {
-    /*let newPerson = Object.assign({}, this.activeCandidate);
-    this.persons.push(newPerson);*/
-  }
-
-
-  onFileUpload(event, index, id){
-    if(id == 's') {
-      this.selectedFilesS.push(event.target.files[0]);
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreviewsS.push(reader.result.toString());
-      };
-      reader.readAsDataURL(this.selectedFilesS[index + 1]);
-    } else {
-      this.selectedFilesA.push(event.target.files[0]);
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreviewsA.push(reader.result.toString());
-      };
-      reader.readAsDataURL(this.selectedFilesA[index + 1]);
-    }
-  }
-
-  OnUploadFile(index: number, id) {
-    if(id == 's') {
-      /*this.http.post('http://', this.selectedFilesS[index + 1]).subscribe();*/
-    } else {
-      /*this.http.post('http://', this.selectedFilesA[index + 1]).subscribe();*/
-    }
-
-  }
 
 }

@@ -17,24 +17,13 @@
       <mat-card-content>
 
 
-
         <!----SCHÜLER---->
         <create-candidate></create-candidate>
 
 
-
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
       </mat-card-content>
-      <mat-card-content>
-        {{i}}
-        <div class="image-preview">
-          <img [src]="imagePreviewsS[i]">
-        </div>
 
-        <input style="display: none" type="file" (change)="onFileUpload($event, i - 1, 's')" #selectFile>
-        <button (click)="selectFile.click()">Select File</button>
-        <button (click)="OnUploadFile(i - 1, 's')">Upload</button>
-      </mat-card-content>
     </mat-card>
     <!-- Ende Matcard -->
   </div>
@@ -57,24 +46,13 @@
       <mat-card-content>
 
 
-
         <!---SCHÜLER ABTEILUNG--->
         <create-candidate></create-candidate>
 
 
-
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
       </mat-card-content>
-      <mat-card-content>
-        {{j}}
-        <div class="image-preview">
-          <img [src]="imagePreviewsA[j + 1]">
-        </div>
 
-        <input style="display: none" type="file" (change)="onFileUpload($event, j, 'a')" #selectFile>
-        <button (click)="selectFile.click()">Select File</button>
-        <button (click)="OnUploadFile(j, 'a')">Upload</button>
-      </mat-card-content>
     </mat-card>
   </div>
 </div>

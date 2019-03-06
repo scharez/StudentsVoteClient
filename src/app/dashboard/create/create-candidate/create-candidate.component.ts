@@ -12,12 +12,19 @@ export class CreateCandidateComponent implements OnInit {
   lastName: String = '';
   sDepartment: String = '';
   sClass: String = '';
-  /*sMatrikelNr = '';*/
+  sMatrikelNr = '';
   sWahlversprechen = '';
   sImage = '';
 
   /*Schüler Array*/
   studentNew: Student = new Student();
+
+  /*Image*/
+  imagePreviewsS: string[] = [''];
+  selectedFilesS: File[] = [null];
+  selectedFilesA: File[] = [null];
+  imagePreviewsA: string[] = [''];
+
 
   /*Für Klassenauswahl nach Abteilungen*/
   classes: String[] = new Array<String>(50);
@@ -55,6 +62,35 @@ export class CreateCandidateComponent implements OnInit {
     } else if (this.sDepartment === 'Elektronik') {
       this.classes = this.elektronikClass;
     }
+  }
+
+
+  /*File Upload*/
+  onFileUpload(event, index, id) {
+    if (id == 's') {
+      this.selectedFilesS.push(event.target.files[0]);
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreviewsS.push(reader.result.toString());
+      };
+      reader.readAsDataURL(this.selectedFilesS[index + 1]);
+    } else {
+      this.selectedFilesA.push(event.target.files[0]);
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreviewsA.push(reader.result.toString());
+      };
+      reader.readAsDataURL(this.selectedFilesA[index + 1]);
+    }
+  }
+
+  OnUploadFile(index: number, id) {
+    if (id == 's') {
+      /*this.http.post('http://', this.selectedFilesS[index + 1]).subscribe();*/
+    } else {
+      /*this.http.post('http://', this.selectedFilesA[index + 1]).subscribe();*/
+    }
+
   }
 
 }
