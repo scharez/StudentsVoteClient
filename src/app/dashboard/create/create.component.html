@@ -26,12 +26,12 @@
       <mat-card-content>
         {{i}}
         <div class="image-preview">
-          <img [src]="imagePreviews[i]">
+          <img [src]="imagePreviewsS[i]">
         </div>
 
-        <input style="display: none" type="file" (change)="onFileUpload($event, i - 1)" #selectFile>
+        <input style="display: none" type="file" (change)="onFileUpload($event, i - 1, 's')" #selectFile>
         <button (click)="selectFile.click()">Select File</button>
-        <button (click)="OnUploadFile(i - 1)">Upload</button>
+        <button (click)="OnUploadFile(i - 1, 's')">Upload</button>
       </mat-card-content>
     </mat-card>
     <!-- Ende Matcard -->
@@ -64,12 +64,12 @@
       <mat-card-content>
         {{j}}
         <div class="image-preview">
-          <img [src]="imagePreviews[j + 1]">
+          <img [src]="imagePreviewsA[j + 1]">
         </div>
 
-        <input style="display: none" type="file" (change)="onFileUpload($event, j)" #selectFile>
+        <input style="display: none" type="file" (change)="onFileUpload($event, j, 'a')" #selectFile>
         <button (click)="selectFile.click()">Select File</button>
-        <button (click)="OnUploadFile(j)">Upload</button>
+        <button (click)="OnUploadFile(j, 'a')">Upload</button>
       </mat-card-content>
     </mat-card>
   </div>
