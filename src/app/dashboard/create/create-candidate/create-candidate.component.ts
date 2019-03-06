@@ -37,7 +37,7 @@ export class CreateCandidateComponent implements OnInit {
     this.studentNew.firstName = this.firstName;
     this.studentNew.lastName = this.lastName;
     this.studentNew.sClass = this.sClass;
-    this.studentNew.sDeparture = this.sDepartment;
+    this.studentNew.sDepartment = this.sDepartment;
     this.studentNew.sWahlversprechen = this.sWahlversprechen;
     this.studentNew.sImage = this.sImage;
   }
