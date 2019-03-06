@@ -1,4 +1,13 @@
 <div class="schueler_text">
+  <!--Image Upload-->
+  {{i}}
+  <div class="image-preview">
+    <img [src]="imagePreviewsS[i]">
+  </div>
+
+  <input style="display: none" type="file" (change)="onFileUpload($event, i - 1, 's')" #selectFile>
+  <button (click)="selectFile.click()">Select File</button>
+  <button (click)="OnUploadFile(i - 1, 's')">Upload</button>
 
 
   <!--Vorname-->
@@ -38,6 +47,14 @@
     </mat-select>
   </mat-form-field>
 
+
+  <!--Matrikelnummer-->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Matrikelnummer" [(ngModel)]="sMatrikelNr">
+  </mat-form-field>
+
+  <br>
+
 </div>
 
 
@@ -55,5 +72,5 @@
 
 <button mat-raised-button (click)="addStudentValues()">GET</button>
 {{studentNew.firstName}}, {{studentNew.lastName}}, {{studentNew.sDeparture}}, {{studentNew.sClass}}
-, {{studentNew.sWahlversprechen}}
+,{{studentNew.sMatrikelnummer}}, {{studentNew.sWahlversprechen}}
 

@@ -32,6 +32,9 @@ import {
 import {HomeComponent} from './dashboard/home/home.component';
 import {AuthService} from './services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
+import {InfoComponent} from './info/info.component';
+import {AuthGuardService} from './services/auth-guard.service';
+import {RoleguardService} from './services/roleguard.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import {HttpClientModule} from '@angular/common/http';
     ProfilsettingsComponent,
     SideNavComponent,
     HomeComponent,
-    CreateCandidateComponent
+    CreateCandidateComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatMenuModule,
     HttpClientModule
   ],
-  providers: [AuthService, HttpService],
+  providers: [AuthService, AuthGuardService, RoleguardService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
