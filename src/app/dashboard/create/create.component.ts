@@ -26,8 +26,12 @@ export class CreateComponent implements OnInit {
   anzahlKandidatenDep: number[] = [];
   count = -1;
   countDep = -1;
-  selectedFile: File[] = [];
-  imagePreview: string;
+
+  selectedFilesS: File[] = [null];
+  imagePreviewsS: string[] = [""];
+
+  selectedFilesA: File[] = [null];
+  imagePreviewsA: string[] = [""];
 
   constructor(private http: HttpClient) {
   }
@@ -69,21 +73,31 @@ export class CreateComponent implements OnInit {
   }
 
 
-  onFileUpload(event, index) {
-    this.selectedFile = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imagePreview = reader.result.toString();
-      this.anzahlKandidatenBild[index] = this.imagePreview;
-    };
-    reader.readAsDataURL(this.selectedFile[index]);
+  onFileUpload(event, index, id){
+    if(id == 's') {
+      this.selectedFilesS.push(event.target.files[0]);
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreviewsS.push(reader.result.toString());
+      };
+      reader.readAsDataURL(this.selectedFilesS[index + 1]);
+    } else {
+      this.selectedFilesA.push(event.target.files[0]);
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreviewsA.push(reader.result.toString());
+      };
+      reader.readAsDataURL(this.selectedFilesA[index + 1]);
+    }
   }
 
-  /*
-  OnUploadFile(index) {
-    this.http.post('http://', this.selectedFile[index]).subscribe();
+  OnUploadFile(index: number, id) {
+    if(id == 's') {
+      /*this.http.post('http://', this.selectedFilesS[index + 1]).subscribe();*/
+    } else {
+      /*this.http.post('http://', this.selectedFilesA[index + 1]).subscribe();*/
+    }
+
   }
-  '/
-*/
 
 }
