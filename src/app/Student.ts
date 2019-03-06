@@ -5,6 +5,7 @@ export class Student {
     public lastName: String = '',
     public sDepartment: String  = '',
     public sClass: String  = '',
+    public sMatrikelnummer: String = '',
     public sWahlversprechen = '',
     public sImage = ''
   ) {

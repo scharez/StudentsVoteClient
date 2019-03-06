@@ -12,6 +12,7 @@ export class CreateCandidateComponent implements OnInit {
   lastName: String = '';
   sDepartment: String = '';
   sClass: String = '';
+  /*sMatrikelNr = '';*/
   sWahlversprechen = '';
   sImage = '';
 
