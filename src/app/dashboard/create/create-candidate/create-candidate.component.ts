@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Student} from '../../../Student';
 
 @Component({
@@ -20,10 +20,19 @@ export class CreateCandidateComponent implements OnInit {
   studentNew: Student = new Student();
 
   /*Image*/
+  @Input() i: number;
+  @Input() id: string;
+
+  imagePreviewS: string;
+  selectedFileS: File;
+  selectedFileA: File;
+  imagePreviewA: string;
+  /*
   imagePreviewsS: string[] = [''];
   selectedFilesS: File[] = [null];
   selectedFilesA: File[] = [null];
   imagePreviewsA: string[] = [''];
+  */
 
 
   /*Für Klassenauswahl nach Abteilungen*/
@@ -66,14 +75,43 @@ export class CreateCandidateComponent implements OnInit {
 
 
   /*File Upload*/
-  onFileUpload(event, index, id) {
-    if (id == 's') {
+  onFileUpload(event) {
+    if (this.id == 's') {
+      this.selectedFileS = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreviewS = reader.result.toString();
+      };
+      reader.readAsDataURL(this.selectedFileS);
+    } else {
+      this.selectedFileA = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreviewA = reader.result.toString();
+      };
+      reader.readAsDataURL(this.selectedFileA);
+    }
+  }
+
+  OnUploadFile(index) {
+    if (this.id == 's') {
+      //this.http.post('http://', this.selectedFileS).subscribe();
+    } else {
+      //this.http.post('http://', this.selectedFileA).subscribe();
+    }
+
+  }
+
+  /*
+  onFileUpload(event, index) {
+    if (this.id == 's') {
+      this.i--;
       this.selectedFilesS.push(event.target.files[0]);
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreviewsS.push(reader.result.toString());
       };
-      reader.readAsDataURL(this.selectedFilesS[index + 1]);
+      reader.readAsDataURL(this.selectedFilesS[index]);
     } else {
       this.selectedFilesA.push(event.target.files[0]);
       const reader = new FileReader();
@@ -83,14 +121,14 @@ export class CreateCandidateComponent implements OnInit {
       reader.readAsDataURL(this.selectedFilesA[index + 1]);
     }
   }
-
-  OnUploadFile(index: number, id) {
-    if (id == 's') {
-      /*this.http.post('http://', this.selectedFilesS[index + 1]).subscribe();*/
+  OnUploadFile(index: number) {
+    if (this.id == 's') {
+      this.http.post('http://', this.selectedFilesS[index]).subscribe();
     } else {
-      /*this.http.post('http://', this.selectedFilesA[index + 1]).subscribe();*/
+      this.http.post('http://', this.selectedFilesA[index + 1]).subscribe();
     }
 
   }
+  */
 
 }
