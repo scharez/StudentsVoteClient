@@ -22,10 +22,10 @@ export class ElectComponent implements OnInit {
     this.selectedFiles.push(event.target.files[0]);
     const reader = new FileReader();
     reader.onload = () => {
-      //this.imagePreview = reader.result.toString();
+      /*this.imagePreview = reader.result.toString();*/
       this.imagePreviews.push(reader.result.toString());
     };
-    //reader.readAsDataURL(this.selectedFile);
+    /*reader.readAsDataURL(this.selectedFile);*/
     reader.readAsDataURL(this.selectedFiles[index + 1]);
   }
 
