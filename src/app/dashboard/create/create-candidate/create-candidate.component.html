@@ -2,12 +2,13 @@
   <!--Image Upload-->
   {{i}}
   <div class="image-preview">
-    <img [src]="imagePreviewsS[i]">
+    <img [src]="imagePreviewS" *ngIf="id === 's'">
+    <img [src]="imagePreviewA" *ngIf="id === 'a'">
   </div>
 
-  <input style="display: none" type="file" (change)="onFileUpload($event, i - 1, 's')" #selectFile>
+  <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
   <button (click)="selectFile.click()">Select File</button>
-  <button (click)="OnUploadFile(i - 1, 's')">Upload</button>
+  <button (click)="OnUploadFile(i)">Upload</button>
 
 
   <!--Vorname-->

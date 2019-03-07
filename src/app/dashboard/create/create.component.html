@@ -18,7 +18,7 @@
 
 
         <!----SCHÜLER---->
-        <create-candidate></create-candidate>
+        <create-candidate [i]="i" [id]="idS"></create-candidate>
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
@@ -47,7 +47,7 @@
 
 
         <!---SCHÜLER ABTEILUNG--->
-        <create-candidate></create-candidate>
+        <create-candidate [i]="j" [id]="idA"></create-candidate>
 
 
         <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>

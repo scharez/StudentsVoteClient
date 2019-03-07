@@ -26,6 +26,8 @@ export class CreateComponent implements OnInit {
   count = -1;
   countDep = -1;
 
+  idS: string = "s";
+  idA: string = "a";
 
   constructor(private http: HttpClient) {
   }
