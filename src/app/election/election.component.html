@@ -25,7 +25,7 @@
       <hr>
 
       <div class="kan1" *ngFor="let test of tests; let i = index">
-        <a id="kandidaten_schulsprecher">{{test}}</a>
+        <a id="kandidaten_schulsprecher">{{test.vname}} {{test.nname}}</a>
 
         <div class="election_button_group">
           <mat-radio-group class="election_button" value="{{getKa(i)}}">
@@ -40,7 +40,6 @@
       </div>
     </div>
 
-    {{name.matrikelnummer}}
 
     <!--------------------------------------------->
 

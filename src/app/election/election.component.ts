@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Kandidat} from '../Kandidat';
 import {Punkte} from '../Punkte';
 import {forEachComment} from 'tslint';
 import {Student} from '../Student';
@@ -12,16 +11,15 @@ import {PunkteEingang} from '../PunkteEingang';
 })
 export class ElectionComponent implements OnInit {
 
-  kandidats: Kandidat[] = [];
+
   /*Array der Kandidaten*/
-  tests = new  Array<PunkteEingang>();
-  tests  = [{'vname': 'Martin', 'nname': 'Mayr', 'matrikelnummer': 'it150189'},
-            {'vname': 'Markus', 'nname': 'Berger', 'matrikelnummer': 'if130169'},
-            {'vname': 'Max', 'nname': 'Mustermann', 'matrikelnummer': 'it150145'},
-            {'vname': 'Florentina', 'nname': 'Gruber', 'matrikelnummer': 'it160197'},
-            {'vname': 'Melanie', 'nname': 'Leitner', 'matrikelnummer': 'it140159'},
-            {'vname': 'Ernst', 'nname': 'Lutzky', 'matrikelnummer': 'it170137'},
-            {'vname': 'Ernst', 'nname': 'Lutzky', 'matrikelnummer': 'it170137'}];
+  tests: PunkteEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'matrikelnummer': 'it150189'},
+    {'vname': 'Markus', 'nname': 'Berger', 'matrikelnummer': 'if130169'},
+    {'vname': 'Max', 'nname': 'Mustermann', 'matrikelnummer': 'it150145'},
+    {'vname': 'Florentina', 'nname': 'Gruber', 'matrikelnummer': 'it160197'},
+    {'vname': 'Melanie', 'nname': 'Leitner', 'matrikelnummer': 'it140159'},
+    {'vname': 'Ernst', 'nname': 'Lutzky', 'matrikelnummer': 'it170137'},
+    {'vname': 'Ernst', 'nname': 'Lutzky', 'matrikelnummer': 'it170137'}];
 
   tests2: String[] = ['Martin Mayr', 'Markus Berger', 'Max Mustermann'];
 
@@ -31,15 +29,12 @@ export class ElectionComponent implements OnInit {
   seletedValueOfRowAb: number[] = new Array<number>(30);
 
   /*Array für die Punkteanzahl*/
-  punkte: Punkte[] = [];
-  name: PunkteEingang;
+  punkte: Punkte[] = new Array<Punkte>(20);
 
   constructor() {
   }
 
   ngOnInit() {
-    console.log(this.tests[1]);
-
   }
 
   /*Schulsprecher nur 1 Radio-Button auswählen*/
@@ -50,8 +45,15 @@ export class ElectionComponent implements OnInit {
       }
     }
     this.seletedValueOfRow[getI] = val;
-    this.name = this.tests[getI];
-    this.punkte[getI].matrikelnummer = this.name.matrikelnummer;
+
+    for (let j = 0; j <= this.punkte.length; j++) {
+      if (this.tests[getI].matrikelnummer === this.punkte[j].matrikelnummer) {
+        this.punkte[j].punkte = val;
+      }
+    }
+    this.punkte.push(new Punkte(this.tests[getI].matrikelnummer));
+
+    console.log(this.tests[getI]);
   }
 
   getKa(i: number) {
