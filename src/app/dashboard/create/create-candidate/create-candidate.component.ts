@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Student} from '../../../Student';
+import {HttpService} from '../../../services/http.service';
 
 @Component({
   selector: 'create-candidate',
@@ -18,6 +19,7 @@ export class CreateCandidateComponent implements OnInit {
 
   /*Schüler Array*/
   studentNew: Student = new Student();
+  dataString: String = '';
 
   /*Image*/
   @Input() i: number;
@@ -27,12 +29,9 @@ export class CreateCandidateComponent implements OnInit {
   selectedFileS: File;
   selectedFileA: File;
   imagePreviewA: string;
-  /*
-  imagePreviewsS: string[] = [''];
-  selectedFilesS: File[] = [null];
-  selectedFilesA: File[] = [null];
-  imagePreviewsA: string[] = [''];
-  */
+
+
+  httpService: HttpService;
 
 
   /*Für Klassenauswahl nach Abteilungen*/
@@ -43,7 +42,8 @@ export class CreateCandidateComponent implements OnInit {
   medizintechnikClass: String[] = ['1AHBG', '2AHBG', '3AHBG', '4AHBG', '5AHBG'];
   options: string[] = ['Elektronik', 'Informatik', 'Medientechnik', 'Medizintechnik'];
 
-  constructor() {
+  constructor(httpService: HttpService) {
+    this.httpService = httpService;
   }
 
   ngOnInit() {
@@ -51,12 +51,20 @@ export class CreateCandidateComponent implements OnInit {
 
   /*Schüler wird mit seinen Daten in Array gespeichert*/
   addStudentValues() {
-    this.studentNew.firstName = this.firstName;
-    this.studentNew.lastName = this.lastName;
-    this.studentNew.sClass = this.sClass;
-    this.studentNew.sDepartment = this.sDepartment;
-    this.studentNew.sWahlversprechen = this.sWahlversprechen;
-    this.studentNew.sImage = this.sImage;
+    this.studentNew.username = this.sMatrikelNr;
+    this.studentNew.firstname = this.firstName;
+    this.studentNew.lastname = this.lastName;
+    this.studentNew.candidateClass = this.sClass;
+    this.studentNew.department = this.sDepartment;
+    this.studentNew.electionPromise = this.sWahlversprechen;
+    this.studentNew.image = this.sImage;
+
+    this.dataString = '"username" : ' + '"' + this.studentNew.username + '", ' + '"firstname" : ' + '"' + this.studentNew.firstname + '", '
+      + '"lastname" : ' + '"' + this.studentNew.lastname + '", ' + '"candidateClass" : ' + '"'
+      + this.studentNew.candidateClass + '", ' + '"electionPromise" : ' + '", ' + this.studentNew.electionPromise + '"image" : '
+      + '"' + this.studentNew.image + '"';
+
+    this.newStudent(this.dataString);
   }
 
 
@@ -71,6 +79,12 @@ export class CreateCandidateComponent implements OnInit {
     } else if (this.sDepartment === 'Elektronik') {
       this.classes = this.elektronikClass;
     }
+  }
+
+  /*Sending Student to the Server with all the right Data*/
+  newStudent(dataString) {
+    this.httpService.insert(dataString).subscribe();
+    console.log(dataString);
   }
 
 
@@ -101,34 +115,4 @@ export class CreateCandidateComponent implements OnInit {
     }
 
   }
-
-  /*
-  onFileUpload(event, index) {
-    if (this.id == 's') {
-      this.i--;
-      this.selectedFilesS.push(event.target.files[0]);
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreviewsS.push(reader.result.toString());
-      };
-      reader.readAsDataURL(this.selectedFilesS[index]);
-    } else {
-      this.selectedFilesA.push(event.target.files[0]);
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreviewsA.push(reader.result.toString());
-      };
-      reader.readAsDataURL(this.selectedFilesA[index + 1]);
-    }
-  }
-  OnUploadFile(index: number) {
-    if (this.id == 's') {
-      this.http.post('http://', this.selectedFilesS[index]).subscribe();
-    } else {
-      this.http.post('http://', this.selectedFilesA[index + 1]).subscribe();
-    }
-
-  }
-  */
-
 }
