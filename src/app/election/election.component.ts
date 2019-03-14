@@ -51,9 +51,9 @@ export class ElectionComponent implements OnInit {
         this.punkte[j].punkte = val;
       }
     }
-    this.punkte.push(new Punkte(this.tests[getI].matrikelnummer));
+    this.punkte.push(new Punkte(this.tests[getI].matrikelnummer, val));
 
-    console.log(this.tests[getI]);
+    console.log(this.punkte);
   }
 
   getKa(i: number) {
