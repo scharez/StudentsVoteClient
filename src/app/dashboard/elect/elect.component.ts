@@ -6,26 +6,31 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './elect.component.html',
   styleUrls: ['./elect.component.css']
 })
+
 export class ElectComponent implements OnInit {
 
-  selectedFile: File;
-  imagePreview: string;
+  //selectedFile: File;
+  //imagePreview: string;
+
+  selectedFiles: File[] = [null];
+  imagePreviews: string[] = [""];
 
   constructor(private http: HttpClient) {}
 
-  onFileUpload(event){
-    this.selectedFile = event.target.files[0];
+  onFileUpload(event, index: number){
+    //this.selectedFile = event.target.files[0];
+    this.selectedFiles.push(event.target.files[0]);
     const reader = new FileReader();
     reader.onload = () => {
-      this.imagePreview = reader.result.toString();
+      /*this.imagePreview = reader.result.toString();*/
+      this.imagePreviews.push(reader.result.toString());
     };
-    reader.readAsDataURL(this.selectedFile);
-
-    alert(this.selectedFile)
+    /*reader.readAsDataURL(this.selectedFile);*/
+    reader.readAsDataURL(this.selectedFiles[index + 1]);
   }
 
-  OnUploadFile() {
-    this.http.post('http://', this.selectedFile).subscribe();
+  OnUploadFile(index: number) {
+    this.http.post('http://', this.selectedFiles[index + 1]).subscribe();
   }
 
   ngOnInit() {

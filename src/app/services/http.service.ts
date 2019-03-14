@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from './app.user';
+import {User} from '../objects/app.user';
+import {Student} from '../Student';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,16 @@ export class HttpService {
     this.http = http;
   }
 
-loginCheck(user: User) {
+  loginCheck(user: User) {
     return this.http.post('http://localhost:8080/rest/sv/login', user);
+  }
+
+  insert(candidate: Student) {
+    return this.http.post('http://localhost:8080/rest/sv/setCandidate', candidate);
+  }
+
+  getCandidate() {
+    return this.http.get('http://localhost:8080/rest/sv/getFullCandidate', {responseType: Student});
   }
 
 }

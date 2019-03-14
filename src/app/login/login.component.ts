@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { Router } from '@angular/router';
-import { User} from '../services/app.user';
+import { User} from '../objects/app.user';
 import {CustomException} from '../objects/app.customException';
 import {DataService} from '../services/data.service';
+import {AppStorage} from '../objects/app.storage';
 
 
 @Component({
@@ -45,12 +46,30 @@ export class LoginComponent implements OnInit {
     } else {
       localStorage.setItem('logged', 'true');
       localStorage.setItem('user', JSON.stringify(res));
-      this.router.navigate(['dashboard']);
+
+      const storage: AppStorage = JSON.parse(localStorage.getItem('user'));
+
+      switch (storage.role) {
+
+        case 'Students':
+            this.router.navigate(['info']);
+          break;
+
+        case 'Teacher':
+          this.router.navigate(['election']);
+          break;
+
+        case 'Candidates':
+          this.router.navigate(['']);
+          break;
+
+        case 'ADMIN':
+          this.router.navigate(['dashboard']);
+          break;
+      }
     }
 
   }
-
-
   ngOnInit() {
 
   }

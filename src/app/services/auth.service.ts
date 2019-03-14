@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import {AppStorage} from '../objects/app.storage';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService implements CanActivate {
+export class AuthService {
 
-  constructor(public router: Router) {}
+  constructor(public jwtHelper: JwtHelperService) {}
 
-  canActivate() {
-    if (localStorage.getItem('logged').localeCompare('true') === 0) {
-      return true;
-    } else {
-      this.router.navigate(['login']);
-    }
+  public isAuthenticated(): boolean {
+
+    const storage: AppStorage = JSON.parse(localStorage.getItem('user'));
+
+    return !this.jwtHelper.isTokenExpired(storage.token);
   }
 
 

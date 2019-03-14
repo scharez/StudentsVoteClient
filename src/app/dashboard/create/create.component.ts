@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {Kandidat} from '../../Kandidat';
 import {Student} from '../../Student';
 import {HttpClient} from '@angular/common/http';
 import {log} from 'util';
+import {HttpService} from '../../services/http.service';
 
 export interface Class {
   value: string;
@@ -16,51 +16,31 @@ export interface Class {
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
+  studentIdent: string;
+  studentAbtIdent: string;
 
-  studentIdent: string
-  studentAbtIdent: string
-
+  /*Test Array für FileUpLoad*/
   anzahlKandidaten: number[] = [];
   anzahlKandidatenDep: number[] = [];
   count = -1;
   countDep = -1;
-  begin = 0;
-  activeCandidate: Kandidat = new Kandidat();
 
-  /*Student ngModel*/
-  firstName: String = '';
-  lastName: String = '';
-  sDepartment: String = '';
-  sClass: String = '';
-  sWahlversprechen = '';
-  sImage = '';
+  students: Student = new Student();
 
-  studentNew: Student = new Student();
-  studentsTest: Student[] = [];
+  httpService: HttpService;
 
 
-  classes: String[] = new Array<String>(30);
-
-  medientechnikClass: String[] = ['1AHITM', '1BHITM', '2AHITM', '2BHITM', '3AHITM', '3BHITM', '4AHTIM', '4BHITM', '5AHITM', '5BHITM'];
-  informatikClass: String[] = ['1AHIF', '1BHIF', '1CHIF', '2AHIF', '2BHIF', '2CHIF', '3AHIF', '3BHIF', '3CHIF', '4AHIF', '4BHIF'];
-  medizintechnikClass: String[] = ['1AHEL', '2AHEL', '3AHEL', '4AHEL', '5AHEL'];
-  elektronikClass: String[] = ['1AHBG', '2AHBG', '3AHBG', '4AHBG', '5AHBG'];
-
-  myControl = new FormControl();
-  options: string[] = ['Elektronik', 'Informatik', 'Medientechnik', 'Medizintechnik'];
-
-
-  selectedFile: File;
-  imagePreview: string;
-  fileURL: string;
-
-
-  constructor(private http: HttpClient) {
+  constructor(httpService: HttpService) {
+    this.httpService = httpService;
   }
 
   ngOnInit() {
+    this.loadStudent();
   }
 
+  loadStudent() {
+    this.httpService.getCandidate().subscribe(data => (this.students = data));
+  }
 
   addStudent() {
     this.count = this.count + 1;
@@ -74,6 +54,7 @@ export class CreateComponent implements OnInit {
     this.anzahlKandidatenDep[this.countDep] = 1;
   }
 
+  /*jeder Schüler hat eine eigene ID*/
   schuelerId(i): string {
     this.studentIdent = 'schueler' + i;
     log(this.studentIdent);
@@ -86,52 +67,4 @@ export class CreateComponent implements OnInit {
     return this.studentAbtIdent;
   }
 
-  sendStudent() {
-    /*let newPerson = Object.assign({}, this.activeCandidate);
-    this.persons.push(newPerson);*/
-  }
-
-
-  onFileUpload(event) {
-    this.selectedFile = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imagePreview = reader.result.toString();
-    };
-
-    // @ts-ignore
-    this.fileURL = reader.readAsDataURL(this.selectedFile);
-
-    alert(this.selectedFile);
-  }
-
-  OnUploadFile() {
-    this.http.post('http://', this.selectedFile).subscribe();
-  }
-
-  /*
-
-  addStudentValues() {
-    this.studentNew.firstName = this.firstName;
-    this.studentNew.lastName = this.lastName;
-    this.studentNew.sClass = this.sClass;
-    this.studentNew.sDeparture = this.sDepartment;
-    this.studentNew.sWahlversprechen = this.sWahlversprechen;
-    this.studentNew.sImage = this.sImage;
-  }
-*//*
-  /*Abteilung*//*
-  getDepartment() {
-    if (this.sDepartment === 'Medientechnik') {
-      this.classes = this.medientechnikClass;
-    } else if (this.sDepartment === 'Informatik') {
-      this.classes = this.informatikClass;
-    } else if (this.sDepartment === 'Medizintechnik') {
-      this.classes = this.medizintechnikClass;
-    } else if (this.sDepartment === 'Elektronik') {
-      this.classes = this.elektronikClass;
-    }
-
-
-  }*/
 }
