@@ -29,12 +29,17 @@ export class ElectionComponent implements OnInit {
   seletedValueOfRowAb: number[] = new Array<number>(30);
 
   /*Array für die Punkteanzahl*/
-  punkte: Punkte[] = new Array<Punkte>(20);
+  /* punkte: Punkte[] = new Array<Punkte>(); */
+  punkte: Punkte[] = [{'matrikelnummer': '', 'punkte': 0}];
 
   constructor() {
   }
 
   ngOnInit() {
+    for (let i = 0; i < this.tests.length; i++) {
+      this.punkte.push({'matrikelnummer': this.tests[i].matrikelnummer, 'punkte': 0});
+    }
+    console.log(this.punkte);
   }
 
   /*Schulsprecher nur 1 Radio-Button auswählen*/
@@ -46,14 +51,35 @@ export class ElectionComponent implements OnInit {
     }
     this.seletedValueOfRow[getI] = val;
 
-    for (let j = 0; j <= this.punkte.length; j++) {
-      if (this.tests[getI].matrikelnummer === this.punkte[j].matrikelnummer) {
-        this.punkte[j].punkte = val;
+
+    /*Matrikelnummer und Punkte für den Server ohne doppelte Matrikelnummer holen*/
+    for (let i = 0; i < this.punkte.length; i++) {
+      if (this.punkte[i].matrikelnummer === this.punkte[getI].matrikelnummer) {
+        for (let j = 0; j < this.punkte.length; j++) {
+          if (this.punkte[j].punkte === val) {
+            this.punkte[j].punkte = 0;
+          }
+        }
+        this.punkte[i].punkte = val;
       }
     }
-    this.punkte.push(new Punkte(this.tests[getI].matrikelnummer, val));
+
+    /*if (this.punkte.length === 0) {
+      this.punkte.push(new Punkte(this.tests[getI].matrikelnummer, val));
+    } else {
+      for (let j = 0; j < this.punkte.length; j++) {
+        if (this.tests[getI].matrikelnummer === this.punkte[j].matrikelnummer) {
+          this.punkte[j].punkte = val;
+        }else if (this.tests[getI].matrikelnummer === this.punkte[j].matrikelnummer) {
+
+        } else {
+          this.punkte.push(new Punkte(this.tests[getI].matrikelnummer, val));
+        }
+      }
+    } */
 
     console.log(this.punkte);
+
   }
 
   getKa(i: number) {
