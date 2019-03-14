@@ -47,11 +47,12 @@ export class CreateCandidateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dowloadStudents();
   }
 
   /*Herunterladen von schon eingetragenen Schülern*/
   dowloadStudents() {
-
+    this.httpService.getCandidate().subscribe();
   }
 
   /*Schüler wird mit seinen Daten in Array gespeichert*/
@@ -90,7 +91,7 @@ export class CreateCandidateComponent implements OnInit {
   newStudent(dataString) {
     this.httpService.insert(dataString).subscribe();
     console.log(dataString);
-  }
+  }lalala
 
 
   /*File Upload*/
