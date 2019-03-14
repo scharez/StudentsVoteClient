@@ -49,6 +49,11 @@ export class CreateCandidateComponent implements OnInit {
   ngOnInit() {
   }
 
+  /*Herunterladen von schon eingetragenen Schülern*/
+  dowloadStudents() {
+
+  }
+
   /*Schüler wird mit seinen Daten in Array gespeichert*/
   addStudentValues() {
     this.studentNew.username = this.sMatrikelNr;
