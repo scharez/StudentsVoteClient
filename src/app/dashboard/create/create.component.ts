@@ -3,6 +3,7 @@ import {FormControl} from '@angular/forms';
 import {Student} from '../../Student';
 import {HttpClient} from '@angular/common/http';
 import {log} from 'util';
+import {HttpService} from '../../services/http.service';
 
 export interface Class {
   value: string;
@@ -15,27 +16,31 @@ export interface Class {
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
-
   studentIdent: string;
   studentAbtIdent: string;
+
   /*Test Array für FileUpLoad*/
-  anzahlKandidatenBild: string[] = [];
   anzahlKandidaten: number[] = [];
   anzahlKandidatenDep: number[] = [];
   count = -1;
   countDep = -1;
 
-  idS: string = "s";
-  idA: string = "a";
+  students: Student = new Student();
 
-  constructor(private http: HttpClient) {
+  httpService: HttpService;
+
+
+  constructor(httpService: HttpService) {
+    this.httpService = httpService;
   }
-
 
   ngOnInit() {
+    this.loadStudent();
   }
 
+  loadStudent() {
+    this.httpService.getCandidate().subscribe(data => (this.students = data));
+  }
 
   addStudent() {
     this.count = this.count + 1;
@@ -49,7 +54,6 @@ export class CreateComponent implements OnInit {
     this.anzahlKandidatenDep[this.countDep] = 1;
   }
 
-
   /*jeder Schüler hat eine eigene ID*/
   schuelerId(i): string {
     this.studentIdent = 'schueler' + i;
@@ -62,6 +66,5 @@ export class CreateComponent implements OnInit {
     log(this.studentAbtIdent);
     return this.studentAbtIdent;
   }
-
 
 }

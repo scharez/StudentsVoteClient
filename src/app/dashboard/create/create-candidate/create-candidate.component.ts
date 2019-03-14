@@ -61,7 +61,7 @@ export class CreateCandidateComponent implements OnInit {
 
     this.dataString = '"username" : ' + '"' + this.studentNew.username + '", ' + '"firstname" : ' + '"' + this.studentNew.firstname + '", '
       + '"lastname" : ' + '"' + this.studentNew.lastname + '", ' + '"candidateClass" : ' + '"'
-      + this.studentNew.candidateClass + '", ' + '"electionPromise" : ' + '", ' + this.studentNew.electionPromise + '"image" : '
+      + this.studentNew.candidateClass + '", ' + '"electionPromise" : ' + '"' + this.studentNew.electionPromise + '", ' + '"image" : '
       + '"' + this.studentNew.image + '"';
 
     this.newStudent(this.dataString);

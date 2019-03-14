@@ -22,4 +22,8 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/setCandidate', candidate);
   }
 
+  getCandidate() {
+    return this.http.get('http://localhost:8080/rest/sv/getFullCandidate', {responseType: Student});
+  }
+
 }
