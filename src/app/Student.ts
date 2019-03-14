@@ -1,13 +1,13 @@
 export class Student {
 
   constructor(
-    public firstName: String = '',
-    public lastName: String = '',
-    public sDepartment: String  = '',
-    public sClass: String  = '',
-    public sMatrikelnummer: String = '',
-    public sWahlversprechen = '',
-    public sImage = ''
+    public firstname: String = '',
+    public lastname: String = '',
+    public department: String  = '',
+    public candidateClass: String  = '',
+    public username: String = '',
+    public electionPromise = '',
+    public image = ''
   ) {
   }
 
