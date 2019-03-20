@@ -33,13 +33,11 @@ export class ElectionComponent implements OnInit {
 
   /*Array für die Punkteanzahl*/
   /* punkte: Punkte[] = new Array<Punkte>(); */
-  punkte: Punkte[] = [{'matrikelnummer': '', 'punkte': 0}];
+  punkte: Punkte[] = [{'id': '', 'score': 0}];
 
 
   /*Json*/
   punkteString;
-
-
 
 
   constructor(httpService: HttpService) {
@@ -48,7 +46,7 @@ export class ElectionComponent implements OnInit {
 
   ngOnInit() {
     for (let i = 0; i < this.tests.length; i++) {
-      this.punkte.push({'matrikelnummer': this.tests[i].matrikelnummer, 'punkte': 0});
+      this.punkte.push({'id': this.tests[i].matrikelnummer, 'score': 0});
     }
     console.log(this.punkte);
   }
@@ -65,13 +63,13 @@ export class ElectionComponent implements OnInit {
 
     /*Matrikelnummer und Punkte für den Server ohne doppelte Matrikelnummer holen*/
     for (let i = 0; i < this.punkte.length; i++) {
-      if (this.punkte[i].matrikelnummer === this.punkte[getI].matrikelnummer) {
+      if (this.punkte[i].id === this.punkte[getI].id) {
         for (let j = 0; j < this.punkte.length; j++) {
-          if (this.punkte[j].punkte === val) {
-            this.punkte[j].punkte = 0;
+          if (this.punkte[j].score === val) {
+            this.punkte[j].score = 0;
           }
         }
-        this.punkte[i].punkte = val;
+        this.punkte[i].score = val;
       }
     }
 
@@ -115,6 +113,8 @@ export class ElectionComponent implements OnInit {
 
   voteAgain() {
     /*Daten an Server schicken    daten -> this.punkte[j]*/
+    this.punkte.splice(0, 1);
+
     this.punkteString = JSON.stringify(this.punkte);
 
     this.httpService.sendPoints(this.punkteString).subscribe();
@@ -122,7 +122,7 @@ export class ElectionComponent implements OnInit {
     console.log(this.punkteString);
 
     for (let i = 0; i < this.punkte.length; i++) {
-      this.punkte[i].punkte = 0;
+      this.punkte[i].score = 0;
     }
 
     location.reload();
