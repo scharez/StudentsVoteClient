@@ -23,7 +23,7 @@ export class HttpService {
   }
 
   sendPoints(punkteString: String) {
-    return this.http.post('http://localhost:8080/rest/sv/parseJon', punkteString);
+    return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString);
   }
 
   getCandidate() {
