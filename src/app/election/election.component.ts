@@ -21,7 +21,7 @@ export class ElectionComponent implements OnInit {
     {'vname': 'Ernst', 'nname': 'Lutzky', 'matrikelnummer': 'it170137'},
     {'vname': 'Ernst', 'nname': 'Lutzky', 'matrikelnummer': 'it170137'}];
 
-  tests2: String[] = ['Martin Mayr', 'Markus Berger', 'Max Mustermann'];
+  tests2: string[] = ['Martin Mayr', 'Markus Berger', 'Max Mustermann'];
 
 
   /*Zum Vergleichen der Radio-Buttons*/
@@ -51,6 +51,7 @@ export class ElectionComponent implements OnInit {
         this.punkte[j].punkte = val;
       }
     }
+    // @ts-ignore
     this.punkte.push(new Punkte(this.tests[getI].matrikelnummer));
 
     console.log(this.tests[getI]);

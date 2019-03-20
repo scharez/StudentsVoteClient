@@ -1,9 +1,9 @@
 export class Punkte {
 
   constructor(
-    public matrikelnummer: String = '',
+    public matrikelnummer: string = '',
     public punkte: number = 0,
-    public klasseGewaehlt: String = ''
+    public klasseGewaehlt: string = ''
 
   ) {
   }

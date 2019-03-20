@@ -35,6 +35,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {InfoComponent} from './info/info.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {RoleguardService} from './services/roleguard.service';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
