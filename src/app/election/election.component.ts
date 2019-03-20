@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Punkte} from '../Punkte';
 import {forEachComment} from 'tslint';
 import {Student} from '../Student';
-import {PunkteEingang} from '../PunkteEingang';
+import {KandidatenEingang} from '../KandidatenEingang';
 import {HttpService} from '../services/http.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class ElectionComponent implements OnInit {
   httpService: HttpService;
 
   /*Array der Kandidaten für den Schulsprecher*/
-  tests: PunkteEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150189'},
+  tests: KandidatenEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150189'},
     {'vname': 'Markus', 'nname': 'Berger', 'id': 'if130169'},
     {'vname': 'Max', 'nname': 'Mustermann', 'id': 'it150145'},
     {'vname': 'Florentina', 'nname': 'Gruber', 'id': 'it160197'},
@@ -24,7 +24,7 @@ export class ElectionComponent implements OnInit {
     {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it170137'}];
 
   /*Array der Kandidaten für den Abteilungssprecher*/
-  tests2: PunkteEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150189'},
+  tests2: KandidatenEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150189'},
     {'vname': 'Markus', 'nname': 'Berger', 'id': 'if130169'},
     {'vname': 'Melanie', 'nname': 'Leitner', 'id': 'it140159'},
     {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it170137'}];

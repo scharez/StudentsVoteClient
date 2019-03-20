@@ -1,4 +1,4 @@
-export class PunkteEingang {
+export class KandidatenEingang {
 
   constructor(
     public vname: String = '',
