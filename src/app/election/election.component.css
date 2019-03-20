@@ -1,7 +1,6 @@
 /*Abstimmung-Card ----------------------------------------*/
 .contentCard{
-  margin: auto;
-  height: 100%;
+  height: auto;
 }
 
 .mat-card {
@@ -9,30 +8,27 @@
   margin: 0 auto;
   justify-content: center;
   text-align: center;
-  /*fxLayoutAlign: start start;
-  fxFlex: 47.5%;*/
-  height: 1200px;
+  height: auto;
 }
 
 .mat-card mat-card-header {
   justify-content: center;
   margin-top: 20px;
 }
-
+/*
 #election_heading{
   font-size: 220%;
 }
-
+/*
 
 /*SchulSP oder AbeteilungsSP ----------------------------------------*/
 #schoolsp_heading{
-  font-size: 180%;
-  margin: 2% auto 2% 0%;
-  font-weight: normal;
+  /*font-size: 180%;
+  margin: 0 auto 2% 0%;
+  font-weight: normal;*/
 }
 
 #kandidat_allinklusive{
-  margin-bottom: 10%;
 }
 
 
