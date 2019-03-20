@@ -15,16 +15,19 @@ export class HttpService {
   }
 
   loginCheck(user: User) {
-    return this.http.post('http://7a1018a9.ngrok.io/rest/sv/login', user);
-}
-
-  insert(candidate: Student) {
-    return this.http.post('http://7a1018a9.ngrok.io/rest/sv/setCandidate', candidate);
+    return this.http.post('http://localhost:8080/rest/sv/login', user);
   }
 
-  getCandidates() {
+  insert(dataString: String) {
+    return this.http.post('http://localhost:8080/rest/sv/setCandidate', dataString);
+  }
+
+  sendPoints(punkteString: String) {
+    return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString);
+  }
+
+  getCandidate() {
     return this.http.get('http://localhost:8080/rest/sv/getFullCandidate', {responseType: Student});
   }
 
 }
-
