@@ -3,6 +3,7 @@ import {Punkte} from '../Punkte';
 import {forEachComment} from 'tslint';
 import {Student} from '../Student';
 import {PunkteEingang} from '../PunkteEingang';
+import {HttpService} from '../services/http.service';
 
 @Component({
   selector: 'app-election',
@@ -10,6 +11,8 @@ import {PunkteEingang} from '../PunkteEingang';
   styleUrls: ['./election.component.css']
 })
 export class ElectionComponent implements OnInit {
+
+  httpService: HttpService;
 
 
   /*Array der Kandidaten*/
@@ -32,7 +35,15 @@ export class ElectionComponent implements OnInit {
   /* punkte: Punkte[] = new Array<Punkte>(); */
   punkte: Punkte[] = [{'matrikelnummer': '', 'punkte': 0}];
 
-  constructor() {
+
+  /*Json*/
+  punkteString;
+
+
+
+
+  constructor(httpService: HttpService) {
+    this.httpService = httpService;
   }
 
   ngOnInit() {
@@ -100,5 +111,21 @@ export class ElectionComponent implements OnInit {
 
   getAb(i: number) {
     return this.seletedValueOfRowAb[i];
+  }
+
+  voteAgain() {
+    /*Daten an Server schicken    daten -> this.punkte[j]*/
+    this.punkteString = JSON.stringify(this.punkte);
+
+    this.httpService.sendPoints(this.punkteString).subscribe();
+
+    console.log(this.punkteString);
+
+    for (let i = 0; i < this.punkte.length; i++) {
+      this.punkte[i].punkte = 0;
+    }
+
+    location.reload();
+
   }
 }

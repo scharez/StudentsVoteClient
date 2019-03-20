@@ -18,8 +18,12 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/login', user);
   }
 
-  insert(candidate: Student) {
-    return this.http.post('http://localhost:8080/rest/sv/setCandidate', candidate);
+  insert(dataString: String) {
+    return this.http.post('http://localhost:8080/rest/sv/setCandidate', dataString);
+  }
+
+  sendPoints(punkteString: String) {
+    return this.http.post('http://localhost:8080/rest/sv/parseJon', punkteString);
   }
 
   getCandidate() {
