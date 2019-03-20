@@ -91,7 +91,7 @@ export class CreateCandidateComponent implements OnInit {
   newStudent(dataString) {
     this.httpService.insert(dataString).subscribe();
     console.log(dataString);
-  }lalala
+  }
 
 
   /*File Upload*/
