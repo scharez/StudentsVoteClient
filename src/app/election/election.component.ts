@@ -25,7 +25,9 @@ export class ElectionComponent implements OnInit {
 
   /*Array der Kandidaten für den Abteilungssprecher*/
   tests2: PunkteEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150189'},
-    {'vname': 'Markus', 'nname': 'Berger', 'id': 'if130169'}];
+    {'vname': 'Markus', 'nname': 'Berger', 'id': 'if130169'},
+    {'vname': 'Melanie', 'nname': 'Leitner', 'id': 'it140159'},
+    {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it170137'}];
 
 
   /*Zum Vergleichen der Radio-Buttons*/
