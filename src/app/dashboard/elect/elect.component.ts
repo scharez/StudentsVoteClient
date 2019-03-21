@@ -8,13 +8,17 @@ import {HttpClient} from '@angular/common/http';
 })
 
 export class ElectComponent implements OnInit {
-
+  clicked: boolean = true;
 
   ngOnInit() {
   }
 
   wahlBestimmen() {
-
+    if (this.clicked) {
+      this.clicked = false;
+    } else {
+      this.clicked = true;
+    }
   }
 
 
