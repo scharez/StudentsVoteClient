@@ -18,7 +18,7 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/login', user);
   }
 
-  insert(dataString: String) {
+  insert(dataString: Student) {
     return this.http.post('http://localhost:8080/rest/sv/setCandidate', dataString);
   }
 

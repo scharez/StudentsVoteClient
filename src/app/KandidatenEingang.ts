@@ -1,9 +1,9 @@
-export class PunkteEingang {
+export class KandidatenEingang {
 
   constructor(
     public vname: String = '',
     public nname: String = '',
-    public matrikelnummer: String = ''
+    public id: String = ''
   ) {
   }
 
