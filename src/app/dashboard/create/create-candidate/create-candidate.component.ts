@@ -42,6 +42,7 @@ export class CreateCandidateComponent implements OnInit {
   medizintechnikClass: String[] = ['1AHBG', '2AHBG', '3AHBG', '4AHBG', '5AHBG'];
   options: string[] = ['Elektronik', 'Informatik', 'Medientechnik', 'Medizintechnik'];
 
+
   constructor(httpService: HttpService) {
     this.httpService = httpService;
   }
@@ -65,14 +66,8 @@ export class CreateCandidateComponent implements OnInit {
     this.studentNew.electionPromise = this.sWahlversprechen;
     this.studentNew.image = this.sImage;
 
-    this.dataString = '"username" : ' + '"' + this.studentNew.username + '", ' + '"firstname" : ' + '"' + this.studentNew.firstname + '", '
-      + '"lastname" : ' + '"' + this.studentNew.lastname + '", ' + '"candidateClass" : ' + '"'
-      + this.studentNew.candidateClass + '", ' + '"electionPromise" : ' + '"' + this.studentNew.electionPromise + '", ' + '"image" : '
-      + '"' + this.studentNew.image + '"';
-
-    this.newStudent(this.dataString);
+    this.checkForm();
   }
-
 
   /*Abteilungen abspeichern*/
   getDepartment() {
@@ -93,10 +88,9 @@ export class CreateCandidateComponent implements OnInit {
     console.log(dataString);
   }
 
-
   /*File Upload*/
   onFileUpload(event) {
-    if (this.id == 's') {
+    if (this.id === 's') {
       this.selectedFileS = event.target.files[0];
       const reader = new FileReader();
       reader.onload = () => {
@@ -114,11 +108,31 @@ export class CreateCandidateComponent implements OnInit {
   }
 
   OnUploadFile(index) {
-    if (this.id == 's') {
-      //this.http.post('http://', this.selectedFileS).subscribe();
+    if (this.id === 's') {
+      /*this.http.post('http://', this.selectedFileS).subscribe();*/
     } else {
-      //this.http.post('http://', this.selectedFileA).subscribe();
+      /*this.http.post('http://', this.selectedFileA).subscribe();*/
     }
 
   }
+
+  checkForm() {
+    if (this.firstName === '') {
+      alert('Nicht alle Felder ausgefüllt!');
+    } else if (this.lastName === '') {
+      alert('Nicht alle Felder ausgefüllt!');
+    } else if (this.sDepartment === '') {
+      alert('Nicht alle Felder ausgefüllt!');
+    } else if (this.sClass === '') {
+      alert('Nicht alle Felder ausgefüllt!');
+    } else if (this.sMatrikelNr === '') {
+      alert('Nicht alle Felder ausgefüllt!');
+    } else if (this.sWahlversprechen === '') {
+      alert('Nicht alle Felder ausgefüllt!');
+    } else {
+      this.newStudent(this.studentNew);
+    }
+  }
+
+
 }
