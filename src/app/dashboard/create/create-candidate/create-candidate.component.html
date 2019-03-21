@@ -13,7 +13,7 @@
 
   <!--Vorname-->
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Vorname" [(ngModel)]="firstName">
+    <input matInput required placeholder="Vorname" [(ngModel)]="firstName">
   </mat-form-field>
 
   <br>
@@ -21,7 +21,7 @@
 
   <!--Nachname-->
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Nachname" [(ngModel)]="lastName">
+    <input matInput required placeholder="Nachname" [(ngModel)]="lastName">
   </mat-form-field>
 
   <br>
@@ -29,7 +29,7 @@
 
   <!--Choose Zweig-->
   <mat-form-field class="example-full-width">
-    <mat-select placeholder="Department" [(ngModel)]="sDepartment" (ngModelChange)="getDepartment()">
+    <mat-select required placeholder="Department" [(ngModel)]="sDepartment" (ngModelChange)="getDepartment()">
       <mat-option
         *ngFor="let option of options" [value]="option">
         {{option}}
@@ -41,7 +41,7 @@
 
   <!--Choose Klasse-->
   <mat-form-field>
-    <mat-select placeholder="Klasse" [(ngModel)]="sClass">
+    <mat-select required placeholder="Klasse" [(ngModel)]="sClass">
       <mat-option *ngFor="let class of classes" [value]="class">
         {{class}}
       </mat-option>
@@ -51,7 +51,7 @@
 
   <!--Matrikelnummer-->
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Matrikelnummer" [(ngModel)]="sMatrikelNr">
+    <input matInput required minlength="8" maxlength="8" placeholder="Matrikelnummer" [(ngModel)]="sMatrikelNr">
   </mat-form-field>
 
   <br>
@@ -62,7 +62,7 @@
 <!--write Wahlversprechen-->
 <div>
   <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
+    <textarea matInput required placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
   </mat-form-field>
 </div>
 

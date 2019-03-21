@@ -159,7 +159,7 @@ export class ElectionComponent implements OnInit {
       this.punkte[i].score = 0;
     }
 
-    /*location.reload();*/
+    location.reload();
 
   }
 }
