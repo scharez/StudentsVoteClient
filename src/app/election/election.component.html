@@ -1,9 +1,9 @@
-<mat-card class="mat-card" >
+<mat-card class="mat-card">
   <mat-card-header>
     <mat-card-title id="election_heading">Abstimmung</mat-card-title>
   </mat-card-header>
 
-  <mat-card-content class="contentCard" >
+  <mat-card-content class="contentCard" [style.height]="height">
 
     <!-- Schulsprecher Radio-Button Wahl -->
     <div id="kandidat_allinklusive">
@@ -23,7 +23,6 @@
       </div>
 
       <hr>
-
       <div class="kan1" *ngFor="let test of tests; let i = index">
         <a id="kandidaten_schulsprecher">{{test.vname}} {{test.nname}}</a>
 
@@ -39,8 +38,6 @@
         </div>
       </div>
     </div>
-
-
 
     <!--------------------------------------------->
 
@@ -74,7 +71,9 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-raised-button (click)="voteAgain()">Stimme abgeben</button>
+    <button mat-raised-button (click)="voteAgain()" id="abstimmen">Stimme abgeben</button>
   </mat-card-actions>
 
 </mat-card>
+<br>
+<br>

@@ -21,13 +21,14 @@ export class ElectionComponent implements OnInit {
     {'vname': 'Max', 'nname': 'Mustermann', 'id': 'it150145'},
     {'vname': 'Florentina', 'nname': 'Gruber', 'id': 'it160197'},
     {'vname': 'Melanie', 'nname': 'Leitner', 'id': 'it140159'},
+    {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it170137'},
+    {'vname': 'Florentina', 'nname': 'Gruber', 'id': 'it160197'},
+    {'vname': 'Melanie', 'nname': 'Leitner', 'id': 'it140159'},
     {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it170137'}];
 
   /*Array der Kandidaten für den Abteilungssprecher*/
   tests2: KandidatenEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150189'},
-    {'vname': 'Markus', 'nname': 'Berger', 'id': 'if130169'},
-    {'vname': 'Melanie', 'nname': 'Leitner', 'id': 'it140159'},
-    {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it170137'}];
+    {'vname': 'Markus', 'nname': 'Berger', 'id': 'if130169'}];
 
 
   /*Zum Vergleichen der Radio-Buttons*/
@@ -41,6 +42,11 @@ export class ElectionComponent implements OnInit {
   /*Json*/
   punkteString;
   punkteString2;
+
+  /*Kartenhöhe*/
+  länge = this.tests.length + this.tests2.length;
+  height: string = this.länge * 7.6 + 'em';
+  farbe = 'green';
 
 
   constructor(httpService: HttpService) {
@@ -56,7 +62,7 @@ export class ElectionComponent implements OnInit {
     for (let i = 0; i < this.tests2.length; i++) {
       this.punkte2.push({'id': this.tests2[i].id, 'score': 0});
     }
-    console.log(this.punkte, this.punkte2);
+    console.log(this.punkte, this.punkte2, this.height);
   }
 
   /*Schulsprecher nur 1 Radio-Button auswählen*/
@@ -100,8 +106,6 @@ export class ElectionComponent implements OnInit {
   }
 
 
-
-
   /* ID für Kandidaten für den Schulsprecher*/
   getKa(i: number) {
     return this.seletedValueOfRow[i];
@@ -121,7 +125,6 @@ export class ElectionComponent implements OnInit {
       }
     }
     this.seletedValueOfRowAb[getI] = val;
-
 
 
     /*Matrikelnummer und Punkte für den Server ohne doppelte Matrikelnummer holen für den Abteilungssprecher*/
