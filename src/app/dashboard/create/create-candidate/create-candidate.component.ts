@@ -17,6 +17,8 @@ export class CreateCandidateComponent implements OnInit {
   sWahlversprechen = '';
   sImage = '';
 
+  textTest: String;
+
   /*Schüler Array*/
   studentNew: Student = new Student();
   dataString: String = '';
@@ -67,6 +69,7 @@ export class CreateCandidateComponent implements OnInit {
     this.studentNew.image = this.sImage;
 
     this.checkForm();
+
   }
 
   /*Abteilungen abspeichern*/
@@ -86,6 +89,7 @@ export class CreateCandidateComponent implements OnInit {
   newStudent(dataString) {
     this.httpService.insert(dataString).subscribe();
     console.log(dataString);
+    console.log('yeah');
   }
 
   /*File Upload*/
@@ -129,9 +133,11 @@ export class CreateCandidateComponent implements OnInit {
       alert('Nicht alle Felder ausgefüllt!');
     } else if (this.sWahlversprechen === '') {
       alert('Nicht alle Felder ausgefüllt!');
-    } else if (this.sImage === '') {
-      alert('Bild hinzufügen!');
     } else {
+
+      /*prompt('Ok', 'test');*/
+
+
       this.newStudent(this.studentNew);
     }
   }
