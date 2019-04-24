@@ -93,6 +93,7 @@ export class CreateCandidateComponent implements OnInit {
   }
 
   /*File Upload*/
+  //https://stackoverflow.com/questions/47936183/angular-file-upload
   onFileUpload(event) {
     if (this.id === 's') {
       this.selectedFileS = event.target.files[0];
@@ -133,11 +134,9 @@ export class CreateCandidateComponent implements OnInit {
       alert('Nicht alle Felder ausgefüllt!');
     } else if (this.sWahlversprechen === '') {
       alert('Nicht alle Felder ausgefüllt!');
+    } else if (this.sImage === '') {
+      alert('Bild hinzufügen!');
     } else {
-
-      /*prompt('Ok', 'test');*/
-
-
       this.newStudent(this.studentNew);
     }
   }

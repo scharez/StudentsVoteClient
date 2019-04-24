@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
           break;
 
         case 'Candidates':
-          this.router.navigate(['']);
+          this.router.navigate(['info']);
           break;
 
         case 'ADMIN':

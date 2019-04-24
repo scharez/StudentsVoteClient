@@ -13,11 +13,14 @@ export class RoleguardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
 
-    const expectedRoles: string[] = route.data.expectedRole;
+    const expectedRoles: string[] = route.data.expectedRoles;
     const storage: AppStorage = JSON.parse(localStorage.getItem('user'));
 
-    if (!this.auth.isAuthenticated() || expectedRoles.indexOf(storage.role) === -1) {
+    alert(expectedRoles);
+
+    if (!this.auth.isAuthenticated() || (expectedRoles.indexOf(storage.role) < 0)) {
       this.router.navigate(['login']);
+
       return false;
     }
     return true;
