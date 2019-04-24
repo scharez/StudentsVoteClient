@@ -46,23 +46,77 @@ hr {
   visibility: hidden;
 }
 
-/*
 #schueler1 {
-  background: indigo;
+ /* background: indigo;*/
 }
 
 #schueler2 {
-  background: beige;
 }
 
 #schueler3 {
-  background: brown;
 }
 
 #schueler2 {
-  background: lightgreen;
-}*/
+}
+
+/*Dashboard Text auf Mat-Cards --------------------------------------------------------------------------------------*/
+.uploadedFile {
+  height: 160px;
+  width: auto;
+  float: right;
+  margin: 10% -6% auto auto;
+}
+
+.chooseFile {
+  margin: 2% 2% 2% auto;
+  float: right;
+  height: 60%;
+  width: auto;
+  padding: 1%;
+  font-size: 80%;
+}
+
+.schueler_text {
+  float: left;
+  margin: 0.2% auto auto auto;
+  padding-left: 5%;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
 
 
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  min-height: 190px;
+  max-height: 200px;
+  width: 95%;
+  float: left;
+  margin-left: 5%;
+  margin-bottom: 4%;
+}
 
+.example-full-width {
+  width: 100%;
+  max-height: 180px;
+}
 
+/*Dashboard Image auf Mat-Cards --------------------------------------------------------------------------------------*/
+
+/*Dashboard Send auf Mat-Cards --------------------------------------------------------------------------------------*/
+#send {
+  margin: auto;
+}
+
+.sendButton {
+  float: right;
+  margin-bottom: 0%;
+  position: sticky;
+}
