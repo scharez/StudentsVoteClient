@@ -4,6 +4,8 @@ import {forEachComment} from 'tslint';
 import {Student} from '../Student';
 import {KandidatenEingang} from '../KandidatenEingang';
 import {HttpService} from '../services/http.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {ChooseYourClassComponent} from './chooseYourClass';
 
 @Component({
   selector: 'app-election',
@@ -14,6 +16,10 @@ export class ElectionComponent implements OnInit {
 
   /* HttpService*/
   httpService: HttpService;
+
+  /* Pop-Up Window*/
+  dialog: MatDialog;
+  myClass: string;
 
   /*Array der Kandidaten für den Schulsprecher*/
   tests: KandidatenEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150189'},
@@ -49,13 +55,16 @@ export class ElectionComponent implements OnInit {
   farbe = 'green';
 
 
-  constructor(httpService: HttpService) {
-    this.httpService = httpService;
+  constructor(httpService: HttpService, dialog: MatDialog) {
+    this.httpService = httpService
+    this.dialog = dialog
   }
 
   ngOnInit() {
-    for (let i = 0; i < this.tests.length; i++) {
 
+    this.onFinished();
+
+    for (let i = 0; i < this.tests.length; i++) {
       this.punkte.push({'id': this.tests[i].id, 'score': 0});
       console.log(this.punkte[i]);
     }
@@ -64,6 +73,19 @@ export class ElectionComponent implements OnInit {
     }
     console.log(this.punkte, this.punkte2, this.height);
   }
+
+  onFinished(): void {
+    const dialogRef = this.dialog.open(ChooseYourClassComponent, {
+      width: '250px',
+      data: {name: this.myClass}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.myClass = result;
+    });
+  }
+
 
   /*Schulsprecher nur 1 Radio-Button auswählen*/
   getValue(getI: number, val: number) {
@@ -86,22 +108,6 @@ export class ElectionComponent implements OnInit {
         this.punkte[i].score = val;
       }
     }
-
-
-    /*if (this.punkte.length === 0) {
-      this.punkte.push(new Punkte(this.tests[getI].matrikelnummer, val));
-    } else {
-      for (let j = 0; j < this.punkte.length; j++) {
-        if (this.tests[getI].matrikelnummer === this.punkte[j].matrikelnummer) {
-          this.punkte[j].punkte = val;
-        }else if (this.tests[getI].matrikelnummer === this.punkte[j].matrikelnummer) {
-
-        } else {
-          this.punkte.push(new Punkte(this.tests[getI].matrikelnummer, val));
-        }
-      }
-    } */
-
     console.log(this.punkte);
   }
 
@@ -166,3 +172,4 @@ export class ElectionComponent implements OnInit {
 
   }
 }
+

@@ -32,19 +32,14 @@ hr {
 /*Dashboard Layout Mat-Cards --------------------------------------------------------------------------------------*/
 .mat-card {
   width: 30%;
-  height: 480px; /*************************AENDERN*/
+  min-height: 450px; /*************************AENDERN*/
   background-color: white;
   margin: 2% auto 4% 10%;
   float: left;
 }
 
 /*Dashboard Layout Mat-Cards einzelne Karten--------------------------------------------------------------------------------------*/
-#schueler0 {
-  padding: 80%;
-  float: left;
-  display: none;
-  visibility: hidden;
-}
+
 
 /*
 #schueler1 {

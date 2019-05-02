@@ -19,6 +19,7 @@ export class CreateCandidateComponent implements OnInit {
 
   textTest: String;
 
+
   /*Schüler Array*/
   studentNew: Student = new Student();
   dataString: String = '';
@@ -52,6 +53,7 @@ export class CreateCandidateComponent implements OnInit {
   ngOnInit() {
     this.dowloadStudents();
   }
+
 
   /*Herunterladen von schon eingetragenen Schülern*/
   dowloadStudents() {
@@ -141,6 +143,7 @@ export class CreateCandidateComponent implements OnInit {
       this.newStudent(this.studentNew);
     }
   }
+
 
 
 }

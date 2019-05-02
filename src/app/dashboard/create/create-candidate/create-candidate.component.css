@@ -16,9 +16,13 @@
 }
 
 .schueler_text {
-  float: left;
-  margin: 0.2% auto auto auto;
-  padding-left: 5%;
+  padding-top: 6%;
+}
+
+
+.alignData{
+  width: 80%;
+  margin: auto;
 }
 
 .example-container {
@@ -36,26 +40,25 @@
   max-width: 500px;
   min-height: 190px;
   max-height: 200px;
-  width: 95%;
-  float: left;
-  margin-left: 5%;
   margin-bottom: 4%;
 }
 
 .example-full-width {
-  width: 100%;
   max-height: 180px;
 }
+
+#selectFile{
+  margin: auto;
+}
+
+#uploadFile{
+  margin-left: 2%;
+}
+
 
 /*Dashboard Image auf Mat-Cards --------------------------------------------------------------------------------------*/
 
 /*Dashboard Send auf Mat-Cards ---------------------------------------------------------------------------------------*/
-#send {
-  margin: auto;
-}
-
 .sendButton {
-  float: right;
-  margin-bottom: 0%;
-  position: sticky;
+  margin-right: 2%;
 }

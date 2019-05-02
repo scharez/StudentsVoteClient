@@ -18,6 +18,7 @@ import {ProfilsettingsComponent} from './dashboard/profilsettings/profilsettings
 import {SideNavComponent} from './dashboard/side-nav/side-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {CreateCandidateComponent} from './dashboard/create/create-candidate/create-candidate.component';
+import {ChooseYourClassComponent} from './election/chooseYourClass';
 
 import {
   MatToolbarModule,
@@ -29,6 +30,8 @@ import {
   MatCardModule,
   MatMenuModule
 } from '@angular/material';
+
+import { TextareaAutosizeModule } from 'ngx-textarea-autosize';
 
 import {HomeComponent} from './dashboard/home/home.component';
 import {AuthService} from './services/auth.service';
@@ -49,7 +52,8 @@ import {RoleguardService} from './services/roleguard.service';
     SideNavComponent,
     HomeComponent,
     CreateCandidateComponent,
-    InfoComponent
+    InfoComponent,
+    ChooseYourClassComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,8 @@ import {RoleguardService} from './services/roleguard.service';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    TextareaAutosizeModule
   ],
   providers: [AuthService, AuthGuardService, RoleguardService, HttpService],
   bootstrap: [AppComponent]

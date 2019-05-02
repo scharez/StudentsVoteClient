@@ -1,18 +1,16 @@
 <div class="schueler_text">
   <!--Image Upload-->
-  {{i}}
+  <!--{{i}}-->
   <div class="image-preview">
     <img [src]="imagePreviewS" *ngIf="id === 's'">
     <img [src]="imagePreviewA" *ngIf="id === 'a'">
   </div>
 
   <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
-  <button (click)="selectFile.click()">Select File</button>
-  <button (click)="OnUploadFile(i)">Upload</button>
 
 
   <!--Vorname-->
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width" class="alignData">
     <input matInput required placeholder="Vorname" [(ngModel)]="firstName">
   </mat-form-field>
 
@@ -20,7 +18,7 @@
 
 
   <!--Nachname-->
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width" class="alignData">
     <input matInput required placeholder="Nachname" [(ngModel)]="lastName">
   </mat-form-field>
 
@@ -28,7 +26,7 @@
 
 
   <!--Choose Zweig-->
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width" class="alignData">
     <mat-select required placeholder="Department" [(ngModel)]="sDepartment" (ngModelChange)="getDepartment()">
       <mat-option
         *ngFor="let option of options" [value]="option">
@@ -40,7 +38,7 @@
   <br>
 
   <!--Choose Klasse-->
-  <mat-form-field>
+  <mat-form-field class="alignData">
     <mat-select required placeholder="Klasse" [(ngModel)]="sClass">
       <mat-option *ngFor="let class of classes" [value]="class">
         {{class}}
@@ -50,7 +48,7 @@
 
 
   <!--Matrikelnummer-->
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width" class="alignData">
     <input matInput required minlength="8" maxlength="8" placeholder="Matrikelnummer" [(ngModel)]="sMatrikelNr">
   </mat-form-field>
 
@@ -61,13 +59,21 @@
 
 <!--write Wahlversprechen-->
 <div>
-  <mat-form-field class="example-full-width">
-    <textarea matInput required placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
+  <mat-form-field class="example-full-width" class="alignData">
+    <textarea matInput autosize required placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
   </mat-form-field>
 </div>
 
+<br>
+
+<button mat-raised-button (click)="selectFile.click()" id="selectFile">Bild auswählen</button>
+<button mat-raised-button (click)="OnUploadFile(i)" id="uploadFile">Bild hochladen</button>
+
+<br>
+<br>
+<br>
 
 <!--Daten absenden-->
-<button mat-raised-button id="send" class="sendButton" (click)="addStudentValues()">hinzufügen</button>
+<button mat-raised-button id="send" class="sendButton" (click)="addStudentValues()">Kandidat speichern</button>
 
 
