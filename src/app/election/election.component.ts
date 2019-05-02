@@ -158,8 +158,8 @@ export class ElectionComponent implements OnInit {
     /*this.punkte.splice(0, 1);
     this.punkte2.splice(0, 1);*/
 
-    this.punkteString = JSON.stringify(this.punkte);
-    this.punkteString2 = JSON.stringify(this.punkte2);
+    // this.punkteString = JSON.stringify();
+    // this.punkteString2 = JSON.stringify();
 
     this.httpService.sendPoints(this.punkte).subscribe();
     this.httpService.sendPoints(this.punkte2).subscribe();
@@ -175,7 +175,7 @@ export class ElectionComponent implements OnInit {
   }
 
   instanceMEDT() {
-    this.httpService.instanceCVs("4AHITM").subscribe();
+    this.httpService.instanceCVs('4AHITM').subscribe();
   }
 
   perstistCVs() {
