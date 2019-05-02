@@ -33,8 +33,10 @@ export class ElectionComponent implements OnInit {
     {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it170137'}];
 
   /*Array der Kandidaten für den Abteilungssprecher*/
-  tests2: KandidatenEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150189'},
-    {'vname': 'Markus', 'nname': 'Berger', 'id': 'if130169'}];
+  tests2: KandidatenEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150190'},
+    {'vname': 'Markus', 'nname': 'Berger', 'id': 'it150191'},
+    {'vname': 'Melanie', 'nname': 'Leitner', 'id': 'it150192'},
+    {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it150193'}];
 
 
   /*Zum Vergleichen der Radio-Buttons*/
@@ -112,6 +114,8 @@ export class ElectionComponent implements OnInit {
   }
 
 
+
+
   /* ID für Kandidaten für den Schulsprecher*/
   getKa(i: number) {
     return this.seletedValueOfRow[i];
@@ -133,6 +137,7 @@ export class ElectionComponent implements OnInit {
     this.seletedValueOfRowAb[getI] = val;
 
 
+
     /*Matrikelnummer und Punkte für den Server ohne doppelte Matrikelnummer holen für den Abteilungssprecher*/
     for (let i = 0; i < this.punkte2.length; i++) {
       if (this.punkte2[i].id === this.punkte2[getI].id) {
@@ -152,15 +157,18 @@ export class ElectionComponent implements OnInit {
 
 
   voteAgain() {
+    /*for ( var k : number = 0; k < this.punkte.length; k++) {
+      alert(this.punkte[k].id + " has " + this.punkte[k].score + " points");
+    }*/
     /*Daten an Server schicken    daten -> this.punkte[j]*/
     /*this.punkte.splice(0, 1);
     this.punkte2.splice(0, 1);*/
 
-    this.punkteString = JSON.stringify(this.punkte);
-    this.punkteString2 = JSON.stringify(this.punkte2);
+    // this.punkteString = JSON.stringify();
+    // this.punkteString2 = JSON.stringify();
 
-    this.httpService.sendPoints(this.punkteString).subscribe();
-    this.httpService.sendPoints(this.punkteString2).subscribe();
+    this.httpService.sendPoints(this.punkte).subscribe();
+    this.httpService.sendPoints(this.punkte2).subscribe();
 
     console.log(this.punkteString, this.punkte2);
 
@@ -170,6 +178,18 @@ export class ElectionComponent implements OnInit {
 
     location.reload();
 
+  }
+
+  instanceMEDT() {
+    this.httpService.instanceCVs('4AHITM').subscribe();
+  }
+
+  perstistCVs() {
+    this.httpService.persistCVs().subscribe();
+  }
+
+  endElection() {
+    this.httpService.endElection().subscribe();
   }
 }
 
