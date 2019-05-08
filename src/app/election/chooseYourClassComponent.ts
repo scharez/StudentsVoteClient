@@ -28,10 +28,8 @@ export class ChooseYourClassComponent {
 
 
   onClick() {
-    console.log(this.sClass);
     if (this.sClass === '') {
       location.reload();
-      console.log("ich war hier");
     } else {
       this.dialogRef.close();
     }
