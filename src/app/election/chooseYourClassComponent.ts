@@ -22,6 +22,11 @@ export class ChooseYourClassComponent {
   onNoClick(): void {
     this.dialogRef.close();
     this.router.navigate(['login']);
+
+
+
+
+
   }
 
 }
