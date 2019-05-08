@@ -5,7 +5,7 @@ import {Student} from '../Student';
 import {KandidatenEingang} from '../KandidatenEingang';
 import {HttpService} from '../services/http.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {ChooseYourClassComponent} from './chooseYourClass';
+import {ChooseYourClassComponent} from './chooseYourClassComponent';
 
 @Component({
   selector: 'app-election',
@@ -193,3 +193,21 @@ export class ElectionComponent implements OnInit {
   }
 }
 
+
+
+
+/*@Component({
+  selector: 'app-election',
+  templateUrl: 'chooseYourClass.html',
+})
+export class ChooseYourClassComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<ChooseYourClassComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: ClassData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}*/

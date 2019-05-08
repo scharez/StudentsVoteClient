@@ -18,7 +18,7 @@ import {ProfilsettingsComponent} from './dashboard/profilsettings/profilsettings
 import {SideNavComponent} from './dashboard/side-nav/side-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {CreateCandidateComponent} from './dashboard/create/create-candidate/create-candidate.component';
-import {ChooseYourClassComponent} from './election/chooseYourClass';
+import {ChooseYourClassComponent} from './election/chooseYourClassComponent';
 
 import {
   MatToolbarModule,
@@ -73,6 +73,9 @@ import {JwtHelperService} from '@auth0/angular-jwt';
     MatMenuModule,
     HttpClientModule,
     TextareaAutosizeModule
+  ],
+  entryComponents:[
+    ChooseYourClassComponent
   ],
   providers: [AuthService, AuthGuardService, RoleguardService, HttpService],
   bootstrap: [AppComponent]

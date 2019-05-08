@@ -15,9 +15,9 @@ import {AuthService} from '../services/auth.service';
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'election', component: ElectionComponent, canActivate: [RoleguardService], data: {expectedRoles: ['ADMIN', 'Teacher']}},
-  {path: 'info', component: InfoComponent, canActivate: [AuthGuardService]},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [RoleguardService],
+  {path: 'election', component: ElectionComponent, /*canActivate: [RoleguardService], data: {expectedRoles: ['ADMIN', 'Teacher']}*/},
+  {path: 'info', component: InfoComponent, /*canActivate: [AuthGuardService]*/},
+  {path: 'dashboard', component: DashboardComponent /*canActivate: [RoleguardService]*/,
     data: {
       expectedRoles: ['ADMIN']
     },
