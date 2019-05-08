@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <mat-form-field class="alignData">
     <mat-select required placeholder="Klasse" [(ngModel)]="sClass">
-      <mat-option *ngFor="let class of classes" [value]="class">
+      <mat-option required *ngFor="let class of classes" [value]=class>
         {{class}}
       </mat-option>
     </mat-select>
@@ -10,5 +10,5 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Abbrechen</button>
-  <button mat-button [mat-dialog-close]="data.myClass" cdkFocusInitial>Weiter</button>
+  <button mat-button (click)="onClick()" [mat-dialog-close]="data.myClass" cdkFocusInitial>Weiter</button>
 </div>
