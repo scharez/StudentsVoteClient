@@ -16,31 +16,31 @@ export class HttpService {
   }
 
   loginCheck(user: User) {
-    return this.http.post('http://ab265e2f.ngrok.io/rest/sv/login', user);
+    return this.http.post('http://localhost/rest/sv/login', user);
   }
 
   insert(dataString: Student) {
-    return this.http.post('http://ab265e2f.ngrok.io/rest/sv/setCandidate', dataString);
+    return this.http.post('http://localhost/rest/sv/setCandidate', dataString);
   }
 
   sendPoints(punkteString: Punkte[]) {
-    return this.http.post('http://ab265e2f.ngrok.io/rest/sv/parseJson', punkteString);
+    return this.http.post('http://localhost/rest/sv/parseJson', punkteString);
   }
 
   getCandidate() {
-    return this.http.get('http://ab265e2f.ngrok.io/rest/sv/getFullCandidate', {responseType: Student});
+    return this.http.get('http://localhost/rest/sv/getFullCandidate', {responseType: Student});
   }
 
   instanceCVs(itsaclass: string) {
-    return this.http.post('http://ab265e2f.ngrok.io/rest/sv/instanceCVs', itsaclass);
+    return this.http.post('http://localhost/rest/sv/instanceCVs', itsaclass);
   }
 
   persistCVs() {
-    return this.http.post('http://ab265e2f.ngrok.io/rest/sv/persistCVs');
+    return this.http.post('http://localhost/rest/sv/persistCVs');
   }
 
   endElection() {
-    return this.http.post('http://ab265e2f.ngrok.io/rest/sv/endElection');
+    return this.http.post('http://localhost/rest/sv/endElection');
   }
 
 }
