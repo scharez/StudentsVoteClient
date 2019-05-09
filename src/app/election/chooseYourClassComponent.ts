@@ -2,22 +2,31 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {ClassData} from '../ClassData';
 import {Router} from '@angular/router';
+import {DataService} from '../services/data.service';
 
 @Component({
   selector: 'app-election',
   templateUrl: 'chooseYourClass.html',
 })
-export class ChooseYourClassComponent {
+export class ChooseYourClassComponent implements OnInit{
 
   classes: string[] = ['1AHITM', '1BHITM', '2AHITM', '2BHITM', '3AHITM', '3BHITM', '4AHTIM', '4BHITM', '5AHITM'];
   sClass: String = '';
 
+
   constructor(
     public dialogRef: MatDialogRef<ChooseYourClassComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ClassData,
-    private router: Router
+    private router: Router,
+    private dataService: DataService
   ) {
-    dialogRef.disableClose = true;
+
+    this.dialogRef.disableClose = true;
+
+  }
+
+  ngOnInit(): void {
+
   }
 
   onNoClick(): void {
@@ -28,11 +37,19 @@ export class ChooseYourClassComponent {
 
 
   onClick() {
-    if (this.sClass === '') {
-      location.reload();
-    } else {
-      this.dialogRef.close();
-    }
+    console.log('dialog: ' + this.dataService.showDialog);
+      if (this.sClass === '') {
+        location.reload();
+        localStorage.setItem('showDialog', 'true');
+      } else {
+        this.dialogRef.close();
+        this.dataService.showDialog = false;
+        localStorage.setItem('showDialog', 'false');
+        console.log('dialog: ' + this.dataService.showDialog);
+
+      }
   }
+
+
 
 }

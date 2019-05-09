@@ -6,6 +6,7 @@ import {KandidatenEingang} from '../KandidatenEingang';
 import {HttpService} from '../services/http.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {ChooseYourClassComponent} from './chooseYourClassComponent';
+import {DataService} from '../services/data.service';
 
 @Component({
   selector: 'app-election',
@@ -57,9 +58,9 @@ export class ElectionComponent implements OnInit {
   farbe = 'green';
 
 
-  constructor(httpService: HttpService, dialog: MatDialog) {
-    this.httpService = httpService
-    this.dialog = dialog
+  constructor(httpService: HttpService, dialog: MatDialog, private dataService: DataService) {
+    this.httpService = httpService;
+    this.dialog = dialog;
   }
 
   ngOnInit() {
@@ -77,15 +78,18 @@ export class ElectionComponent implements OnInit {
   }
 
   onFinished(): void {
-    const dialogRef = this.dialog.open(ChooseYourClassComponent, {
-      width: '250px',
-      data: {name: this.myClass}
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.myClass = result;
-    });
+    if (localStorage.getItem('showDialog') === 'true') {
+      const dialogRef = this.dialog.open(ChooseYourClassComponent, {
+        width: '250px',
+        data: {name: this.myClass}
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.myClass = result;
+      });
+    }
   }
 
 
@@ -114,8 +118,6 @@ export class ElectionComponent implements OnInit {
   }
 
 
-
-
   /* ID für Kandidaten für den Schulsprecher*/
   getKa(i: number) {
     return this.seletedValueOfRow[i];
@@ -135,7 +137,6 @@ export class ElectionComponent implements OnInit {
       }
     }
     this.seletedValueOfRowAb[getI] = val;
-
 
 
     /*Matrikelnummer und Punkte für den Server ohne doppelte Matrikelnummer holen für den Abteilungssprecher*/
@@ -192,8 +193,6 @@ export class ElectionComponent implements OnInit {
     this.httpService.endElection().subscribe();
   }
 }
-
-
 
 
 /*@Component({
