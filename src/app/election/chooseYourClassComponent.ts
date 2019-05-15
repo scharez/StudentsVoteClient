@@ -8,7 +8,7 @@ import {DataService} from '../services/data.service';
   selector: 'app-election',
   templateUrl: 'chooseYourClass.html',
 })
-export class ChooseYourClassComponent implements OnInit{
+export class ChooseYourClassComponent implements OnInit {
 
   classes: string[] = ['1AHITM', '1BHITM', '2AHITM', '2BHITM', '3AHITM', '3BHITM', '4AHTIM', '4BHITM', '5AHITM'];
   sClass: String = '';
@@ -37,16 +37,12 @@ export class ChooseYourClassComponent implements OnInit{
 
 
   onClick() {
-    console.log('dialog: ' + this.dataService.showDialog);
       if (this.sClass === '') {
         location.reload();
         localStorage.setItem('showDialog', 'true');
       } else {
         this.dialogRef.close();
-        this.dataService.showDialog = false;
         localStorage.setItem('showDialog', 'false');
-        console.log('dialog: ' + this.dataService.showDialog);
-
       }
   }
 

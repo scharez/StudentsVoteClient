@@ -78,8 +78,7 @@ export class ElectionComponent implements OnInit {
   }
 
   onFinished(): void {
-
-    if (localStorage.getItem('showDialog') === 'true') {
+    // if (localStorage.getItem('showDialog') === 'true') {
       const dialogRef = this.dialog.open(ChooseYourClassComponent, {
         width: '250px',
         data: {name: this.myClass}
@@ -89,7 +88,7 @@ export class ElectionComponent implements OnInit {
         console.log('The dialog was closed');
         this.myClass = result;
       });
-    }
+    // }
   }
 
 

@@ -14,17 +14,15 @@ export class HomeComponent {
       if (matches) {
         return [
           { title: 'Stimmenverteilung', cols: 1, rows: 1 },
-          { title: 'Klassen', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
+          { title: 'Elect-Settings', cols: 1, rows: 1 },
+          { title: 'Card 3', cols: 1, rows: 1 }
         ];
       }
 
       return [
         { title: 'Stimmenverteilung', cols: 2, rows: 1 },
-        { title: 'Klassen', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
+        { title: 'Elect-Settings', cols: 1, rows: 1 },
+        { title: 'Card 3', cols: 1, rows: 2 }
       ];
     })
   );

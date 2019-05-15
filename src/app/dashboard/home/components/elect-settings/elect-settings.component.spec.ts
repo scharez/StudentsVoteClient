@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ElectComponent } from './elect.component';
+import { ElectSettingsComponent } from './elect-settings.component';
 
-describe('ElectComponent', () => {
-  let component: ElectComponent;
-  let fixture: ComponentFixture<ElectComponent>;
+describe('ElectSettingsComponent', () => {
+  let component: ElectSettingsComponent;
+  let fixture: ComponentFixture<ElectSettingsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ElectComponent ]
+      declarations: [ ElectSettingsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ElectComponent);
+    fixture = TestBed.createComponent(ElectSettingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
