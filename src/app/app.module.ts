@@ -37,6 +37,7 @@ import {AuthGuardService} from './services/auth-guard.service';
 import {RoleguardService} from './services/roleguard.service';
 import { ElectSettingsComponent } from './dashboard/home/components/elect-settings/elect-settings.component';
 import {ChooseYourClassComponent} from './election/chooseYourClassComponent';
+import { VotingresultsComponent } from './dashboard/home/components/votingresults/votingresults.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {ChooseYourClassComponent} from './election/chooseYourClassComponent';
     CreateCandidateComponent,
     InfoComponent,
     ElectSettingsComponent,
-    ChooseYourClassComponent
+    ChooseYourClassComponent,
+    VotingresultsComponent
   ],
   imports: [
     BrowserModule,

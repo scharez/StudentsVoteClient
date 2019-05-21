@@ -27,7 +27,7 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString);
   }
 
-  getCandidate() {
+  getCandidate() {                                                          // what is this shit doing
     return this.http.get('http://localhost:8080/rest/sv/getFullCandidate', {responseType: Student});
   }
 
@@ -41,6 +41,10 @@ export class HttpService {
 
   endElection() {
     return this.http.post('http://localhost:8080/rest/sv/endElection');
+  }
+
+  getCVs() {
+    return this.http.get('http://localhost:8080/rest/sv/getCVs');
   }
 
 }
