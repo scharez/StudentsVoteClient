@@ -28,9 +28,6 @@ export class ElectionComponent implements OnInit {
     {'vname': 'Max', 'nname': 'Mustermann', 'id': 'it150145'},
     {'vname': 'Florentina', 'nname': 'Gruber', 'id': 'it160197'},
     {'vname': 'Melanie', 'nname': 'Leitner', 'id': 'it140159'},
-    {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it170137'},
-    {'vname': 'Florentina', 'nname': 'Gruber', 'id': 'it160197'},
-    {'vname': 'Melanie', 'nname': 'Leitner', 'id': 'it140159'},
     {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it170137'}];
 
   /*Array der Kandidaten für den Abteilungssprecher*/
@@ -92,7 +89,7 @@ export class ElectionComponent implements OnInit {
   }
 
 
-  /*Schulsprecher nur 1 Radio-Button auswählen*/
+/*Schulsprecher nur 1 Radio-Button auswählen*/
   getValue(getI: number, val: number) {
     for (let i = 0; i < this.seletedValueOfRow.length; i++) {
       if (this.seletedValueOfRow[i] === val) {
