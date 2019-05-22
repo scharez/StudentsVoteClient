@@ -72,24 +72,33 @@ export class ElectionComponent implements OnInit {
       this.punkte2.push({'id': this.tests2[i].id, 'score': 0});
     }
     console.log(this.punkte, this.punkte2, this.height);
+
+
+    // Kandidaten herunterladen
+    
   }
 
+  // Pop-Up fenster zur Klassen auswahl
   onFinished(): void {
     // if (localStorage.getItem('showDialog') === 'true') {
-      const dialogRef = this.dialog.open(ChooseYourClassComponent, {
-        width: '250px',
-        data: {name: this.myClass}
-      });
+    const dialogRef = this.dialog.open(ChooseYourClassComponent, {
+      width: '250px',
+      data: {name: this.myClass}
+    });
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-        this.myClass = result;
-      });
-    // }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.myClass = result;
+    });
+
+  }
+
+  downloadStudents() {
+    this.httpService.getCandidate().subscribe();
   }
 
 
-/*Schulsprecher nur 1 Radio-Button auswählen*/
+  /*Schulsprecher nur 1 Radio-Button auswählen*/
   getValue(getI: number, val: number) {
     for (let i = 0; i < this.seletedValueOfRow.length; i++) {
       if (this.seletedValueOfRow[i] === val) {
@@ -173,7 +182,7 @@ export class ElectionComponent implements OnInit {
       this.punkte[i].score = 0;
     }
 
-    location.reload();
+    this.resetData();
 
   }
 
@@ -188,8 +197,15 @@ export class ElectionComponent implements OnInit {
   endElection() {
     this.httpService.endElection().subscribe();
   }
-}
 
+  // reseting the Radio Button Data
+  resetData() {
+    for (let i = 0; i < this.punkte.length; i++) {
+      this.punkte[i].score = 0;
+      this.seletedValueOfRow[i] = 0;
+    }
+  }
+}
 
 /*@Component({
   selector: 'app-election',

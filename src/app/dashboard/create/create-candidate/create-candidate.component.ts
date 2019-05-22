@@ -96,7 +96,7 @@ export class CreateCandidateComponent implements OnInit {
   }
 
   /*File Upload*/
-  //https://stackoverflow.com/questions/47936183/angular-file-upload
+  // https://stackoverflow.com/questions/47936183/angular-file-upload
   onFileUpload(event) {
     if (this.id === 's') {
       this.selectedFileS = event.target.files[0];
