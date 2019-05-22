@@ -57,7 +57,7 @@ export class CreateCandidateComponent implements OnInit {
 
   /*Herunterladen von schon eingetragenen Schülern*/
   dowloadStudents() {
-    this.httpService.getCandidate().subscribe();
+    this.httpService.getCandidates().subscribe();
   }
 
   /*Schüler wird mit seinen Daten in Array gespeichert*/

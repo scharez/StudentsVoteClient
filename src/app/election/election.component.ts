@@ -23,18 +23,11 @@ export class ElectionComponent implements OnInit {
   myClass: string;
 
   /*Array der Kandidaten für den Schulsprecher*/
-  tests: KandidatenEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150189'},
-    {'vname': 'Markus', 'nname': 'Berger', 'id': 'if130169'},
-    {'vname': 'Max', 'nname': 'Mustermann', 'id': 'it150145'},
-    {'vname': 'Florentina', 'nname': 'Gruber', 'id': 'it160197'},
-    {'vname': 'Melanie', 'nname': 'Leitner', 'id': 'it140159'},
-    {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it170137'}];
+  candidatesS: KandidatenEingang[] = [];
+
 
   /*Array der Kandidaten für den Abteilungssprecher*/
-  tests2: KandidatenEingang[] = [{'vname': 'Martin', 'nname': 'Mayr', 'id': 'it150190'},
-    {'vname': 'Markus', 'nname': 'Berger', 'id': 'it150191'},
-    {'vname': 'Melanie', 'nname': 'Leitner', 'id': 'it150192'},
-    {'vname': 'Ernst', 'nname': 'Lutzky', 'id': 'it150193'}];
+  candidatesA: KandidatenEingang[] = [];
 
 
   /*Zum Vergleichen der Radio-Buttons*/
@@ -49,8 +42,13 @@ export class ElectionComponent implements OnInit {
   punkteString;
   punkteString2;
 
+
+  res: string;
+  countS: number = 0;
+  countA: number = 0;
+
   /*Kartenhöhe*/
-  länge = this.tests.length + this.tests2.length;
+  länge = this.candidatesS.length + this.candidatesA.length;
   height: string = this.länge * 7.6 + 'em';
   farbe = 'green';
 
@@ -58,24 +56,49 @@ export class ElectionComponent implements OnInit {
   constructor(httpService: HttpService, dialog: MatDialog, private dataService: DataService) {
     this.httpService = httpService;
     this.dialog = dialog;
+    /*this.httpService.getCandidates().subscribe((res) => this.putCandidates(res));*/
+    this.res = '[{\"id\":1,\"username\":\"s1\",\"firstname\":\"1\",\"lastname\":\"1\",\"candidateClass\":\"1\",\"department\":\"1\",\"picture\":null,\"electionPromise\":\"1\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":3,\"username\":\"s2\",\"firstname\":\"2\",\"lastname\":\"2\",\"candidateClass\":\"2\",\"department\":\"2\",\"picture\":null,\"electionPromise\":\"2\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":5,\"username\":\"s3\",\"firstname\":\"3\",\"lastname\":\"3\",\"candidateClass\":\"3\",\"department\":\"3\",\"picture\":null,\"electionPromise\":\"3\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":7,\"username\":\"s4\",\"firstname\":\"4\",\"lastname\":\"4\",\"candidateClass\":\"4\",\"department\":\"4\",\"picture\":null,\"electionPromise\":\"4\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":9,\"username\":\"s5\",\"firstname\":\"5\",\"lastname\":\"5\",\"candidateClass\":\"5\",\"department\":\"5\",\"picture\":null,\"electionPromise\":\"5\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":11,\"username\":\"s6\",\"firstname\":\"6\",\"lastname\":\"6\",\"candidateClass\":\"6\",\"department\":\"6\",\"picture\":null,\"electionPromise\":\"6\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":13,\"username\":\"a1\",\"firstname\":\"1\",\"lastname\":\"1\",\"candidateClass\":\"1\",\"department\":\"1\",\"picture\":null,\"electionPromise\":\"1\",\"position\":\"a\",\"candicateVotes\":[]},{\"id\":15,\"username\":\"a2\",\"firstname\":\"2\",\"lastname\":\"2\",\"candidateClass\":\"2\",\"department\":\"2\",\"picture\":null,\"electionPromise\":\"2\",\"position\":\"a\",\"candicateVotes\":[]},{\"id\":17,\"username\":\"a3\",\"firstname\":\"3\",\"lastname\":\"3\",\"candidateClass\":\"3\",\"department\":\"3\",\"picture\":null,\"electionPromise\":\"3\",\"position\":\"a\",\"candicateVotes\":[]},{\"id\":19,\"username\":\"a4\",\"firstname\":\"4\",\"lastname\":\"4\",\"candidateClass\":\"4\",\"department\":\"4\",\"picture\":null,\"electionPromise\":\"4\",\"position\":\"a\",\"candicateVotes\":[]}]';
+    this.putCandidates(this.res);
+
+
   }
+
 
   ngOnInit() {
 
     this.onFinished();
 
-    for (let i = 0; i < this.tests.length; i++) {
-      this.punkte.push({'id': this.tests[i].id, 'score': 0});
+    for (let i = 0; i < this.candidatesS.length; i++) {
+      this.punkte.push({'id': this.candidatesS[i].id, 'score': 0});
       console.log(this.punkte[i]);
     }
-    for (let i = 0; i < this.tests2.length; i++) {
-      this.punkte2.push({'id': this.tests2[i].id, 'score': 0});
+    for (let i = 0; i < this.candidatesA.length; i++) {
+      this.punkte2.push({'id': this.candidatesA[i].id, 'score': 0});
     }
     console.log(this.punkte, this.punkte2, this.height);
 
 
     // Kandidaten herunterladen
-    
+  }
+
+
+  putCandidates(res: string) {
+
+    JSON.parse(res).forEach(item => {
+      console.log(item.firstname);
+      if (item.position === 's') {
+
+        this.candidatesS[this.countS] = {'vname': item.firstname, 'nname': item.lastname, 'id': item.username};
+        this.countS++;
+
+      } else {
+
+        this.candidatesA[this.countA] = {'vname': item.firstname, 'nname': item.lastname, 'id': item.username};
+        this.countA++;
+
+      }
+    });
+
   }
 
   // Pop-Up fenster zur Klassen auswahl
@@ -93,10 +116,6 @@ export class ElectionComponent implements OnInit {
 
   }
 
-  downloadStudents() {
-    this.httpService.getCandidate().subscribe();
-  }
-
 
   /*Schulsprecher nur 1 Radio-Button auswählen*/
   getValue(getI: number, val: number) {
@@ -104,7 +123,7 @@ export class ElectionComponent implements OnInit {
       if (this.seletedValueOfRow[i] === val) {
         this.seletedValueOfRow[i] = 0;
       }
-    } 
+    }
     this.seletedValueOfRow[getI] = val;
 
 

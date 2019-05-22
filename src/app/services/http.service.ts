@@ -27,8 +27,8 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString);
   }
 
-  getCandidate() {                                                          // what is this shit doing
-    return this.http.get('http://localhost:8080/rest/sv/getFullCandidate', {responseType: Student});
+  getCandidates() {                  // what is this shit doing
+    return this.http.get('http://localhost:8080/rest/sv/getCandidates', {responseType: String});
   }
 
   instanceCVs(itsaclass: string) {
