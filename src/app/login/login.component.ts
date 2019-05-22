@@ -70,6 +70,11 @@ export class LoginComponent implements OnInit {
     }
 
   }
+
+  justgetin(){
+    this.router.navigate(['dashboard']);
+  }
+
   ngOnInit() {
 
   }

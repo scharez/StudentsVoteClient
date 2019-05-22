@@ -11,6 +11,7 @@ import {InfoComponent} from '../info/info.component';
 import {AuthGuardService} from '../services/auth-guard.service';
 import {AuthService} from '../services/auth.service';
 import {ElectSettingsComponent} from '../dashboard/home/components/elect-settings/elect-settings.component';
+import {VotingresultsComponent} from '../dashboard/home/components/votingresults/votingresults.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -23,11 +24,12 @@ const routes: Routes = [
     } , */
     children: [
     { path: 'home', component: HomeComponent, children: [
-        {path: 'electsettings', component: ElectSettingsComponent}
+        {path: 'electsettings', component: ElectSettingsComponent},
+        {path: 'votingresults', component: VotingresultsComponent}
       ]},
     { path: 'create', component: CreateComponent},
-    { path: 'profilsettings', component: ProfilsettingsComponent},
-    {path: '**', redirectTo: 'home', pathMatch: 'full'}
+    { path: 'profilsettings', component: ProfilsettingsComponent}//,
+    //{path: '**', redirectTo: 'home', pathMatch: 'full'}
     ]}
 ];
 

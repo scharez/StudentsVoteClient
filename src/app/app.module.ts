@@ -19,6 +19,7 @@ import {SideNavComponent} from './dashboard/side-nav/side-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {CreateCandidateComponent} from './dashboard/create/create-candidate/create-candidate.component';
 import {ChooseYourClassComponent} from './election/chooseYourClassComponent';
+import {VotingresultsComponent} from '../app/dashboard/home/components/votingresults/votingresults.component';
 
 import {
   MatToolbarModule,
@@ -53,7 +54,8 @@ import {RoleguardService} from './services/roleguard.service';
     CreateCandidateComponent,
     InfoComponent,
     ChooseYourClassComponent,
-    ElectSettingsComponent
+    ElectSettingsComponent,
+    VotingresultsComponent
   ],
   imports: [
     BrowserModule,
