@@ -7,7 +7,7 @@ import {HttpService} from '../services/http.service';
 
 @Component({
   selector: 'app-election',
-  templateUrl: 'chooseYourClass.html',
+  templateUrl: 'chooseYourClassComponent.html',
 })
 export class ChooseYourClassComponent implements OnInit {
 
