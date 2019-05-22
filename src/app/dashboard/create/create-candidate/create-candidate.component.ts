@@ -18,7 +18,7 @@ export class CreateCandidateComponent implements OnInit {
   sImage = '';
 
   textTest: String;
-
+  ret: string
 
   /*Schüler Array*/
   studentNew: Student = new Student();
@@ -90,8 +90,11 @@ export class CreateCandidateComponent implements OnInit {
 
   /*Sending Student to the Server with all the right Data*/
   newStudent(dataString) {
-    this.httpService.insert(dataString).subscribe();
+    /*this.httpService.getCandidates().subscribe((res) => this.putCandidates(res));*/
+
+    this.httpService.setCandidate(dataString).subscribe((this.ret));
     console.log(dataString);
+    console.log(this.ret);
     console.log('yeah');
   }
 
