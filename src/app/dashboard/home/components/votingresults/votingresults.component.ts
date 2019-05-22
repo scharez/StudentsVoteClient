@@ -16,6 +16,9 @@ import {forEach} from '@angular/router/src/utils/collection';
 export class VotingresultsComponent implements OnInit {
 
   @ViewChild('chart')   chartLineElementRef: ElementRef;
+  @ViewChild('chart1')   chartLineElementRef1: ElementRef;
+  @ViewChild('chart2')   chartLineElementRef2: ElementRef;
+  @ViewChild('chart3')   chartLineElementRef3: ElementRef;
 
   p = new Points();
   f = new First();
@@ -25,25 +28,21 @@ export class VotingresultsComponent implements OnInit {
   firsts = new Array<First>();
   pointsa = new Array<Points_AS>();
   firstsa = new Array<First_AS>();
+  classes = new Array<String>();
 
   private httpService: HttpService;
 
   PieChart;
-  type = 'bar';
-  options = {
-    // Boolean - whether or not the chart should be responsive and resize when the browser does.
-
-    responsive: true,
-
-    // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-
-    maintainAspectRatio: false,
-  };
+  PieChart1;
+  PieChart2;
+  PieChart3;
 
   context_ratio = null;
+  context_ratio1 = null;
+  context_ratio2 = null;
+  context_ratio3 = null;
   // tslint:disable-next-line:max-line-length
-  inputString = '[{"1":6,"2":1,"3":1,"4":1,"5":0,"6":0}, {"1":1,"2":0,"3":0,"4":0,"5":0,"6":0}, {"7":2,"8":1,"9":0,"10":0}, {"7":1,"8":0,"9":0,"10":0}, {"4AHTIM":0}]';
-    i = 0;
+  inputString = '[{"1":6,"2":1,"3":1,"4":1,"5":0,"6":0}, {"1":1,"2":0,"3":0,"4":0,"5":0,"6":0}, {"7":2,"8":1,"9":0,"10":0}, {"7":1,"8":0,"9":0,"10":0}, {"4AHTIM":0,"4BHTIM":0,"3AHTIM":0,"3BHTIM":0}]';
   input;
   studentname;
   position = -2;
@@ -56,6 +55,9 @@ export class VotingresultsComponent implements OnInit {
 
   ngOnInit() {
     this.context_ratio = this.chartLineElementRef.nativeElement;
+    this.context_ratio1 = this.chartLineElementRef1.nativeElement;
+    this.context_ratio2 = this.chartLineElementRef2.nativeElement;
+    this.context_ratio3 = this.chartLineElementRef3.nativeElement;
     this.drawRatioChart();
 
     // this.openHttpService();
@@ -103,11 +105,11 @@ export class VotingresultsComponent implements OnInit {
               this.f = new First();
             } else if(j == 2) {
               this.pa.score = this.input[j][this.studentname];
-              this.pointsa.push(this.p);
+              this.pointsa.push(this.pa);
               this.pa = new Points_AS();
             } else if(j == 3) {
               this.fa.score = this.input[j][this.studentname];
-              this.firstsa.push(this.f);
+              this.firstsa.push(this.fa);
               this.fa = new First_AS();
             }
           }
@@ -115,45 +117,70 @@ export class VotingresultsComponent implements OnInit {
 
           this.position = JSON.stringify(this.input[j]).search('"');
           //alert('Position: ' + this.position);
-          this.setstudentname(JSON.stringify(this.input[j]), 1);
-          //alert('Student: ' + this.studentname);
-          if(j == 0){
-            this.p.name = this.studentname;
-          } else if(j == 1) {
-            this.f.name = this.studentname;
-          } else if(j == 2) {
-            this.pa.name = this.studentname;
-          } else if(j == 3) {
-            this.fa.name = this.studentname;
+          if(this.position != -1) {
+            this.setstudentname(JSON.stringify(this.input[j]), 1);
+            //alert('Student: ' + this.studentname);
+            if (j == 0) {
+              this.p.name = this.studentname;
+            } else if (j == 1) {
+              this.f.name = this.studentname;
+            } else if (j == 2) {
+              this.pa.name = this.studentname;
+            } else if (j == 3) {
+              this.fa.name = this.studentname;
+            }
+            this.regex = this.input[j][this.studentname];
+            console.log(this.input[j][this.studentname]);
+            //alert('Points: ' + this.input[j][this.studentname]);
+            if (j == 0) {
+              this.p.score = this.input[j][this.studentname];
+              this.points.push(this.p);
+              this.p = new Points();
+            } else if (j == 1) {
+              this.f.score = this.input[j][this.studentname];
+              this.firsts.push(this.f);
+              this.f = new First();
+            } else if (j == 2) {
+              this.pa.score = this.input[j][this.studentname];
+              this.pointsa.push(this.pa);
+              this.pa = new Points_AS();
+            } else if (j == 3) {
+              this.fa.score = this.input[j][this.studentname];
+              this.firstsa.push(this.fa);
+              this.fa = new First_AS();
+            }
           }
-          this.regex = this.input[j][this.studentname];
-          console.log(this.input[j][this.studentname]);
-          //alert('Points: ' + this.input[j][this.studentname]);
-          if(j == 0) {
-            this.p.score = this.input[j][this.studentname];
-            this.points.push(this.p);
-            this.p = new Points();
-          } else if(j == 1) {
-            this.f.score = this.input[j][this.studentname];
-            this.firsts.push(this.f);
-            this.f = new First();
-          } else if(j == 2) {
-            this.pa.score = this.input[j][this.studentname];
-            this.pointsa.push(this.p);
-            this.pa = new Points_AS();
-          } else if(j == 3) {
-            this.fa.score = this.input[j][this.studentname];
-            this.firstsa.push(this.f);
-            this.fa = new First_AS();
-          }
-
         }
       }
       this.position = -2;
       this.regex = "";
       this.studentname = "";
     }
-    this.showdata()
+
+    while(this.position != -1){
+      if(this.position != -2) {
+
+        this.position = JSON.stringify(this.input[j]).search(   this.studentname + '":0,"');
+        //alert('Position: ' + this.position);
+        if(this.position != -1){
+          this.setstudentname(JSON.stringify(this.input[j]), this.length + 5);
+          //alert('Class: ' + this.studentname);
+          this.classes.push(this.studentname);
+        }
+      } else {
+
+        this.position = JSON.stringify(this.input[j]).search('"');
+        //alert('Position: ' + this.position);
+        if(this.position != -1) {
+          this.setstudentname(JSON.stringify(this.input[j]), 1);
+          this.classes.push(this.studentname);
+          //alert('Class: ' + this.studentname);
+        }
+      }
+    }
+
+    this.showdata();
+    this.showclass();
   }
 
   setstudentname(jsonString, further){
@@ -166,22 +193,49 @@ export class VotingresultsComponent implements OnInit {
     this.length = this.studentname.length;
   }
 
+  showclass(){
+
+  }
+
   showdata(){
 
-    this.points.forEach(obj => {
-      alert('Name: ' + obj.name + '  Punkte: ' + obj.score);
-      this.PieChart.data.labels.push(obj.name);
-      this.PieChart.data.datasets.forEach((dataset) => {
+    this.points.forEach(obj => this.adddatachart(obj, this.PieChart));
+    this.PieChart.update();
+
+    this.firsts.forEach(obj => this.adddatachart(obj, this.PieChart1));
+    this.PieChart1.update();
+
+    this.pointsa.forEach(obj => this.adddatachart(obj, this.PieChart2));
+    this.PieChart2.update();
+
+    this.firstsa.forEach(obj => this.adddatachart(obj, this.PieChart3));
+    this.PieChart3.update();
+
+  }
+
+  adddatachart(obj, chart){
+    {
+      //alert('Name: ' + obj.name + '  Punkte: ' + obj.score);
+      chart.data.labels.push(obj.name);
+      //alert(obj.name);
+      chart.data.datasets.forEach((dataset) => {
         dataset.data.push(obj.score);
         dataset.backgroundColor.push('rgba(0, 0, 255, 1)');
       });
-    });
-    this.PieChart.update();
     }
+  }
 
   drawRatioChart() {
     this.PieChart = new Chart(this.context_ratio , {
-      type: 'bar',
+      type: 'pie',
+      data: {
+        labels: [],
+        datasets: [{
+          data: [],
+          backgroundColor: [
+          ],
+        }]
+      },
       options: {
         // Boolean - whether or not the chart should be responsive and resize when the browser does.
 
@@ -192,6 +246,66 @@ export class VotingresultsComponent implements OnInit {
         maintainAspectRatio: false,
       }
     });
+    this.PieChart1 = new Chart(this.context_ratio1 , {
+      type: 'pie',
+      data: {
+        labels: [],
+        datasets: [{
+          data: [],
+          backgroundColor: [
+          ],
+        }]
+      },
+      options: {
+        // Boolean - whether or not the chart should be responsive and resize when the browser does.
+
+        responsive: true,
+
+        // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+
+        maintainAspectRatio: false,
+      }
+    });
+    this.PieChart2 = new Chart(this.context_ratio2 , {
+      type: 'pie',
+      data: {
+        labels: [],
+        datasets: [{
+          data: [],
+          backgroundColor: [
+          ],
+        }]
+      },
+      options: {
+        // Boolean - whether or not the chart should be responsive and resize when the browser does.
+
+        responsive: true,
+
+        // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+
+        maintainAspectRatio: false,
+      }
+    });
+    this.PieChart3 = new Chart(this.context_ratio3 , {
+      type: 'pie',
+      data: {
+        labels: [],
+        datasets: [{
+          data: [],
+          backgroundColor: [
+          ],
+        }]
+      },
+      options: {
+        // Boolean - whether or not the chart should be responsive and resize when the browser does.
+
+        responsive: true,
+
+        // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+
+        maintainAspectRatio: false,
+      }
+    });;
     this.parseData2();
   }
 
