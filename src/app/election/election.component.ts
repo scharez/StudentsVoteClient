@@ -104,7 +104,7 @@ export class ElectionComponent implements OnInit {
       if (this.seletedValueOfRow[i] === val) {
         this.seletedValueOfRow[i] = 0;
       }
-    }
+    } 
     this.seletedValueOfRow[getI] = val;
 
 
