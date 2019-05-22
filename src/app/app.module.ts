@@ -40,6 +40,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {InfoComponent} from './info/info.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {RoleguardService} from './services/roleguard.service';
+import { FinishedComponent } from './election/finishedComponent';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {RoleguardService} from './services/roleguard.service';
     InfoComponent,
     ChooseYourClassComponent,
     ElectSettingsComponent,
-    VotingresultsComponent
+    VotingresultsComponent,
+    FinishedComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,8 @@ import {RoleguardService} from './services/roleguard.service';
     HttpClientModule,
     TextareaAutosizeModule
   ], entryComponents: [
-    ChooseYourClassComponent
+    ChooseYourClassComponent,
+    FinishedComponent
   ],
   providers: [AuthService, AuthGuardService, RoleguardService, HttpService],
   bootstrap: [AppComponent]
