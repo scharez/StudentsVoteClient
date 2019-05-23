@@ -19,12 +19,12 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/login', user);
   }
 
-  insert(dataString: Student) {
+  setCandidate(dataString: Student) {
     return this.http.post('http://localhost:8080/rest/sv/setCandidate', dataString);
   }
 
   sendPoints(punkteString: Punkte[]) {
-    return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString);
+    return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString, {responseType: String});
   }
 
   getCandidates() {                  // what is this shit doing
