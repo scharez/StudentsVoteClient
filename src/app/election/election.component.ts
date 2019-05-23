@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Punkte} from '../Punkte';
-import {forEachComment} from 'tslint';
-import {Student} from '../Student';
 import {KandidatenEingang} from '../KandidatenEingang';
 import {HttpService} from '../services/http.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {ChooseYourClassComponent} from './chooseYourClassComponent';
 import {FinishedComponent} from './finishedComponent';
 import {DataService} from '../services/data.service';
@@ -29,7 +27,6 @@ export class ElectionComponent implements OnInit {
   /*Array der Kandidaten für den Abteilungssprecher*/
   candidatesA: KandidatenEingang[] = [];
 
-
   /*Zum Vergleichen der Radio-Buttons*/
   seletedValueOfRow: number[] = new Array<number>(30);
   seletedValueOfRowAb: number[] = new Array<number>(30);
@@ -42,6 +39,7 @@ export class ElectionComponent implements OnInit {
   punkteString;
   punkteString2;
 
+  /*Wie viele Kandidaten werden ausgelesen und wie ist das aufgebaut*/
   res: string;
   countS: number = 0;
   countA: number = 0;
@@ -231,19 +229,3 @@ export class ElectionComponent implements OnInit {
     }
   }
 }
-
-/*@Component({
-  selector: 'app-election',
-  templateUrl: 'chooseYourClassComponent.html',
-})
-export class ChooseYourClassComponent {
-
-  constructor(
-    public dialogRef: MatDialogRef<ChooseYourClassComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: ClassData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-}*/
