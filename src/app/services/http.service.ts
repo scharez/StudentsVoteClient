@@ -24,11 +24,11 @@ export class HttpService {
   }
 
   sendPoints(punkteString: Punkte[]) {
-    return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString, {responseType: String});
+    return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString);
   }
 
   getCandidates() {                  // what is this shit doing
-    return this.http.get('http://localhost:8080/rest/sv/getCandidates', {responseType: String});
+    return this.http.get('http://localhost:8080/rest/sv/getCandidates');
   }
 
   instanceCVs(itsaclass: string) {
