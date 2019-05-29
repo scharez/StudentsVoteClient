@@ -213,6 +213,10 @@ export class VotingresultsComponent implements OnInit {
 
   }
 
+  colors = ['rgba(0, 0, 255, 1)', 'rgba(0, 0, 230, 1)', 'rgba(0, 0, 210, 1)', 'rgba(0, 0, 190, 1)', 'rgba(0, 0, 170, 1)',
+    'rgba(0, 0, 150, 1)','rgba(0, 0, 130, 1)' ,'rgba(0, 0, 110, 1)', 'rgba(0, 0, 90, 1)', 'rgba(0, 0, 70, 1)'];
+  k = 0;
+
   adddatachart(obj, chart){
     {
       //alert('Name: ' + obj.name + '  Punkte: ' + obj.score);
@@ -220,7 +224,13 @@ export class VotingresultsComponent implements OnInit {
       //alert(obj.name);
       chart.data.datasets.forEach((dataset) => {
         dataset.data.push(obj.score);
-        dataset.backgroundColor.push('rgba(0, 0, 255, 1)');
+        if(this.k < 10) {
+          console.log(this.colors[this.k]);
+          dataset.backgroundColor.push(this.colors[this.k]);
+          this.k++;
+        } else {
+          this.k = 0;
+        }
       });
     }
   }

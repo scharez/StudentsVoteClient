@@ -12,11 +12,13 @@ import {AuthGuardService} from '../services/auth-guard.service';
 import {AuthService} from '../services/auth.service';
 import {ElectSettingsComponent} from '../dashboard/home/components/elect-settings/elect-settings.component';
 import {VotingresultsComponent} from '../dashboard/home/components/votingresults/votingresults.component';
+import {FinalScoreComponent} from '../election/final-score/final-score.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'election', component: ElectionComponent, /*canActivate: [RoleguardService], data: {expectedRoles: ['ADMIN', 'Teacher']} */},
+  {path: 'finalScore', component: FinalScoreComponent},
   {path: 'info', component: InfoComponent, /*canActivate: [AuthGuardService]*/},
   {path: 'dashboard', component: DashboardComponent, /*canActivate: [RoleguardService] ,
     data: {

@@ -39,7 +39,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {InfoComponent} from './info/info.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {RoleguardService} from './services/roleguard.service';
-import { FinishedComponent } from './election/finishedComponent';
+import { FinalScoreComponent } from './election/final-score/final-score.component';
+//import { FinishedComponent } from './election/finishedComponent';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { FinishedComponent } from './election/finishedComponent';
     ChooseYourClassComponent,
     ElectSettingsComponent,
     VotingresultsComponent,
-    FinishedComponent
+    FinalScoreComponent,
+    //FinishedComponent
   ],
   imports: [
     BrowserModule,
@@ -75,8 +77,8 @@ import { FinishedComponent } from './election/finishedComponent';
     MatMenuModule,
     HttpClientModule,
   ], entryComponents: [
-    ChooseYourClassComponent,
-    FinishedComponent
+    ChooseYourClassComponent
+    //FinishedComponent
   ],
   providers: [AuthService, AuthGuardService, RoleguardService, HttpService],
   bootstrap: [AppComponent]
