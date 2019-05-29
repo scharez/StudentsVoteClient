@@ -240,10 +240,12 @@ export class ElectionComponent implements OnInit {
       this.punkte[i].score = 0;
       this.seletedValueOfRow[i] = 0;
     }
+
     for (let i = 0; i < this.punkte2.length; i++) {
       this.punkte2[i].score = 0;
       this.seletedValueOfRow[i] = 0;
     }
+
   }
 }
 

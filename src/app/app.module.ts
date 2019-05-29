@@ -32,7 +32,6 @@ import {
   MatMenuModule
 } from '@angular/material';
 
-import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
 
 import {HomeComponent} from './dashboard/home/home.component';
 import {AuthService} from './services/auth.service';
@@ -75,7 +74,6 @@ import { FinishedComponent } from './election/finishedComponent';
     MatCardModule,
     MatMenuModule,
     HttpClientModule,
-    TextareaAutosizeModule
   ], entryComponents: [
     ChooseYourClassComponent,
     FinishedComponent
