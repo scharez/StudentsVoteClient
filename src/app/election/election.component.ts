@@ -8,6 +8,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {ChooseYourClassComponent} from './chooseYourClassComponent';
 import {FinishedComponent} from './finishedComponent';
 import {DataService} from '../services/data.service';
+import {Kandidaten} from '../Kandidaten';
 
 @Component({
   selector: 'app-election',
@@ -24,11 +25,11 @@ export class ElectionComponent implements OnInit {
   myClass: string;
 
   /*Array der Kandidaten für den Schulsprecher*/
-  candidatesS: KandidatenEingang[] = [];
+  candidatesS: Kandidaten[] = [];
 
 
   /*Array der Kandidaten für den Abteilungssprecher*/
-  candidatesA: KandidatenEingang[] = [];
+  candidatesA: Kandidaten[] = [];
 
   /*Zum Vergleichen der Radio-Buttons*/
   seletedValueOfRow: number[] = new Array<number>(30);
@@ -80,7 +81,7 @@ export class ElectionComponent implements OnInit {
   }
 
 
-  putCandidates(res: Array<Student>) {
+  putCandidates(res: Array<KandidatenEingang>) {
     console.log(res);
     res.forEach(item => {
       console.log(item.firstname);
