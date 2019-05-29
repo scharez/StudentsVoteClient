@@ -56,9 +56,7 @@ export class ElectionComponent implements OnInit {
   constructor(httpService: HttpService, dialog: MatDialog, private dataService: DataService) {
     this.httpService = httpService;
     this.dialog = dialog;
-    /*this.httpService.getCandidates().subscribe((res) => this.putCandidates(res));*/
-    this.res = '[{\"id\":1,\"username\":\"s1\",\"firstname\":\"1\",\"lastname\":\"1\",\"candidateClass\":\"1\",\"department\":\"1\",\"picture\":null,\"electionPromise\":\"1\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":3,\"username\":\"s2\",\"firstname\":\"2\",\"lastname\":\"2\",\"candidateClass\":\"2\",\"department\":\"2\",\"picture\":null,\"electionPromise\":\"2\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":5,\"username\":\"s3\",\"firstname\":\"3\",\"lastname\":\"3\",\"candidateClass\":\"3\",\"department\":\"3\",\"picture\":null,\"electionPromise\":\"3\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":7,\"username\":\"s4\",\"firstname\":\"4\",\"lastname\":\"4\",\"candidateClass\":\"4\",\"department\":\"4\",\"picture\":null,\"electionPromise\":\"4\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":9,\"username\":\"s5\",\"firstname\":\"5\",\"lastname\":\"5\",\"candidateClass\":\"5\",\"department\":\"5\",\"picture\":null,\"electionPromise\":\"5\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":11,\"username\":\"s6\",\"firstname\":\"6\",\"lastname\":\"6\",\"candidateClass\":\"6\",\"department\":\"6\",\"picture\":null,\"electionPromise\":\"6\",\"position\":\"s\",\"candicateVotes\":[]},{\"id\":13,\"username\":\"a1\",\"firstname\":\"1\",\"lastname\":\"1\",\"candidateClass\":\"1\",\"department\":\"1\",\"picture\":null,\"electionPromise\":\"1\",\"position\":\"a\",\"candicateVotes\":[]},{\"id\":15,\"username\":\"a2\",\"firstname\":\"2\",\"lastname\":\"2\",\"candidateClass\":\"2\",\"department\":\"2\",\"picture\":null,\"electionPromise\":\"2\",\"position\":\"a\",\"candicateVotes\":[]},{\"id\":17,\"username\":\"a3\",\"firstname\":\"3\",\"lastname\":\"3\",\"candidateClass\":\"3\",\"department\":\"3\",\"picture\":null,\"electionPromise\":\"3\",\"position\":\"a\",\"candicateVotes\":[]},{\"id\":19,\"username\":\"a4\",\"firstname\":\"4\",\"lastname\":\"4\",\"candidateClass\":\"4\",\"department\":\"4\",\"picture\":null,\"electionPromise\":\"4\",\"position\":\"a\",\"candicateVotes\":[]}]';
-    this.putCandidates(this.res);
+    this.httpService.getCandidates().subscribe((res) => this.putCandidates(res));
 
 
   }
@@ -82,9 +80,9 @@ export class ElectionComponent implements OnInit {
   }
 
 
-  putCandidates(res: string) {
-
-    JSON.parse(res).forEach(item => {
+  putCandidates(res: Array<Student>) {
+    console.log(res);
+    res.forEach(item => {
       console.log(item.firstname);
       if (item.position === 's') {
 
@@ -212,8 +210,7 @@ export class ElectionComponent implements OnInit {
 
     this.voteAgain();
 
-    this.httpService.persistCVs().subscribe((this.res));
-    console.log(this.res);
+    this.httpService.persistCVs().subscribe();
 
     const dialogRef = this.dialog.open(FinishedComponent, {
       width: '250px'
@@ -229,12 +226,9 @@ export class ElectionComponent implements OnInit {
 
 
   instanceMEDT() {
-    this.httpService.instanceCVs('4AHITM').subscribe();
+    this.httpService.instanceCVs(this.myClass).subscribe();
   }
 
-  perstistCVs() {
-    this.httpService.persistCVs().subscribe();
-  }
 
   endElection() {
     this.httpService.endElection().subscribe();
@@ -244,6 +238,10 @@ export class ElectionComponent implements OnInit {
   resetData() {
     for (let i = 0; i < this.punkte.length; i++) {
       this.punkte[i].score = 0;
+      this.seletedValueOfRow[i] = 0;
+    }
+    for (let i = 0; i < this.punkte2.length; i++) {
+      this.punkte2[i].score = 0;
       this.seletedValueOfRow[i] = 0;
     }
   }
