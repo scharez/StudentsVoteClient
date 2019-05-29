@@ -140,8 +140,6 @@ export class CreateCandidateComponent implements OnInit {
       alert('Nicht alle Felder ausgefüllt!');
     } else if (this.sWahlversprechen === '') {
       alert('Nicht alle Felder ausgefüllt!');
-    } else if (this.sImage === '') {
-      alert('Bild hinzufügen!');
     } else {
       this.newStudent(this.studentNew);
     }

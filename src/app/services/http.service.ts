@@ -19,7 +19,7 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/login', user);
   }
 
-  insert(dataString: Student) {
+  setCandidate(dataString: Student) {
     return this.http.post('http://localhost:8080/rest/sv/setCandidate', dataString);
   }
 
@@ -27,8 +27,8 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString);
   }
 
-  getCandidate() {
-    return this.http.get('http://localhost:8080/rest/sv/getCandidates', {responseType: Student});
+  getCandidates() {                  // what is this shit doing
+    return this.http.get('http://localhost:8080/rest/sv/getCandidates');
   }
 
   instanceCVs(itsaclass: string) {
@@ -43,11 +43,8 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/endElection');
   }
 
-  endElection4Teacher() {
-    return this.http.post('http://localhost:8080/rest/sv/endElection4Teacher');
+  getCVs() {
+    return this.http.get('http://localhost:8080/rest/sv/getCVs');
   }
 
-  beginElection() {
-    return this.http.post('http://localhost:8080/rest/sv/beginElection');
-  }
 }
