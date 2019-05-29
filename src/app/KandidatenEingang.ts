@@ -1,9 +1,17 @@
 export class KandidatenEingang {
 
   constructor(
-    public vname: String = '',
-    public nname: String = '',
-    public id: String = ''
+    public id: string = '',
+    public username: string = '',
+    public firstname: string = '',
+    public lastname: string = '',
+    public candidateClass: string = '',
+    public department: string = '',
+    public picture: string = '',
+    public electionPromise: string = '',
+    public position: string = '',
+    public candicateVotes: string = ''
+
   ) {
   }
 

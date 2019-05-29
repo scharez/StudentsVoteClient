@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpService} from '../../../../services/http.service';
 
 @Component({
   selector: 'app-elect-setting',
@@ -7,10 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElectSettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
   }
 
+  beginElection(): void {
+
+    alert('Begin Election');
+
+    this.httpService.beginElection();
+
+  }
+
+  endElection(): void {
+
+    alert('End Election');
+
+    this.httpService.endElection();
+  }
+
+  endElection4Teacher(): void {
+
+    alert('End Election4Teacher');
+
+    this.httpService.endElection4Teacher();
+  }
 }
 
