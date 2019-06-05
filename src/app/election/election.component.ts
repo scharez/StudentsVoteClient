@@ -15,7 +15,7 @@ import {Kandidaten} from '../Kandidaten';
   templateUrl: './election.component.html',
   styleUrls: ['./election.component.css']
 })
-export class ElectionComponent {
+export class ElectionComponent implements OnInit {
 
   /* HttpService*/
   httpService: HttpService;
@@ -36,8 +36,8 @@ export class ElectionComponent {
   seletedValueOfRowAb: number[] = new Array<number>(30);
 
   /*Array für die Punkteanzahl vom Schulsprecher*/
-  punkte: Punkte[] = [];
-  punkte2: Punkte[] = [];
+  punkteS: Punkte[] = [];
+  punkteA: Punkte[] = [];
 
   /*Json*/
   punkteString;
@@ -61,22 +61,23 @@ export class ElectionComponent {
 
 
   }
-  /*
-   * use pseudoInit because ngOnInit doesn't work due to concurrency problems.
-   * This happens because the subscribe returns a Promise which is asynchronous and the onInit doesn't wait for the subscribe.
-   */
-  private pseudoInit() {
+
+
+  ngOnInit() {
+
     this.onChooseClass();
 
     for (let i = 0; i < this.candidatesS.length; i++) {
-      this.punkte.push({'id': this.candidatesS[i].id, 'score': 0});
-      console.log(this.punkte[i]);
+      this.punkteS.push({'id': this.candidatesS[i].id, 'score': 0});
+      console.log(this.punkteS[i]);
     }
     for (let i = 0; i < this.candidatesA.length; i++) {
-      this.punkte2.push({'id': this.candidatesA[i].id, 'score': 0});
+      this.punkteA.push({'id': this.candidatesA[i].id, 'score': 0});
     }
-    console.log(this.punkte, this.punkte2, this.height);
+    console.log(this.punkteS, this.punkteA, this.height);
 
+
+    // Kandidaten herunterladen
   }
 
 
@@ -96,7 +97,7 @@ export class ElectionComponent {
 
       }
     });
-  this.pseudoInit();
+
   }
 
 
@@ -127,17 +128,17 @@ export class ElectionComponent {
 
 
     /*Matrikelnummer und Punkte für den Server ohne doppelte Matrikelnummer holen für den Schulsprecher*/
-    for (let i = 0; i < this.punkte.length; i++) {
-      if (this.punkte[i].id === this.punkte[getI].id) {
-        for (let j = 0; j < this.punkte.length; j++) {
-          if (this.punkte[j].score === val) {
-            this.punkte[j].score = 0;
+    for (let i = 0; i < this.punkteS.length; i++) {
+      if (this.punkteS[i].id === this.punkteS[getI].id) {
+        for (let j = 0; j < this.punkteS.length; j++) {
+          if (this.punkteS[j].score === val) {
+            this.punkteS[j].score = 0;
           }
         }
-        this.punkte[i].score = val;
+        this.punkteS[i].score = val;
       }
     }
-    console.log(this.punkte);
+    console.log(this.punkteS);
   }
 
 
@@ -163,42 +164,42 @@ export class ElectionComponent {
 
 
     /*Matrikelnummer und Punkte für den Server ohne doppelte Matrikelnummer holen für den Abteilungssprecher*/
-    for (let i = 0; i < this.punkte2.length; i++) {
-      if (this.punkte2[i].id === this.punkte2[getI].id) {
-        for (let j = 0; j < this.punkte2.length; j++) {
-          if (this.punkte2[j].score === val) {
-            this.punkte2[j].score = 0;
+    for (let i = 0; i < this.punkteA.length; i++) {
+      if (this.punkteA[i].id === this.punkteA[getI].id) {
+        for (let j = 0; j < this.punkteA.length; j++) {
+          if (this.punkteA[j].score === val) {
+            this.punkteA[j].score = 0;
           }
         }
-        this.punkte2[i].score = val;
+        this.punkteA[i].score = val;
       }
     }
 
 
-    console.log(this.punkte2);
+    console.log(this.punkteA);
 
   }
 
 
   voteAgain() {
-    /*for ( var k : number = 0; k < this.punkte.length; k++) {
-      alert(this.punkte[k].id + " has " + this.punkte[k].score + " points");
+    /*for ( var k : number = 0; k < this.punkteS.length; k++) {
+      alert(this.punkteS[k].id + " has " + this.punkteS[k].score + " points");
     }*/
-    /*Daten an Server schicken    daten -> this.punkte[j]*/
-    /*this.punkte.splice(0, 1);
-    this.punkte2.splice(0, 1);*/
+    /*Daten an Server schicken    daten -> this.punkteS[j]*/
+    /*this.punkteS.splice(0, 1);
+    this.punkteA.splice(0, 1);*/
 
     // this.punkteString = JSON.stringify();
     // this.punkteString2 = JSON.stringify();
 
-    this.httpService.sendPoints(this.punkte).subscribe();
-    this.httpService.sendPoints(this.punkte2).subscribe();
+    this.httpService.sendPoints(this.punkteS).subscribe();
+    this.httpService.sendPoints(this.punkteA).subscribe();
 
 
-    console.log(this.punkteString, this.punkte2);
+    console.log(this.punkteString, this.punkteA);
 
-    for (let i = 0; i < this.punkte.length; i++) {
-      this.punkte[i].score = 0;
+    for (let i = 0; i < this.punkteS.length; i++) {
+      this.punkteS[i].score = 0;
     }
 
     this.resetData();
@@ -236,13 +237,13 @@ export class ElectionComponent {
 
   // reseting the Radio Button Data
   resetData() {
-    for (let i = 0; i < this.punkte.length; i++) {
-      this.punkte[i].score = 0;
+    for (let i = 0; i < this.punkteS.length; i++) {
+      this.punkteS[i].score = 0;
       this.seletedValueOfRow[i] = 0;
     }
 
-    for (let i = 0; i < this.punkte2.length; i++) {
-      this.punkte2[i].score = 0;
+    for (let i = 0; i < this.punkteA.length; i++) {
+      this.punkteA[i].score = 0;
       this.seletedValueOfRow[i] = 0;
     }
 
