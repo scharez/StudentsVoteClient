@@ -64,7 +64,10 @@ export class ElectionComponent implements OnInit {
 
 
   ngOnInit() {
+  }
 
+
+  private pseudoInit() {
     this.onChooseClass();
 
     for (let i = 0; i < this.candidatesS.length; i++) {
@@ -76,9 +79,8 @@ export class ElectionComponent implements OnInit {
     }
     console.log(this.punkteS, this.punkteA, this.height);
 
-
-    // Kandidaten herunterladen
   }
+
 
 
   putCandidates(res: Array<KandidatenEingang>) {
@@ -97,6 +99,7 @@ export class ElectionComponent implements OnInit {
 
       }
     });
+    this.pseudoInit();
 
   }
 
