@@ -15,7 +15,7 @@ import {Kandidaten} from '../Kandidaten';
   templateUrl: './election.component.html',
   styleUrls: ['./election.component.css']
 })
-export class ElectionComponent implements OnInit {
+export class ElectionComponent {
 
   /* HttpService*/
   httpService: HttpService;
@@ -61,10 +61,11 @@ export class ElectionComponent implements OnInit {
 
 
   }
-
-
-  ngOnInit() {
-
+  /*
+   * use pseudoInit because ngOnInit doesn't work due to concurrency problems.
+   * This happens because the subscribe returns a Promise which is asynchronous and the onInit doesn't wait for the subscribe.
+   */
+  private pseudoInit() {
     this.onChooseClass();
 
     for (let i = 0; i < this.candidatesS.length; i++) {
@@ -76,8 +77,6 @@ export class ElectionComponent implements OnInit {
     }
     console.log(this.punkte, this.punkte2, this.height);
 
-
-    // Kandidaten herunterladen
   }
 
 
@@ -97,7 +96,7 @@ export class ElectionComponent implements OnInit {
 
       }
     });
-
+  this.pseudoInit();
   }
 
 
