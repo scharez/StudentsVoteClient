@@ -92,7 +92,7 @@ export class CreateCandidateComponent implements OnInit {
   newStudent(dataString) {
     /*this.httpService.getCandidates().subscribe((res) => this.putCandidates(res));*/
 
-    this.httpService.setCandidate(dataString).subscribe((this.ret));
+    this.httpService.setCandidate(dataString).subscribe();
     console.log(dataString);
     console.log(this.ret);
     console.log('yeah');
