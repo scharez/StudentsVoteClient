@@ -9,6 +9,7 @@ import {ChooseYourClassComponent} from './chooseYourClassComponent';
 import {FinishedComponent} from './finishedComponent';
 import {DataService} from '../services/data.service';
 import {Kandidaten} from '../Kandidaten';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-election',
@@ -17,6 +18,7 @@ import {Kandidaten} from '../Kandidaten';
 })
 export class ElectionComponent implements OnInit {
 
+  private router: Router;
   /* HttpService*/
   httpService: HttpService;
 
@@ -53,7 +55,8 @@ export class ElectionComponent implements OnInit {
   height: string;
 
 
-  constructor(httpService: HttpService, dialog: MatDialog, private dataService: DataService) {
+  constructor(httpService: HttpService, dialog: MatDialog, private dataService: DataService, router : Router) {
+    this.router = router;
     this.httpService = httpService;
     this.dialog = dialog;
     this.httpService.getCandidates().subscribe((res) => this.putCandidates(res));
@@ -236,6 +239,10 @@ export class ElectionComponent implements OnInit {
       this.seletedValueOfRow[a] = 0;
     }
 
+  }
+
+  printme(){
+    this.router.navigate(['finalScore']);
   }
 }
 

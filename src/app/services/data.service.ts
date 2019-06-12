@@ -1,5 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
 import {KandidatenEingang} from '../KandidatenEingang';
+import {Kandidaten} from '../Kandidaten';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,6 @@ export class DataService {
 
   public showToolBar = true;
   public showDialog = true;
-  public candidatesS: KandidatenEingang[] = [];
-  public candidatesA: KandidatenEingang[] = [];
+  public candidatesS: Kandidaten[] = [];
+  public candidatesA: Kandidaten[] = [];
 }
