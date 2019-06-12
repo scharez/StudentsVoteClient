@@ -1,12 +1,13 @@
 <div class="schueler_text">
   <!--Image Upload-->
   <!--{{i}}-->
+  <!--
   <div class="image-preview">
     <img [src]="imagePreviewS" *ngIf="id === 's'">
     <img [src]="imagePreviewA" *ngIf="id === 'a'">
   </div>
 
-  <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
+  <input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>-->
 
 
   <!--Vorname-->
@@ -66,12 +67,14 @@
 
 <br>
 
+<!--
 <button mat-raised-button (click)="selectFile.click()" id="selectFile">Bild auswählen</button>
 <button mat-raised-button (click)="OnUploadFile(i)" id="uploadFile">Bild hochladen</button>
 
 <br>
 <br>
 <br>
+-->
 
 <!--Daten absenden-->
 <button mat-raised-button id="send" class="sendButton" (click)="addStudentValues()">Kandidat speichern</button>

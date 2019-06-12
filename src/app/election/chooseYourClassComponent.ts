@@ -33,7 +33,6 @@ export class ChooseYourClassComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
     this.router.navigate(['login']);
-
   }
 
 
