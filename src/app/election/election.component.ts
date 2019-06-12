@@ -49,9 +49,8 @@ export class ElectionComponent implements OnInit {
   countA: number = 0;
 
   /*Kartenhöhe*/
-  länge = this.candidatesS.length + this.candidatesA.length;
-  height: string = this.länge * 7.6 + 'em';
-  farbe = 'green';
+  laenge: number;
+  height: string;
 
 
   constructor(httpService: HttpService, dialog: MatDialog, private dataService: DataService) {
@@ -64,20 +63,22 @@ export class ElectionComponent implements OnInit {
 
 
   ngOnInit() {
-
     this.onChooseClass();
+  }
+
+
+  private pseudoInit() {
 
     for (let i = 0; i < this.candidatesS.length; i++) {
       this.punkteS.push({'id': this.candidatesS[i].id, 'score': 0});
       console.log(this.punkteS[i]);
     }
-    for (let i = 0; i < this.candidatesA.length; i++) {
-      this.punkteA.push({'id': this.candidatesA[i].id, 'score': 0});
+    for (let a = 0; a < this.candidatesA.length; a++) {
+      this.punkteA.push({'id': this.candidatesA[a].id, 'score': 0});
+      console.log(this.punkteA[a]);
     }
     console.log(this.punkteS, this.punkteA, this.height);
 
-
-    // Kandidaten herunterladen
   }
 
 
@@ -86,18 +87,18 @@ export class ElectionComponent implements OnInit {
     res.forEach(item => {
       console.log(item.firstname);
       if (item.position === 's') {
-
         this.candidatesS[this.countS] = {'vname': item.firstname, 'nname': item.lastname, 'id': item.username};
         this.countS++;
-
       } else {
-
         this.candidatesA[this.countA] = {'vname': item.firstname, 'nname': item.lastname, 'id': item.username};
         this.countA++;
-
       }
     });
+    this.pseudoInit();
 
+    /*Kartenhöhe*/
+    this.laenge = this.candidatesS.length + this.candidatesA.length;
+    this.height = this.laenge * 10.5 + 'em';
   }
 
 
@@ -141,37 +142,25 @@ export class ElectionComponent implements OnInit {
     console.log(this.punkteS);
   }
 
-
-  /* ID für Kandidaten für den Schulsprecher*/
-  getKa(i: number) {
-    return this.seletedValueOfRow[i];
-  }
-
-  /* ID für Kandidaten für den Abteilungssprecher*/
-  getAb(i: number) {
-    return this.seletedValueOfRowAb[i];
-  }
-
-
   /*Abteilungssprecher nur 1 Radio-Button auswählen*/
-  getValueAb(getI: number, val: number) {
-    for (let i = 0; i < this.seletedValueOfRowAb.length; i++) {
-      if (this.seletedValueOfRowAb[i] === val) {
-        this.seletedValueOfRowAb[i] = 0;
+  getValueAb(getA: number, val: number) {
+    for (let a = 0; a < this.seletedValueOfRowAb.length; a++) {
+      if (this.seletedValueOfRowAb[a] === val) {
+        this.seletedValueOfRowAb[a] = 0;
       }
     }
-    this.seletedValueOfRowAb[getI] = val;
+    this.seletedValueOfRowAb[getA] = val;
 
 
     /*Matrikelnummer und Punkte für den Server ohne doppelte Matrikelnummer holen für den Abteilungssprecher*/
-    for (let i = 0; i < this.punkteA.length; i++) {
-      if (this.punkteA[i].id === this.punkteA[getI].id) {
-        for (let j = 0; j < this.punkteA.length; j++) {
-          if (this.punkteA[j].score === val) {
-            this.punkteA[j].score = 0;
+    for (let a = 0; a < this.punkteA.length; a++) {
+      if (this.punkteA[a].id === this.punkteA[getA].id) {
+        for (let k = 0; k < this.punkteA.length; k++) {
+          if (this.punkteA[k].score === val) {
+            this.punkteA[k].score = 0;
           }
         }
-        this.punkteA[i].score = val;
+        this.punkteA[a].score = val;
       }
     }
 
@@ -181,17 +170,18 @@ export class ElectionComponent implements OnInit {
   }
 
 
+  /* ID für Kandidaten für den Schulsprecher*/
+  getKa(i: number) {
+    return this.seletedValueOfRow[i];
+  }
+
+  /* ID für Kandidaten für den Abteilungssprecher*/
+  getAb(a: number) {
+    return this.seletedValueOfRowAb[a];
+  }
+
+
   voteAgain() {
-    /*for ( var k : number = 0; k < this.punkteS.length; k++) {
-      alert(this.punkteS[k].id + " has " + this.punkteS[k].score + " points");
-    }*/
-    /*Daten an Server schicken    daten -> this.punkteS[j]*/
-    /*this.punkteS.splice(0, 1);
-    this.punkteA.splice(0, 1);*/
-
-    // this.punkteString = JSON.stringify();
-    // this.punkteString2 = JSON.stringify();
-
     this.httpService.sendPoints(this.punkteS).subscribe();
     this.httpService.sendPoints(this.punkteA).subscribe();
 
@@ -200,6 +190,10 @@ export class ElectionComponent implements OnInit {
 
     for (let i = 0; i < this.punkteS.length; i++) {
       this.punkteS[i].score = 0;
+    }
+
+    for (let a = 0; a < this.punkteA.length; a++) {
+      this.punkteA[a].score = 0;
     }
 
     this.resetData();
@@ -222,14 +216,9 @@ export class ElectionComponent implements OnInit {
     });
   }
 
-
-  // Pop-Up after pushing the finished Button
-
-
   instanceMEDT() {
     this.httpService.instanceCVs(this.myClass).subscribe();
   }
-
 
   endElection() {
     this.httpService.endElection().subscribe();
@@ -242,26 +231,11 @@ export class ElectionComponent implements OnInit {
       this.seletedValueOfRow[i] = 0;
     }
 
-    for (let i = 0; i < this.punkteA.length; i++) {
-      this.punkteA[i].score = 0;
-      this.seletedValueOfRow[i] = 0;
+    for (let a = 0; a < this.punkteA.length; a++) {
+      this.punkteA[a].score = 0;
+      this.seletedValueOfRow[a] = 0;
     }
 
   }
 }
 
-/*@Component({
-  selector: 'app-election',
-  templateUrl: 'chooseYourClass.html',
-})
-export class ChooseYourClassComponent {
-
-  constructor(
-    public dialogRef: MatDialogRef<ChooseYourClassComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: ClassData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-}*/
