@@ -64,11 +64,12 @@ export class VotingresultsComponent implements OnInit {
   }
 
   openHttpService() {
-    this.httpService.getCVs().subscribe((res) => this.parseData2(res));
+    this.parseData2("lol");
+    //this.httpService.getCVs().subscribe((res) => this.parseData2(res));
   }
 
   parseData2(res) {
-    this.inputString = res;
+    //this.inputString = res;
     this.input = JSON.parse(this.inputString);
     console.log(this.input[0]);
     //Object.assign(this.wunderPunkt, this.input[0]);

@@ -40,11 +40,18 @@ export class HttpService {
   }
 
   endElection() {
-    return this.http.post('http://localhost:8080/rest/sv/endElection');
+     this.http.post('http://localhost:8080/rest/sv/endElection');
   }
 
   getCVs() {
     return this.http.get('http://localhost:8080/rest/sv/getCVs');
   }
 
+  beginElection() {
+     this.http.post('http://localhost:8080/rest/sv/startElection');
+  }
+
+  endElection4Teacher() {
+     this.http.post('http://localhost:8080/rest/sv/endElectionTeacher');
+  }
 }

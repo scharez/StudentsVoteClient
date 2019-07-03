@@ -224,7 +224,7 @@ export class ElectionComponent implements OnInit {
   }
 
   endElection() {
-    this.httpService.endElection().subscribe();
+    this.httpService.endElection();
   }
 
   // reseting the Radio Button Data

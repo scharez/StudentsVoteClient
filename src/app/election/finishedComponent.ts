@@ -5,6 +5,7 @@ import {DataService} from '../services/data.service';
 import {HttpService} from '../services/http.service';
 import {ClassData} from '../ClassData';
 
+// @ts-ignore
 @Component({
   selector: 'app-finished',
   templateUrl: 'finishedComponent.html'

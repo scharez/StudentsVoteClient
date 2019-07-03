@@ -17,13 +17,13 @@ import {FinalScoreComponent} from '../election/final-score/final-score.component
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'election', component: ElectionComponent, /*canActivate: [RoleguardService], data: {expectedRoles: ['ADMIN', 'Teacher']} */},
+  {path: 'election', component: ElectionComponent, canActivate: [RoleguardService], data: {expectedRoles: ['ADMIN', 'Teacher']} },
   {path: 'finalScore', component: FinalScoreComponent},
-  {path: 'info', component: InfoComponent, /*canActivate: [AuthGuardService]*/},
-  {path: 'dashboard', component: DashboardComponent, /*canActivate: [RoleguardService] ,
+  {path: 'info', component: InfoComponent, canActivate: [AuthGuardService]},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [RoleguardService] ,
     data: {
       expectedRoles: ['ADMIN']
-    } , */
+    } ,
     children: [
     { path: 'home', component: HomeComponent, children: [
         {path: 'electsettings', component: ElectSettingsComponent},

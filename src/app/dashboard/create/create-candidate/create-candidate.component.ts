@@ -96,6 +96,8 @@ export class CreateCandidateComponent implements OnInit {
     console.log(dataString);
     console.log(this.ret);
     console.log('yeah');
+    alert('Kandidat erstellt!');
+
   }
 
   /*File Upload*/
