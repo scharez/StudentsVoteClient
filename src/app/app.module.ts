@@ -39,8 +39,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {InfoComponent} from './info/info.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {RoleguardService} from './services/roleguard.service';
-import { FinalScoreComponent } from './election/final-score/final-score.component';
+//import { FinalScoreComponent } from './election/final-score/final-score.component';
 import { FinishedComponent } from './election/finishedComponent';
+import { NewElectionComponent } from './dashboard/new-election/new-election.component';
 
 @NgModule({
   declarations: [
@@ -57,8 +58,9 @@ import { FinishedComponent } from './election/finishedComponent';
     ChooseYourClassComponent,
     ElectSettingsComponent,
     VotingresultsComponent,
-    FinalScoreComponent,
-    FinishedComponent
+   // FinalScoreComponent,
+    FinishedComponent,
+   NewElectionComponent
   ],
   imports: [
     BrowserModule,
