@@ -42,6 +42,7 @@ import {RoleguardService} from './services/roleguard.service';
 //import { FinalScoreComponent } from './election/final-score/final-score.component';
 import { FinishedComponent } from './election/finishedComponent';
 import { NewElectionComponent } from './dashboard/new-election/new-election.component';
+import { ElectedClassesComponent } from './dashboard/home/components/elected-classes/elected-classes.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { NewElectionComponent } from './dashboard/new-election/new-election.comp
     VotingresultsComponent,
    // FinalScoreComponent,
     FinishedComponent,
-   NewElectionComponent
+   NewElectionComponent,
+   ElectedClassesComponent
   ],
   imports: [
     BrowserModule,

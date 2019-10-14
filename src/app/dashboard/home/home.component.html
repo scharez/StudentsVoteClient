@@ -18,6 +18,7 @@
         <mat-card-content class="dashboard-card-content">
           <app-elect-setting *ngIf="card.title === 'Elect-Settings'"></app-elect-setting>
           <app-votingresults *ngIf="card.title === 'Stimmenverteilung'"></app-votingresults>
+          <app-elected-classes *ngIf="card.title === 'Classes-Voted'"></app-elected-classes>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
