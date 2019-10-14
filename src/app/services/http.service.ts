@@ -54,4 +54,12 @@ export class HttpService {
   endElection4Teacher() {
      this.http.post('http://localhost:8080/rest/sv/endElectionTeacher');
   }
+
+  newElection() {
+    this.http.post('http://localhost:8080/rest/sv/newElection');
+  }
+
+  runOff() {
+    this.http.post('http://localhost:8080/rest/sv/runOff');
+  }
 }

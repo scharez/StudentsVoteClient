@@ -20,6 +20,11 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {CreateCandidateComponent} from './dashboard/create/create-candidate/create-candidate.component';
 import {ChooseYourClassComponent} from './election/chooseYourClassComponent';
 import {VotingresultsComponent} from '../app/dashboard/home/components/votingresults/votingresults.component';
+import {HomeComponent} from './dashboard/home/home.component';
+import {FinishedComponent} from './election/finishedComponent';
+import {ElectedClassesComponent} from './dashboard/home/components/elected-classes/elected-classes.component';
+import {NewElectionComponent} from './dashboard/new-election/new-election.component';
+import {InfoComponent} from './info/info.component';
 
 import {
   MatToolbarModule,
@@ -33,16 +38,10 @@ import {
 } from '@angular/material';
 
 
-import {HomeComponent} from './dashboard/home/home.component';
 import {AuthService} from './services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
-import {InfoComponent} from './info/info.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {RoleguardService} from './services/roleguard.service';
-//import { FinalScoreComponent } from './election/final-score/final-score.component';
-import { FinishedComponent } from './election/finishedComponent';
-import { NewElectionComponent } from './dashboard/new-election/new-election.component';
-import { ElectedClassesComponent } from './dashboard/home/components/elected-classes/elected-classes.component';
 
 @NgModule({
   declarations: [
@@ -59,10 +58,9 @@ import { ElectedClassesComponent } from './dashboard/home/components/elected-cla
     ChooseYourClassComponent,
     ElectSettingsComponent,
     VotingresultsComponent,
-   // FinalScoreComponent,
     FinishedComponent,
-   NewElectionComponent,
-   ElectedClassesComponent
+    ElectedClassesComponent,
+    NewElectionComponent
   ],
   imports: [
     BrowserModule,

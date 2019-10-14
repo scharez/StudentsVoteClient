@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
+import {HttpService} from '../../services/http.service';
 
 @Component({
   selector: 'app-new-election',
@@ -8,25 +9,16 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./new-election.component.css']
 })
 export class NewElectionComponent implements OnInit {
+  constructor(private httpService: HttpService) { }
 
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card', cols: 1, rows: 1 },
-        ];
-      }
-
-      return [
-        { title: 'Card', cols: 2, rows: 1 },
-      ];
-    })
-  );
-
-  constructor(private breakpointObserver: BreakpointObserver) {}
-
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
+  newElection() {
+    this.httpService.newElection();
+  }
+
+  runOff() {
+    this.httpService.runOff();
+  }
 }

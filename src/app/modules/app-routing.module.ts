@@ -13,28 +13,32 @@ import {AuthService} from '../services/auth.service';
 import {ElectSettingsComponent} from '../dashboard/home/components/elect-settings/elect-settings.component';
 import {VotingresultsComponent} from '../dashboard/home/components/votingresults/votingresults.component';
 import {NewElectionComponent} from '../dashboard/new-election/new-election.component';
-//import {FinalScoreComponent} from '../election/final-score/final-score.component';
+/*import {FinalScoreComponent} from '../election/final-score/final-score.component';*/
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'election', component: ElectionComponent,/* canActivate: [RoleguardService], data: {expectedRoles: ['ADMIN', 'Teacher']} */},
- // {path: 'finalScore', component: FinalScoreComponent},
-  {path: 'info', component: InfoComponent /*,canActivate: [AuthGuardService]}*/,
-  {path: 'dashboard', component: DashboardComponent /*, canActivate: [RoleguardService] */,
+  {path: 'election', component: ElectionComponent, /*canActivate: [RoleguardService],*/ data: {expectedRoles: ['ADMIN', 'Teacher']}},
+  /*{path: 'finalScore', component: FinalScoreComponent},*/
+  {path: 'info', component: InfoComponent, /*canActivate: [AuthGuardService]*/},
+  {
+    path: 'dashboard', component: DashboardComponent, /*canActivate: [RoleguardService],*/
     data: {
       expectedRoles: ['ADMIN']
-    } ,
+    },
     children: [
-    { path: 'home', component: HomeComponent, children: [
-        {path: 'electsettings', component: ElectSettingsComponent},
-        {path: 'votingresults', component: VotingresultsComponent}
-      ]},
-    { path: 'create', component: CreateComponent},
-    { path: 'newElection', component: NewElectionComponent},
-    { path: 'profilsettings', component: ProfilsettingsComponent}//,
-    //{path: '**', redirectTo: 'home', pathMatch: 'full'}
-    ]}
+      {
+        path: 'home', component: HomeComponent, children: [
+          {path: 'electsettings', component: ElectSettingsComponent},
+          {path: 'votingresults', component: VotingresultsComponent}
+        ]
+      },
+      {path: 'create', component: CreateComponent},
+      {path: 'profilsettings', component: ProfilsettingsComponent},
+      {path: 'newelection', component: NewElectionComponent}
+      // {path: '**', redirectTo: 'home', pathMatch: 'full'}
+    ]
+  }
 ];
 
 @NgModule({

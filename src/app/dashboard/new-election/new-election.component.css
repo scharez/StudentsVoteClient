@@ -1,0 +1,20 @@
+* {
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  background-color: white !important;
+}
+
+.mat-card {
+  width: 60%;
+  min-height: 100px;
+  background-color: white;
+  margin: 2% auto 4% auto;
+}
+
+.button__wahl {
+  font-size: 160%;
+  margin: 6% auto auto auto;
+  border: lightgrey;
+  background-color: green;
+}
