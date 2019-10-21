@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Punkte} from '../Punkte';
 import {forEachComment} from 'tslint';
 import {Student} from '../Student';
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   templateUrl: './election.component.html',
   styleUrls: ['./election.component.css']
 })
-export class ElectionComponent implements OnInit {
+export class ElectionComponent implements OnInit, AfterViewInit {
 
   private router: Router;
   /* HttpService*/
@@ -60,13 +60,11 @@ export class ElectionComponent implements OnInit {
     this.httpService = httpService;
     this.dialog = dialog;
     this.httpService.getCandidates().subscribe((res) => this.putCandidates(res));
-
-
   }
 
 
   ngOnInit() {
-    this.onChooseClass();
+
   }
 
 
@@ -243,6 +241,10 @@ export class ElectionComponent implements OnInit {
 
   printme(){
     this.router.navigate(['finalScore']);
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => this.onChooseClass());
   }
 }
 

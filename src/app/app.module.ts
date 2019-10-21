@@ -22,6 +22,7 @@ import {ChooseYourClassComponent} from './election/chooseYourClassComponent';
 import {VotingresultsComponent} from '../app/dashboard/home/components/votingresults/votingresults.component';
 import {ClassSettings} from './dashboard/home/components/elected-classes/classSettings';
 
+
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -63,8 +64,7 @@ import { ElectedClassesComponent } from './dashboard/home/components/elected-cla
    // FinalScoreComponent,
     FinishedComponent,
    NewElectionComponent,
-   ElectedClassesComponent,
-    ClassSettings
+   ElectedClassesComponent
   ],
   imports: [
     BrowserModule,
@@ -84,8 +84,7 @@ import { ElectedClassesComponent } from './dashboard/home/components/elected-cla
     HttpClientModule,
   ], entryComponents: [
     ChooseYourClassComponent,
-    FinishedComponent,
-    ClassSettings
+    FinishedComponent
   ],
   providers: [AuthService, AuthGuardService, RoleguardService, HttpService],
   bootstrap: [AppComponent]

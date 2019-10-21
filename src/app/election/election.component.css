@@ -47,12 +47,18 @@
 .votePoints {
   width: 20%;
   margin-left: 35%;
+  font-size: 180%;
 }
+table{
 
-.votePoints2 {
-  width: 20%;
-  margin-left: 35%;
 }
+table tr{
+  display: flex;
+  justify-content: space-between;
+}
+.votePoints tr td{
+}
+/*
 
 .voteP {
   font-size: 180%;
@@ -60,7 +66,7 @@
 }
 
 #voteP6 {
-  /*padding-left: 10%;*/
+  /*padding-left: 10%;
   font-size: 180%;
 
 }
@@ -105,7 +111,7 @@
   padding-left: 140%;
   width: 20%;
   font-size: 180%;
-}
+}*/
 
 /*Schulsprecher ----------------------------------------*/
 .kan1 {

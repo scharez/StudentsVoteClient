@@ -1,14 +1,13 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Neue Wahl starten</h1>
-  <mat-grid-list cols="2" rowHeight="600px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-
-        <mat-card-content class="dashboard-card-content">
-          <button>Neue Wahl erstellen</button>
-          <button>Stichwahl erstellen</button>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+<mat-card class="mat-card">
+  <mat-card-actions>
+    <br>
+    <div>
+      <mat-card-actions>
+        <button mat-button (click)="newElection()">Neue Wahl</button>
+      </mat-card-actions>
+      <mat-card-actions>
+        <button mat-button (click)="runOff()">Stichwahl</button>
+      </mat-card-actions>
+    </div>
+  </mat-card-actions>
+</mat-card>
