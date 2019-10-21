@@ -7,8 +7,7 @@ import {HttpService} from '../../../../services/http.service';
 
 @Component({
   selector: 'app-classSettings',
-  templateUrl: 'classSettings.html',
-  template: 'passed in {{ data.name }}',
+  templateUrl: 'classSettings.html'
 })
 export class ClassSettings implements OnInit {
 
@@ -19,11 +18,11 @@ export class ClassSettings implements OnInit {
     private router: Router,
     private dataService: DataService,
     private httpService: HttpService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
 
     this.dialogRef.disableClose = true;
-
+    console.log(data);
   }
 
   ngOnInit(): void {
@@ -36,11 +35,11 @@ export class ClassSettings implements OnInit {
 
 
   onClick() {
-   /* if (this.sClass === '') {
+   /* if (data.name === '') {
       location.reload();
     } else {
       this.dialogRef.close();
-      this.httpService.deleteClass(this.sClass).subscribe((resClass) => this.ausgabe(resClass));
+      //this.httpService.deleteClass(data.name).subscribe((resClass) => this.ausgabe(resClass));
     }*/
   }
 

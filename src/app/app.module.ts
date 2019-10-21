@@ -31,7 +31,7 @@ import {
   MatListModule,
   MatGridListModule,
   MatCardModule,
-  MatMenuModule
+  MatMenuModule, MatDialogModule
 } from '@angular/material';
 
 
@@ -63,8 +63,9 @@ import { ElectedClassesComponent } from './dashboard/home/components/elected-cla
     VotingresultsComponent,
    // FinalScoreComponent,
     FinishedComponent,
-   NewElectionComponent,
-   ElectedClassesComponent
+    NewElectionComponent,
+    ElectedClassesComponent,
+    ClassSettings
   ],
   imports: [
     BrowserModule,
@@ -81,10 +82,12 @@ import { ElectedClassesComponent } from './dashboard/home/components/elected-cla
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    MatDialogModule,
     HttpClientModule,
   ], entryComponents: [
     ChooseYourClassComponent,
-    FinishedComponent
+    FinishedComponent,
+    ClassSettings
   ],
   providers: [AuthService, AuthGuardService, RoleguardService, HttpService],
   bootstrap: [AppComponent]

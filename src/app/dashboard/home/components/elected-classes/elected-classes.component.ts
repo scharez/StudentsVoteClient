@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ClassSettings} from './classSettings';
 import {MatDialog} from '@angular/material';
-import {ChooseYourClassComponent} from '../../../../election/chooseYourClassComponent';
 
 
 @Component({
@@ -26,13 +25,13 @@ export class ElectedClassesComponent implements OnInit {
   }
 
   editClasses(getClass: string){
-    this.onChoosenClass(getClass);
+    this.choosenClass(getClass);
   }
 
-  onChoosenClass(getClass: string) {
+  choosenClass(getClass: string) {
 
     const dialogRef = this.dialog.open(ClassSettings, {
-      width: '250px',
+      width: '260px',
       data: {name: getClass}
     });
 
