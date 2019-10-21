@@ -20,6 +20,7 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {CreateCandidateComponent} from './dashboard/create/create-candidate/create-candidate.component';
 import {ChooseYourClassComponent} from './election/chooseYourClassComponent';
 import {VotingresultsComponent} from '../app/dashboard/home/components/votingresults/votingresults.component';
+import {ClassSettings} from './dashboard/home/components/elected-classes/classSettings';
 
 import {
   MatToolbarModule,
@@ -62,7 +63,8 @@ import { ElectedClassesComponent } from './dashboard/home/components/elected-cla
    // FinalScoreComponent,
     FinishedComponent,
    NewElectionComponent,
-   ElectedClassesComponent
+   ElectedClassesComponent,
+    ClassSettings
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,8 @@ import { ElectedClassesComponent } from './dashboard/home/components/elected-cla
     HttpClientModule,
   ], entryComponents: [
     ChooseYourClassComponent,
-    FinishedComponent
+    FinishedComponent,
+    ClassSettings
   ],
   providers: [AuthService, AuthGuardService, RoleguardService, HttpService],
   bootstrap: [AppComponent]

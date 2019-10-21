@@ -1,3 +1,5 @@
-<p>
-  elected-classes works!
-</p>
+<div>
+  <div *ngFor="let class of classes">
+    <a (dblclick)="editClasses(class)">{{class}}</a>
+  </div>
+</div>

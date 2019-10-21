@@ -1,0 +1,9 @@
+<div>
+  <ng-template let-data>
+    Hello, {{data.name}}
+  </ng-template>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Abbrechen</button>
+    <button mat-button (click)="onClick()" [mat-dialog-close]="data.myClass" cdkFocusInitial>Löschen</button>
+  </div>
+</div>

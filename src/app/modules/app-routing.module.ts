@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'election', component: ElectionComponent,/* canActivate: [RoleguardService], data: {expectedRoles: ['ADMIN', 'Teacher']} */},
  // {path: 'finalScore', component: FinalScoreComponent},
-  {path: 'info', component: InfoComponent /*,canActivate: [AuthGuardService]}*/,
+  {path: 'info', component: InfoComponent, /*,canActivate: [AuthGuardService]}*/},
   {path: 'dashboard', component: DashboardComponent /*, canActivate: [RoleguardService] */,
     data: {
       expectedRoles: ['ADMIN']

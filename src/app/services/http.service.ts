@@ -54,4 +54,8 @@ export class HttpService {
   endElection4Teacher() {
      this.http.post('http://localhost:8080/rest/sv/endElectionTeacher');
   }
+
+  deleteClass(className: string) {
+     this.http.post('http://localhost:8080/rest/sv/deleteClass');
+  }
 }
