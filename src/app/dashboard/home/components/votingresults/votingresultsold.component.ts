@@ -1,5 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Chart } from 'Chart.js';
+import { GoogleChartsModule } from 'angular-google-charts';
+
 import { HttpService } from '../../../../services/http.service';
 import {LinkedList} from 'ngx-bootstrap';
 import {Points} from '../../../../Points';
@@ -30,6 +32,16 @@ export class VotingresultsComponent implements OnInit {
   firstsa = new Array<First_AS>();
   classes = new Array<String>();
 
+  myData = [
+    ['London', 8136000],
+    ['New York', 8538000],
+    ['Paris', 2244000],
+    ['Berlin', 3470000],
+    ['Kairo', 19500000]
+  ];
+  myColumnNames = ['City', 'Inhabitants'];
+  myType = 'PieChart';
+
   private httpService: HttpService;
 
   PieChart;
@@ -43,6 +55,7 @@ export class VotingresultsComponent implements OnInit {
   context_ratio3 = null;
   // tslint:disable-next-line:max-line-length
   inputString = '[{"1":6,"2":1,"3":1,"4":1,"5":0,"6":0}, {"1":1,"2":0,"3":0,"4":0,"5":0,"6":0}, {"7":2,"8":1,"9":0,"10":0}, {"7":1,"8":0,"9":0,"10":0}, {"4AHTIM":0,"4BHTIM":0,"3AHTIM":0,"3BHTIM":0}]';
+  inputString2 = '[{"Max": 10000, "Hannes": 200, "Rita": 400, "Karla": 6000}]';
   input;
   studentname;
   position = -2;
@@ -65,23 +78,23 @@ export class VotingresultsComponent implements OnInit {
 
   openHttpService() {
     this.parseData2("lol");
-    //this.httpService.getCVs().subscribe((res) => this.parseData2(res));
+    // this.httpService.getCVs().subscribe((res) => this.parseData2(res));
   }
 
   parseData2(res) {
-    //this.inputString = res;
+    // this.inputString = res;
     this.input = JSON.parse(this.inputString);
     console.log(this.input[0]);
-    //Object.assign(this.wunderPunkt, this.input[0]);
+    // Object.assign(this.wunderPunkt, this.input[0]);
     for(var j = 0; j < 4;j++){
       while(this.position != -1){
         if(this.position != -2) {
 
           this.position = JSON.stringify(this.input[j]).search(   this.studentname + '":' + this.regex + ',"');
-          //alert('Position: ' + this.position);
+          // alert('Position: ' + this.position);
           if(this.position != -1){
           this.setstudentname(JSON.stringify(this.input[j]), this.length + 5);
-          //alert('Student: ' + this.studentname);
+          // alert('Student: ' + this.studentname);
             if(j == 0){
               this.p.name = this.studentname;
             } else if(j == 1) {
@@ -93,7 +106,7 @@ export class VotingresultsComponent implements OnInit {
             }
           this.regex = this.input[j][this.studentname];
           console.log(this.input[j][this.studentname]);
-          //alert('Points: ' + this.input[j][this.studentname]);
+          // alert('Points: ' + this.input[j][this.studentname]);
             if(j == 0) {
               this.p.score = this.input[j][this.studentname];
               this.points.push(this.p);
