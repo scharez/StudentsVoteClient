@@ -54,4 +54,11 @@ export class HttpService {
   endElection4Teacher() {
      this.http.post('http://localhost:8080/rest/sv/endElectionTeacher');
   }
+
+  postFile(file: File) {
+
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);
+    return this.http.post('http://localhost:8080/rest/sv/uploadCSV', formData);
+  }
 }
