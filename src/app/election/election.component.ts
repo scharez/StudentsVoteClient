@@ -9,7 +9,7 @@ import {ChooseYourClassComponent} from './chooseYourClassComponent';
 import {FinishedComponent} from './finishedComponent';
 import {DataService} from '../services/data.service';
 import {Kandidaten} from '../Kandidaten';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-election',
@@ -55,7 +55,7 @@ export class ElectionComponent implements OnInit, AfterViewInit {
   height: string;
 
 
-  constructor(httpService: HttpService, dialog: MatDialog, private dataService: DataService, router : Router) {
+  constructor(httpService: HttpService, dialog: MatDialog, private dataService: DataService, router: Router) {
     this.router = router;
     this.httpService = httpService;
     this.dialog = dialog;
@@ -165,7 +165,6 @@ export class ElectionComponent implements OnInit, AfterViewInit {
       }
     }
 
-
     console.log(this.punkteA);
 
   }
@@ -206,6 +205,8 @@ export class ElectionComponent implements OnInit, AfterViewInit {
 
     this.voteAgain();
 
+    /*this.print();*/
+
     this.httpService.persistCVs().subscribe();
 
     const dialogRef = this.dialog.open(FinishedComponent, {
@@ -239,8 +240,17 @@ export class ElectionComponent implements OnInit, AfterViewInit {
 
   }
 
-  printme(){
+  printme() {
     this.router.navigate(['finalScore']);
+  }
+
+  print(): void {
+    let printContents, popupWin;
+    printContents = document.getElementById('print-section').innerHTML;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    popupWin.document.open();
+    popupWin.document.write('<html><head><title>Print tab</title></head><body onload="window.print();window.close()"> {{ printContents }} ></body></html>');
+    popupWin.document.close();
   }
 
   ngAfterViewInit(): void {

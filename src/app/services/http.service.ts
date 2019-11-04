@@ -66,4 +66,8 @@ export class HttpService {
   runOff() {
     this.http.post('http://localhost:8080/rest/sv/runOff');
   }
+
+  getClasses(){
+    return this.http.get('http://localhost:8080/rest/sv/');
+  }
 }
