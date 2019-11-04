@@ -10,6 +10,8 @@ import {FinishedComponent} from './finishedComponent';
 import {DataService} from '../services/data.service';
 import {Kandidaten} from '../Kandidaten';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-election',
@@ -54,8 +56,11 @@ export class ElectionComponent implements OnInit, AfterViewInit {
   laenge: number;
   height: string;
 
+  isClass;
+  getClass:string;
 
-  constructor(httpService: HttpService, dialog: MatDialog, private dataService: DataService, router : Router) {
+
+  constructor(httpService: HttpService, dialog: MatDialog, private dataService: DataService, router : Router, private route: ActivatedRoute) {
     this.router = router;
     this.httpService = httpService;
     this.dialog = dialog;
@@ -64,6 +69,13 @@ export class ElectionComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
+    this.isClass = this.route.queryParams.subscribe(params => {
+      if(params.klasse){
+        this.getClass = params.klasse;
+        console.log(this.getClass);
+      }
+
+    })
 
   }
 
@@ -222,6 +234,7 @@ export class ElectionComponent implements OnInit, AfterViewInit {
   }
 
   endElection() {
+    this.getClass = null;
     this.httpService.endElection();
   }
 
@@ -244,7 +257,11 @@ export class ElectionComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => this.onChooseClass());
-  }
+    if(this.getClass == null){
+      setTimeout(() => this.onChooseClass());
+    }else{
+      this.httpService.instanceCVs(this.getClass).subscribe();
+    }
+   }
 }
 

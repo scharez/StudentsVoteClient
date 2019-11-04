@@ -7,7 +7,8 @@ import {HttpService} from '../../../../services/http.service';
 
 @Component({
   selector: 'app-classSettings',
-  templateUrl: 'classSettings.html'
+  templateUrl: 'classSettings.html',
+  styleUrls: ['classSettings.css']
 })
 export class ClassSettings implements OnInit {
 
@@ -35,12 +36,12 @@ export class ClassSettings implements OnInit {
 
 
   onClick() {
-   /* if (data.name === '') {
-      location.reload();
-    } else {
+
       this.dialogRef.close();
-      //this.httpService.deleteClass(data.name).subscribe((resClass) => this.ausgabe(resClass));
-    }*/
+
+      this.httpService.deleteClass(this.data.name).subscribe((resClass) => this.ausgabe(resClass));
+      this.router.navigate(['election'],{queryParams: {klasse : this.data.name}});
+
   }
 
   ausgabe(resClass: string) {

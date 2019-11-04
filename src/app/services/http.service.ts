@@ -56,7 +56,7 @@ export class HttpService {
   }
 
   deleteClass(className: string) {
-     this.http.post('http://localhost:8080/rest/sv/deleteClass');
+     return this.http.post('http://localhost:8080/rest/sv/deleteClass', className);
   }
 
   newElection() {
