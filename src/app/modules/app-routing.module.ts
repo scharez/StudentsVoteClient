@@ -11,7 +11,7 @@ import {InfoComponent} from '../info/info.component';
 import {AuthGuardService} from '../services/auth-guard.service';
 import {AuthService} from '../services/auth.service';
 import {ElectSettingsComponent} from '../dashboard/home/components/elect-settings/elect-settings.component';
-import {VotingresultsComponent} from '../dashboard/home/components/votingresults/votingresultsold.component';
+import {VotingresultsComponent} from '../dashboard/home/components/votingresults/votingresults.component';
 import {FinalScoreComponent} from '../election/final-score/final-score.component';
 
 const routes: Routes = [

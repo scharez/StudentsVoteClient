@@ -45,7 +45,7 @@ export class ElectSettingsComponent implements OnInit {
 
     alert('End Election4Teacher');
 
-    this.httpService.endElection4Teacher();
+    this.httpService.endElectionTeacher();
   }
 }
 

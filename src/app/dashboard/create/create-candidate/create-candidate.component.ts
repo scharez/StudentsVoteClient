@@ -1,12 +1,16 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Student} from '../../../Student';
 import {HttpService} from '../../../services/http.service';
+import {User2} from '../../../User2';
 
 @Component({
   selector: 'create-candidate',
   templateUrl: './create-candidate.component.html',
   styleUrls: ['./create-candidate.component.css']
 })
+
+
+
 export class CreateCandidateComponent implements OnInit {
   /*Formular Daten*/
   firstName = '';
@@ -17,12 +21,20 @@ export class CreateCandidateComponent implements OnInit {
   sWahlversprechen = '';
   sImage = '';
 
+  positions: string[] = ['Schulsprecher', 'AbteilungssprecherE', 'AbteilungssprecherI'];
+  cposition = '';
+
   textTest: String;
   ret: string
 
   /*Schüler Array*/
   studentNew: Student = new Student();
   dataString: String = '';
+  candidate: User2 = new class implements User2 {
+    firstname: string;
+    lastname: string;
+    username: string;
+  };
 
   /*Image*/
   @Input() i: number;
@@ -69,7 +81,7 @@ export class CreateCandidateComponent implements OnInit {
     this.studentNew.department = this.sDepartment;
     this.studentNew.electionPromise = this.sWahlversprechen;
     this.studentNew.picture = this.sImage;
-    this.studentNew.position = this.id;
+    this.studentNew.position = this.cposition;
 
     this.checkForm();
 
@@ -91,7 +103,12 @@ export class CreateCandidateComponent implements OnInit {
   /*Sending Student to the Server with all the right Data*/
   newStudent(dataString) {
     /*this.httpService.getCandidates().subscribe((res) => this.putCandidates(res));*/
+    this.candidate.username = this.studentNew.username;
+    this.candidate.firstname = this.studentNew.firstname;
+    this.candidate.lastname = this.studentNew.lastname;
+    alert(this.studentNew.position);
 
+    this.httpService.createCandidate(this.candidate).subscribe();
     this.httpService.setCandidate(dataString).subscribe();
     console.log(dataString);
     console.log(this.ret);

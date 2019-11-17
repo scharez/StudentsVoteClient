@@ -39,9 +39,18 @@ export class VotingresultsComponent implements OnInit {
   myColumnNames2 = ['Abteilungssprecher Informatik', 'Punkte'];
   title2 = 'Abteilungssprecher Informatik';
   myType = 'PieChart';
-  inputString2 = '[{"Max": 10000, "Hannes": 200, "Rita": 400, "Karla": 6000}]';
+  inputString2 = '[{"Max": 10000}, {"Hannes": 200}, {"Rita": 400}, {"Karla": 6000}]';
+  schulSprecher = '[{"user": "Max", "score": 10000}, {"user": "Basti", "score": 500}, {"user": "Stefan", "score": 123}, {"user": "Günther", "score": 847}]';
+  abtSprecherE = '[{"user": "Max", "score": 100}, {"user": "Basti", "score": 500}, {"user": "Stefan", "score": 650}, {"user": "Günther", "score": 50}]';
+  abtSprecherI = '[{"user": "Max", "score": 40}, {"user": "Basti", "score": 10}, {"user": "Stefan", "score": 1000}, {"user": "Günther", "score": 900}]';
 
-  Punkte; punkte = new Punkte();
+  lol: Map<any, Punkte> = new Map<any, Punkte>();
+
+  punkte: Array<any> = [['', 0]];
+  punkte2: Array<any> = [['', 0]];
+  punkte3: Array<any> = [['', 0]];
+
+
 
   constructor(httpService: HttpService) {
     this.httpService = httpService;
@@ -50,7 +59,7 @@ export class VotingresultsComponent implements OnInit {
   ngOnInit(): void {
 
     // this.openHttpService();
-    alert('Hi');
+
 
     this.parseData(this.inputString2);
 
@@ -62,14 +71,34 @@ export class VotingresultsComponent implements OnInit {
 
   parseData(res) {
 
-    this.punkte = JSON.parse(res);
-    const resultArray = Object.keys(Punkte).map(function(objecttoarray) {
-      const punkte = Punkte[objecttoarray];
-      // do something with person
-      return punkte;
-    });
-    alert(resultArray);
+    const parsed = JSON.parse(this.schulSprecher);
 
+    for (const p of parsed) {
+      console.table(p.user, p.score);
+      this.punkte.push([p.user, p.score]);
+
+    }
+    console.log(JSON.stringify(this.punkte));
+
+    const parsed2 = JSON.parse(this.abtSprecherE);
+
+    for (const p of parsed2) {
+      console.table(p.user, p.score);
+      this.punkte2.push([p.user, p.score]);
+
+    }
+    console.log(JSON.stringify(this.punkte2));
+
+    const parsed3 = JSON.parse(this.abtSprecherI);
+
+    for (const p of parsed3) {
+      console.table(p.user, p.score);
+      this.punkte3.push([p.user, p.score]);
+
+    }
+    console.log(JSON.stringify(this.punkte3));
   }
+
+
 
 }

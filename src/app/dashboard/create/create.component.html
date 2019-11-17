@@ -1,8 +1,5 @@
 <h1 class="mat-h1">Kandidaten</h1>
-
 <hr>
-<h2 class="mat-h2">Schulsprecher</h2>
-
 
 <!--Schueler hinzufügen-->
 <button mat-raised-button id="addStudent" class="addButton" (click)="addStudent()">+</button>
@@ -27,34 +24,6 @@
 
     </mat-card>
     <!-- Ende Matcard -->
-  </div>
-</div>
-
-
-<hr>
-<br>
-<h2 class="mat-h2">Abteilungssprecher</h2>
-
-<!--Schueler hinzufügen-->
-<button mat-raised-button id="addDep" class="addButton" (click)="addStudentDep()">+</button>
-
-<div *ngIf="anzahlKandidatenDep.length != 0">
-  <div *ngFor="let anzahlDep of anzahlKandidatenDep; let j = index">
-
-    <!-- Beginn Matcard -->
-    <mat-card class="mat-card" class="mat-card-abteilungssprecher" [id]="abteilungId(j)">
-
-      <mat-card-content>
-
-
-        <!---SCHÜLER ABTEILUNG--->
-        <create-candidate [i]="j" [id]="idA"></create-candidate>
-
-
-        <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-      </mat-card-content>
-
-    </mat-card>
   </div>
 </div>
 
