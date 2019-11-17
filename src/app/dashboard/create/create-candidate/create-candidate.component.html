@@ -56,6 +56,16 @@
 
   <br>
 
+
+  <!--Position-->
+  <mat-form-field class="alignData">
+    <mat-select required placeholder="Position" [(ngModel)]="cposition">
+      <mat-option *ngFor="let position of positions" [value]="position">
+        {{position}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
 </div>
 
 

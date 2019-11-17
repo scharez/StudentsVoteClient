@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {User} from '../objects/app.user';
 import {Student} from '../Student';
 import {Punkte} from '../Punkte';
+import {User2} from '../User2';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +52,7 @@ export class HttpService {
      this.http.post('http://localhost:8080/rest/sv/startElection');
   }
 
-  endElection4Teacher() {
+  endElectionTeacher() {
      this.http.post('http://localhost:8080/rest/sv/endElectionTeacher');
   }
 
@@ -77,5 +78,9 @@ export class HttpService {
 
   getClasses(){
     return this.http.get('http://localhost:8080/rest/sv/');
+  }
+
+  createCandidate(candidate: User2) {
+    return this.http.post('http://localhost:8080/rest/sv/setCandidate', candidate);
   }
 }
