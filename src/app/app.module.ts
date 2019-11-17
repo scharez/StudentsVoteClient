@@ -3,8 +3,9 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './modules/app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 
-import {MaterialModule} from '../app/modules/material.module';
+import {MaterialModule} from './modules/material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import {HttpService} from './services/http.service';
 
@@ -19,9 +20,9 @@ import {SideNavComponent} from './dashboard/side-nav/side-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {CreateCandidateComponent} from './dashboard/create/create-candidate/create-candidate.component';
 import {ChooseYourClassComponent} from './election/chooseYourClassComponent';
-import {VotingresultsComponent} from '../app/dashboard/home/components/votingresults/votingresults.component';
-import {ClassSettings} from './dashboard/home/components/elected-classes/classSettings';
 
+import {VotingresultsComponent} from './dashboard/home/components/votingresults/votingresults.component';
+import {ClassSettings} from './dashboard/home/components/elected-classes/classSettings';
 
 import {
   MatToolbarModule,
@@ -84,6 +85,7 @@ import { ElectedClassesComponent } from './dashboard/home/components/elected-cla
     MatMenuModule,
     MatDialogModule,
     HttpClientModule,
+    GoogleChartsModule.forRoot(),
   ], entryComponents: [
     ChooseYourClassComponent,
     FinishedComponent,

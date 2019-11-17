@@ -1,4 +1,4 @@
-<div class="chart" style="width: 70vw; height: 20vh; margin-left: -20vw">
+<!--<div class="chart" style="width: 70vw; height: 20vh; margin-left: -20vw">
   <canvas #chart ></canvas>
 </div>
 <div class="chart1" style="width: 70vw; height: 20vh; float: right; margin: -19vh 0 0 50vw">
@@ -13,4 +13,8 @@
 
 <div class="class" style="float: right; margin: 0 0 0 0">
   <p *ngFor="let class of classes" style="float: right">{{class}}, </p>
-</div>
+</div>-->
+
+<google-chart [data]="punkte" [columnNames]="myColumnNames" [type]="myType" [title]="title"></google-chart>
+<google-chart [data]="punkte2" [columnNames]="myColumnNames1" [type]="myType" [title]="title1"></google-chart>
+<google-chart [data]="punkte3" [columnNames]="myColumnNames2" [type]="myType" [title]="title2"></google-chart>

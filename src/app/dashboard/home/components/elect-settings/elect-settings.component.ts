@@ -10,13 +10,25 @@ export class ElectSettingsComponent implements OnInit {
 
   constructor(private httpService: HttpService) { }
 
+  fileToUpload: File = null;
+
   ngOnInit() {
+  }
+
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+  }
+
+  uploadFileToActivity() {
+    this.httpService.postFile(this.fileToUpload).subscribe(data => {
+      console.log(data);
+    });
   }
 
   beginElection(): void {
 
     alert('Begin Election');
-    console.log("LOL");
+    console.log('LOL');
 
     this.httpService.beginElection();
 
@@ -33,7 +45,7 @@ export class ElectSettingsComponent implements OnInit {
 
     alert('End Election4Teacher');
 
-    this.httpService.endElection4Teacher();
+    this.httpService.endElectionTeacher();
   }
 }
 

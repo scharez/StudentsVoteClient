@@ -51,8 +51,16 @@ export class HttpService {
      this.http.post('http://localhost:8080/rest/sv/startElection');
   }
 
-  endElection4Teacher() {
+  endElectionTeacher() {
      this.http.post('http://localhost:8080/rest/sv/endElectionTeacher');
+  }
+
+
+  postFile(file: File) {
+
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);
+    return this.http.post('http://localhost:8080/rest/sv/uploadCSV', formData);
   }
 
   deleteClass(className: string) {
@@ -71,6 +79,7 @@ export class HttpService {
     return this.http.get('http://localhost:8080/rest/sv/');
   }
 
-
-
+  createCandidate(candidate: User2) {
+    return this.http.post('http://localhost:8080/rest/sv/setCandidate', candidate);
+  }
 }

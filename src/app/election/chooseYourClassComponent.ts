@@ -30,12 +30,10 @@ export class ChooseYourClassComponent implements OnInit {
   ) {
 
     this.dialogRef.disableClose = true;
-    this.httpService.getClasses().subscribe((resClasses) => this.loadClass(resClasses));
-
   }
 
   ngOnInit(): void {
-
+    this.httpService.getClasses().subscribe((resClasses) => this.loadClass(resClasses));
   }
 
   onNoClick(): void {
