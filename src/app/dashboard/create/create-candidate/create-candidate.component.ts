@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Student} from '../../../Student';
 import {HttpService} from '../../../services/http.service';
 import {User2} from '../../../User2';
+import {User3} from '../../../User3';
 
 @Component({
   selector: 'create-candidate',
@@ -27,6 +28,8 @@ export class CreateCandidateComponent implements OnInit {
   textTest: String;
   ret: string
 
+  date: string;
+
   /*Schüler Array*/
   studentNew: Student = new Student();
   dataString: String = '';
@@ -35,6 +38,16 @@ export class CreateCandidateComponent implements OnInit {
     lastname: string;
     username: string;
   };
+
+  candidateplus: User3 = new class implements User3 {
+    electionPromis: string;
+    electionType: string;
+    file: File;
+    planneddate: string;
+    schoolClassName: string;
+    username: string;
+  }
+
 
   /*Image*/
   @Input() i: number;
@@ -107,13 +120,30 @@ export class CreateCandidateComponent implements OnInit {
     this.candidate.firstname = this.studentNew.firstname;
     this.candidate.lastname = this.studentNew.lastname;
     alert(this.studentNew.position);
-
     this.httpService.createCandidate(this.candidate).subscribe();
-    this.httpService.setCandidate(dataString).subscribe();
-    console.log(dataString);
-    console.log(this.ret);
-    console.log('yeah');
-    alert('Kandidat erstellt!');
+
+    this.httpService.getCurrentVoteDate().subscribe(data => function () {
+      this.date = data
+      console.log(this.date);
+
+      this.candidateplus.username = this.studentNew.username;
+      this.candidateplus.planneddate = this.date;
+      this.candidateplus.electionType = this.cposition;
+      this.candidateplus.schoolClassName = this.studentNew.candidateClass;
+      this.candidateplus.file = null;
+      this.candidateplus.electionPromis = this.studentNew.electionPromise;
+
+      this.httpService.createCandidature(this.candidateplus).subscribe(function () {
+
+        console.log(dataString);
+        console.log(this.ret);
+        console.log('yeah');
+        alert('Kandidat erstellt!');
+
+      });
+
+    });
+
 
   }
 

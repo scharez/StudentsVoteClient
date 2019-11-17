@@ -19,6 +19,8 @@ export class ElectSettingsComponent implements OnInit {
     this.fileToUpload = files.item(0);
   }
 
+
+
   uploadFileToActivity() {
     this.httpService.postFile(this.fileToUpload).subscribe(data => {
       console.log(data);
