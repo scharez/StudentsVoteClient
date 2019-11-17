@@ -4,6 +4,8 @@ import {ClassData} from '../ClassData';
 import {Router} from '@angular/router';
 import {DataService} from '../services/data.service';
 import {HttpService} from '../services/http.service';
+import {KandidatenEingang} from '../KandidatenEingang';
+import {KlassenEingang} from '../KlassenEingang';
 
 @Component({
   selector: 'app-election',
@@ -11,8 +13,13 @@ import {HttpService} from '../services/http.service';
 })
 export class ChooseYourClassComponent implements OnInit {
 
-  classes: string[] = ['1AHITM', '1BHITM', '2AHITM', '2BHITM', '3AHITM', '3BHITM', '4AHTIM', '4BHITM', '5AHITM'];
+  classes: KlassenEingang[] = [];
   sClass: string = '';
+
+
+  /*Wie viele Kandidaten werden ausgelesen und wie ist das aufgebaut*/
+  resClasses: string;
+  countV: number = 0;
 
   constructor(
     public dialogRef: MatDialogRef<ChooseYourClassComponent>,
@@ -23,6 +30,7 @@ export class ChooseYourClassComponent implements OnInit {
   ) {
 
     this.dialogRef.disableClose = true;
+    this.httpService.getClasses().subscribe((resClasses) => this.loadClass(resClasses));
 
   }
 
@@ -50,5 +58,16 @@ export class ChooseYourClassComponent implements OnInit {
   ausgabe(resClass: string) {
     console.log(resClass);
   }
+
+  loadClass(resClasses: Array<KlassenEingang>) {
+    console.log(resClasses);
+    resClasses.forEach(item => {
+      console.log(item.klassenName);
+
+      this.classes[this.countV] = {'klassenName': item.klassenName};
+      this.countV++;
+    });
+  }
+
 
 }

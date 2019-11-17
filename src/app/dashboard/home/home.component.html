@@ -1,6 +1,6 @@
 <div class="grid-container">
   <h1 class="mat-h1">Home</h1>
-  <mat-grid-list cols="2" rowHeight="600px">
+  <mat-grid-list cols="3" rowHeight="600px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -10,9 +10,9 @@
         </mat-card-header>
         <br>
         <mat-card-content class="dashboard-card-content">
-          <app-elect-setting *ngIf="card.title === 'Elect-Settings'"></app-elect-setting>
+          <app-elect-setting *ngIf="card.title === 'Wahleinstellungen'"></app-elect-setting>
           <app-votingresults *ngIf="card.title === 'Stimmenverteilung'"></app-votingresults>
-          <app-elected-classes *ngIf="card.title === 'Classes-Voted'"></app-elected-classes>
+          <app-elected-classes *ngIf="card.title === 'Klassen \n [Ergebnis gewählt]'"></app-elected-classes>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
