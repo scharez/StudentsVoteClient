@@ -7,14 +7,14 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="./dashboard">
-        Dashboard
+      <button mat-menu-item class="icon-bar" routerLink="./dashboard">
+        <span>Dashboard</span>
       </button>
-      <button mat-menu-item routerLink="./election">
-        Wahl
+      <button mat-menu-item class="icon-bar" routerLink="./election">
+        <span>Wahl</span>
       </button>
-      <button mat-menu-item routerLink="./login">
-        <span (click)="this.logout()">Logout bitte</span>
+      <button mat-menu-item class="icon-bar" routerLink="./login">
+        <span (click)="this.logout()">Logout</span>
       </button>
     </mat-menu>
   </mat-toolbar-row>

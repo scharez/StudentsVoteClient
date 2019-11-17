@@ -20,7 +20,9 @@ import {SideNavComponent} from './dashboard/side-nav/side-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {CreateCandidateComponent} from './dashboard/create/create-candidate/create-candidate.component';
 import {ChooseYourClassComponent} from './election/chooseYourClassComponent';
+
 import {VotingresultsComponent} from './dashboard/home/components/votingresults/votingresultsold.component';
+import {ClassSettings} from './dashboard/home/components/elected-classes/classSettings';
 
 import {
   MatToolbarModule,
@@ -30,7 +32,7 @@ import {
   MatListModule,
   MatGridListModule,
   MatCardModule,
-  MatMenuModule
+  MatMenuModule, MatDialogModule
 } from '@angular/material';
 
 
@@ -40,8 +42,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {InfoComponent} from './info/info.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {RoleguardService} from './services/roleguard.service';
-import { FinalScoreComponent } from './election/final-score/final-score.component';
+//import { FinalScoreComponent } from './election/final-score/final-score.component';
 import { FinishedComponent } from './election/finishedComponent';
+import { NewElectionComponent } from './dashboard/new-election/new-election.component';
+import { ElectedClassesComponent } from './dashboard/home/components/elected-classes/elected-classes.component';
 
 @NgModule({
   declarations: [
@@ -58,8 +62,11 @@ import { FinishedComponent } from './election/finishedComponent';
     ChooseYourClassComponent,
     ElectSettingsComponent,
     VotingresultsComponent,
-    FinalScoreComponent,
-    FinishedComponent
+   // FinalScoreComponent,
+    FinishedComponent,
+    NewElectionComponent,
+    ElectedClassesComponent,
+    ClassSettings
   ],
   imports: [
     BrowserModule,
@@ -76,11 +83,13 @@ import { FinishedComponent } from './election/finishedComponent';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    MatDialogModule,
     HttpClientModule,
     GoogleChartsModule.forRoot(),
   ], entryComponents: [
     ChooseYourClassComponent,
-    FinishedComponent
+    FinishedComponent,
+    ClassSettings
   ],
   providers: [AuthService, AuthGuardService, RoleguardService, HttpService],
   bootstrap: [AppComponent]
