@@ -35,4 +35,6 @@ export class FinishedComponent implements OnInit {
     this.dialogRef.close();
     this.router.navigate(['login']);
   }
+
+
 }
