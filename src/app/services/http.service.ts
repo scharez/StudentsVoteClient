@@ -25,7 +25,7 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString);
   }
 
-  getCandidates() {                  // what is this shit doing
+  getCandidates() {
     return this.http.get('http://localhost:8080/rest/sv/getCandidates');
   }
 
@@ -41,8 +41,8 @@ export class HttpService {
      this.http.post('http://localhost:8080/rest/sv/endElection');
   }
 
-  getCVs() {
-    return this.http.get('http://localhost:8080/rest/sv/getCVs');
+  getSchoolClassResults(myRequest: VotingResultPunkte) {
+    return this.http.get('http://localhost:8080/rest/sv/getSchoolClassResults', );
   }
 
   beginElection() {
@@ -53,16 +53,14 @@ export class HttpService {
      this.http.post('http://localhost:8080/rest/sv/endElectionTeacher');
   }
 
-
   postFile(file: File) {
-
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);
     return this.http.post('http://localhost:8080/rest/sv/uploadCSV', formData);
   }
 
   deleteClass(className: string) {
-     return this.http.post('http://localhost:8080/rest/sv/deleteSchoolClassResult');
+     return this.http.post('http://localhost:8080/rest/sv/deleteClass');
   }
 
   newElection(json: string) {
