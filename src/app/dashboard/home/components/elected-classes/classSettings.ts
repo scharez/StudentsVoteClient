@@ -35,12 +35,10 @@ export class ClassSettings implements OnInit {
 
 
   onClick() {
-
-      this.dialogRef.close();
-      this.httpService.deleteClass(this.data.name).subscribe((resClass) => this.ausgabe(resClass));
-      //Scharinger Methode zum abspeichern der klassen die falsch gevoted haben --> 15.11.2019
-      this.router.navigate(['election'],{queryParams: {klasse : this.data.name}});
-
+    this.dialogRef.close();
+    this.httpService.deleteClass(this.data.name).subscribe((resClass) => this.ausgabe(resClass));
+    //Scharinger Methode zum abspeichern der klassen die falsch gevoted haben --> 15.11.2019
+    this.router.navigate(['election'], {queryParams: {klasse: this.data.name}});
   }
 
   ausgabe(resClass: string) {

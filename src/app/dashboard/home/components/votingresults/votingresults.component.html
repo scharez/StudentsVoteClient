@@ -15,6 +15,14 @@
   <p *ngFor="let class of classes" style="float: right">{{class}}, </p>
 </div>-->
 
-<google-chart [data]="punkte" [columnNames]="myColumnNames" [type]="myType" [title]="title"></google-chart>
-<google-chart [data]="punkte2" [columnNames]="myColumnNames1" [type]="myType" [title]="title1"></google-chart>
+<div class="firstChart">
+  <google-chart [data]="punkte" [columnNames]="myColumnNames" [type]="myType" [title]="title"></google-chart>
+</div>
+
+<div class="secondChart">
+  <google-chart [data]="punkte2" [columnNames]="myColumnNames1" [type]="myType" [title]="title1"></google-chart>
+</div>
+
+<div class="thirdChart">
 <google-chart [data]="punkte3" [columnNames]="myColumnNames2" [type]="myType" [title]="title2"></google-chart>
+</div>

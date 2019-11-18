@@ -1,0 +1,8 @@
+.firstChart, .secondChart, .thirdChart {
+  width: 400px;
+  float: left;
+}
+
+.firstChart, .secondChart, .thirdChart {
+  display: inline-block;
+}

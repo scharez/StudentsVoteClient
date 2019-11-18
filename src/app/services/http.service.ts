@@ -5,6 +5,7 @@ import {Student} from '../Student';
 import {Punkte} from '../Punkte';
 import {User2} from '../User2';
 import {User3} from '../User3';
+import {VotingResultPunkte} from '../VotingResultPunkte';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString);
   }
 
-  getCandidates() {                  // what is this shit doing
+  getCandidates() {
     return this.http.get('http://localhost:8080/rest/sv/getCandidates');
   }
 
@@ -45,8 +46,8 @@ export class HttpService {
      this.http.post('http://localhost:8080/rest/sv/endElection');
   }
 
-  getCVs() {
-    return this.http.get('http://localhost:8080/rest/sv/getCVs');
+  getSchoolClassResults(myRequest: VotingResultPunkte) {
+    return this.http.get('http://localhost:8080/rest/sv/getSchoolClassResults', );
   }
 
   beginElection() {
@@ -57,16 +58,14 @@ export class HttpService {
      this.http.post('http://localhost:8080/rest/sv/endElectionTeacher');
   }
 
-
   postFile(file: File) {
-
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);
     return this.http.post('http://localhost:8080/rest/sv/uploadCSV', formData);
-  }  
+  }
 
   deleteClass(className: string) {
-     this.http.post('http://localhost:8080/rest/sv/deleteClass');
+     return this.http.post('http://localhost:8080/rest/sv/deleteClass');
   }
 
   newElection(json: string) {
