@@ -5,6 +5,7 @@ import {Student} from '../Student';
 import {Punkte} from '../Punkte';
 import {User2} from '../User2';
 import {User3} from '../User3';
+import {VotingResultPunkte} from '../VotingResultPunkte';
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +43,7 @@ export class HttpService {
   }
 
   getSchoolClassResults(myRequest: VotingResultPunkte) {
-    return this.http.get('http://localhost:8080/rest/sv/getSchoolClassResults', );
+    return this.http.get('http://localhost:8080/rest/sv/getSchoolClassResults');
   }
 
   beginElection() {
