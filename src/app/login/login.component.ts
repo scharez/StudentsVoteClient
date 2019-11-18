@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../services/http.service';
-import { Router } from '@angular/router';
-import { User} from '../objects/app.user';
+import {Component, OnInit} from '@angular/core';
+import {HttpService} from '../services/http.service';
+import {Router} from '@angular/router';
+import {User} from '../objects/app.user';
 import {CustomException} from '../objects/app.customException';
 import {DataService} from '../services/data.service';
 import {AppStorage} from '../objects/app.storage';
@@ -18,23 +18,16 @@ export class LoginComponent implements OnInit {
   private httpService: HttpService;
   private router: Router;
 
-
-
   constructor(httpService: HttpService, router: Router, private dataService: DataService) {
     this.httpService = httpService;
     this.router = router;
   }
 
-
   user: User = new User();
-
   ce: CustomException = new CustomException();
 
-
   login(): void {
-
     this.httpService.loginCheck(this.user).subscribe((res) => this.parseLogin(res));
-
   }
 
   parseLogin(res): void {
@@ -52,7 +45,7 @@ export class LoginComponent implements OnInit {
       switch (storage.role) {
 
         case 'Students':
-            this.router.navigate(['info']);
+          this.router.navigate(['info']);
           break;
 
         case 'Teacher':
@@ -68,10 +61,9 @@ export class LoginComponent implements OnInit {
           break;
       }
     }
-
   }
 
-  justgetin(){
+  justgetin() {
     this.router.navigate(['dashboard']);
   }
 

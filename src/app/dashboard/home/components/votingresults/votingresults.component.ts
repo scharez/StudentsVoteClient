@@ -4,6 +4,8 @@ import {Punkte} from '../../../../Punkte';
 import {VotingResultPunkte} from '../../../../VotingResultPunkte';
 
 import {formatDate} from '@angular/common';
+import {AppStorage} from '../../../../objects/app.storage';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-votingresults',
@@ -51,7 +53,6 @@ export class VotingresultsComponent implements OnInit {
   abtSprecherI = '[{"user": "Max", "score": 40}, {"user": "Basti", "score": 10}, {"user": "Stefan", "score": 1000}, {"user": "Günther", "score": 900}]';
 
   //JSON als welches wir die Anfrage an den Server schicken
-  myDate = new Date();
   meinDatum = '';
   myRequest: VotingResultPunkte = new VotingResultPunkte();
 
@@ -62,16 +63,19 @@ export class VotingresultsComponent implements OnInit {
   punkte2: Array<any> = [['', 0]];
   punkte3: Array<any> = [['', 0]];
 
+  private router: Router;
 
-  constructor(httpService: HttpService) {
+
+  constructor(httpService: HttpService, router: Router) {
     this.httpService = httpService;
+    this.router = router;
 
     this.meinDatum = formatDate(new Date(), 'dd/MM/yyyy', 'en');
     console.log(this.meinDatum);
   }
 
   ngOnInit(): void {
-    this.parseData(this.inputString2);
+    this.makeDataToGraph(this.inputString2);
   }
 
 
@@ -79,11 +83,36 @@ export class VotingresultsComponent implements OnInit {
     this.myRequest.date = this.meinDatum;
     console.log(this.myRequest);
 
-    this.httpService.getSchoolClassResults(this.myRequest).subscribe((res) => this.parseData(res));
+    this.httpService.getSchoolClassResults(this.myRequest).subscribe((res) => this.makeDataToGraph(res));
   }
 
-  parseData(res) {
+  parseData(res): void {
+    localStorage.setItem('logged', 'true');
+    localStorage.setItem('user', JSON.stringify(res));
 
+    const storage: AppStorage = JSON.parse(localStorage.getItem('user'));
+
+    switch (storage.role) {
+
+      case 'Students':
+        this.router.navigate(['info']);
+        break;
+
+      case 'Teacher':
+        this.router.navigate(['election']);
+        break;
+
+      case 'Candidates':
+        this.router.navigate(['info']);
+        break;
+
+      case 'ADMIN':
+        this.router.navigate(['dashboard']);
+        break;
+    }
+  }
+
+  makeDataToGraph(res) {
     const parsed = JSON.parse(this.schulSprecher);
 
     for (const p of parsed) {
@@ -92,7 +121,6 @@ export class VotingresultsComponent implements OnInit {
     }
 
     console.log(JSON.stringify(this.punkte));
-
     const parsed2 = JSON.parse(this.abtSprecherE);
 
     for (const p of parsed2) {
@@ -101,7 +129,6 @@ export class VotingresultsComponent implements OnInit {
     }
 
     console.log(JSON.stringify(this.punkte2));
-
     const parsed3 = JSON.parse(this.abtSprecherI);
 
     for (const p of parsed3) {
@@ -111,5 +138,6 @@ export class VotingresultsComponent implements OnInit {
     }
     console.log(JSON.stringify(this.punkte3));
   }
+
 
 }

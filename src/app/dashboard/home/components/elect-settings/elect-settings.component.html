@@ -1,22 +1,27 @@
 <div>
   <mat-card-actions>
-    <button mat-button (click)="beginElection()">Wahl beginnen</button>
+    <button mat-raised-button (click)="beginElection()">Wahl beginnen</button>
   </mat-card-actions>
   <mat-card-actions>
-    <button mat-button (click)="endElection()">Wahlende für Lehrer</button>
+    <button mat-raised-button (click)="endElection()">Wahlende für Lehrer</button>
   </mat-card-actions>
   <mat-card-actions>
-    <button mat-button (click)="endElection4Teacher()">Wahl endgültig beenden</button>
+    <button mat-raised-button (click)="endElection4Teacher()">Wahl endgültig beenden</button>
   </mat-card-actions>
+
+  <hr>
+  <br>
+  <br>
 
   <div class="form-group">
-    <label for="file">Upload CSV-File</label>
-    <input type="file"
-           id="file"
-           (change)="handleFileInput($event.target.files)">
+    <mat-label for="file">Upload CSV-File der vorhandenen Klassen</mat-label>
+    <br>
+    <br>
+    <input type="file" id="file" (change)="handleFileInput($event.target.files)">
   </div>
-  <button (click)="uploadFileToActivity()">Upload se File</button>
+  <br>
 
+  <button (click)="uploadFileToActivity()">Upload the File</button>
 
 
 </div>
