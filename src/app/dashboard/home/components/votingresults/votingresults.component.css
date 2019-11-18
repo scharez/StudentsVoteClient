@@ -1,8 +1,8 @@
-.firstChart, .secondChart, .thirdChart {
-  width: 400px;
+.firstChart, .secondChart, .thirdChart, .fourthChart {
+  width: 650px;
   float: left;
 }
 
-.firstChart, .secondChart, .thirdChart {
+.firstChart, .secondChart, .thirdChart, .fourthChart {
   display: inline-block;
 }

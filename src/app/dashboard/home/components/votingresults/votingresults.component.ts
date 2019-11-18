@@ -15,55 +15,37 @@ import {Router} from '@angular/router';
 export class VotingresultsComponent implements OnInit {
 
   private httpService: HttpService;
+  private router: Router;
 
-  myData = [
-    ['London', 8136000],
-    ['New York', 8538000],
-    ['Paris', 2244000],
-    ['Berlin', 3470000],
-    ['Kairo', 19500000]
-  ];
-  myColumnNames = ['Schulsprecher', 'Punkte'];
-  title = 'Schulsprecher';
-  myData1 = [
-    ['London', 8136000],
-    ['New York', 8538000],
-    ['Paris', 2244000],
-    ['Berlin', 3470000],
-    ['Kairo', 19500000]
-  ];
-
-  myColumnNames1 = ['Abteilungssprecher Elektronik', 'Punkte'];
-  title1 = 'Abteilungssprecher Elektronik';
-  myData2 = [
-    ['London', 8136000],
-    ['New York', 8538000],
-    ['Paris', 2244000],
-    ['Berlin', 3470000],
-    ['Kairo', 19500000]
-  ];
-
-  myColumnNames2 = ['Abteilungssprecher Informatik', 'Punkte'];
-  title2 = 'Abteilungssprecher Informatik';
   myType = 'PieChart';
+
+  myColumnNames1 = ['Schulsprecher', 'Punkte'];
+  title1 = 'Schulsprecher';
+
+  myColumnNames4 = ['Klassen', 'Punkte'];
+  title4 = 'Klassen';
+
+  myColumnNames2 = ['Abteilungssprecher Elektronik', 'Punkte'];
+  title2 = 'Abteilungssprecher Elektronik';
+
+  myColumnNames3 = ['Abteilungssprecher Informatik', 'Punkte'];
+  title3 = 'Abteilungssprecher Informatik';
 
   inputString2 = '[{"Max": 10000}, {"Hannes": 200}, {"Rita": 400}, {"Karla": 6000}]';
   schulSprecher = '[{"user": "Max", "score": 10000}, {"user": "Basti", "score": 500}, {"user": "Stefan", "score": 123}, {"user": "Günther", "score": 847}]';
   abtSprecherE = '[{"user": "Max", "score": 100}, {"user": "Basti", "score": 500}, {"user": "Stefan", "score": 650}, {"user": "Günther", "score": 50}]';
   abtSprecherI = '[{"user": "Max", "score": 40}, {"user": "Basti", "score": 10}, {"user": "Stefan", "score": 1000}, {"user": "Günther", "score": 900}]';
+  klassen = '[{"klasse": "nicht gewählt", "score": 36}, {"klasse": "5ahitm", "score": 1}, {"klasse": "3ahitm", "score": 1}]';
+
 
   //JSON als welches wir die Anfrage an den Server schicken
   meinDatum = '';
   myRequest: VotingResultPunkte = new VotingResultPunkte();
 
-
-  lol: Map<any, Punkte> = new Map<any, Punkte>();
-
-  punkte: Array<any> = [['', 0]];
+  punkte1: Array<any> = [['', 0]];
   punkte2: Array<any> = [['', 0]];
   punkte3: Array<any> = [['', 0]];
-
-  private router: Router;
+  punkte4: Array<any> = [['', 0]];
 
 
   constructor(httpService: HttpService, router: Router) {
@@ -76,8 +58,8 @@ export class VotingresultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.makeDataToGraph(this.inputString2);
+    this.openHttpService();
   }
-
 
   openHttpService() {
     this.myRequest.date = this.meinDatum;
@@ -113,31 +95,37 @@ export class VotingresultsComponent implements OnInit {
   }
 
   makeDataToGraph(res) {
-    const parsed = JSON.parse(this.schulSprecher);
+    const parsed1 = JSON.parse(this.schulSprecher);
 
-    for (const p of parsed) {
+    for (const p of parsed1) {
       console.table(p.user, p.score);
-      this.punkte.push([p.user, p.score]);
+      this.punkte1.push([p.user, p.score]);
+      console.log(JSON.stringify(this.punkte1));
     }
 
-    console.log(JSON.stringify(this.punkte));
     const parsed2 = JSON.parse(this.abtSprecherE);
 
     for (const p of parsed2) {
       console.table(p.user, p.score);
       this.punkte2.push([p.user, p.score]);
+      console.log(JSON.stringify(this.punkte2));
     }
 
-    console.log(JSON.stringify(this.punkte2));
     const parsed3 = JSON.parse(this.abtSprecherI);
 
     for (const p of parsed3) {
       console.table(p.user, p.score);
       this.punkte3.push([p.user, p.score]);
-
+      console.log(JSON.stringify(this.punkte3));
     }
-    console.log(JSON.stringify(this.punkte3));
+
+    const parsed4 = JSON.parse(this.klassen);
+
+    for (const p of parsed4) {
+      console.table(p.klasse, p.score);
+      this.punkte4.push([p.klasse, p.score]);
+      console.log(JSON.stringify(this.punkte4));
+    }
   }
-
-
 }
+

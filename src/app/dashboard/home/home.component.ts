@@ -15,7 +15,8 @@ export class HomeComponent {
         return [
           { title: 'Stimmenverteilung', cols: 3, rows: 1 },
           { title: 'Klassen \n [Ergebnis gewählt]', cols: 1, rows: 1 },
-          { title: 'Wahleinstellungen', cols: 1, rows: 1 }
+          { title: 'Wahleinstellungen', cols: 1, rows: 1 },
+          { title: 'Hochladen eines CSV File', cols: 1, rows: 1 }
         ];
       }
 
@@ -23,7 +24,7 @@ export class HomeComponent {
         { title: 'Stimmenverteilung', cols: 3, rows: 1 },
         { title: 'Klassen \n [Ergebnis gewählt]', cols: 1, rows: 1 },
         { title: 'Wahleinstellungen', cols: 1, rows: 1 },
-
+        { title: 'Hochladen eines CSV File', cols: 1, rows: 1 },
       ];
     })
   );

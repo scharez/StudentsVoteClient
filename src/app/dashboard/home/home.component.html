@@ -1,6 +1,6 @@
 <div class="grid-container">
   <h1 class="mat-h1">Home</h1>
-  <mat-grid-list cols="3" rowHeight="800px">
+  <mat-grid-list cols="3" rowHeight="500px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -13,6 +13,7 @@
           <app-elect-setting *ngIf="card.title === 'Wahleinstellungen'"></app-elect-setting>
           <app-votingresults *ngIf="card.title === 'Stimmenverteilung'"></app-votingresults>
           <app-elected-classes *ngIf="card.title === 'Klassen \n [Ergebnis gewählt]'"></app-elected-classes>
+          <app-upload-csv *ngIf="card.title === 'Hochladen eines CSV File'"></app-upload-csv>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

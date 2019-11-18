@@ -46,6 +46,7 @@ import {RoleguardService} from './services/roleguard.service';
 import { FinishedComponent } from './election/finishedComponent';
 import { NewElectionComponent } from './dashboard/new-election/new-election.component';
 import { ElectedClassesComponent } from './dashboard/home/components/elected-classes/elected-classes.component';
+import { UploadCsvComponent } from './dashboard/home/components/upload-csv/upload-csv.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ElectedClassesComponent } from './dashboard/home/components/elected-cla
     FinishedComponent,
     NewElectionComponent,
     ElectedClassesComponent,
-    ClassSettings
+    ClassSettings,
+    UploadCsvComponent
   ],
   imports: [
     BrowserModule,
