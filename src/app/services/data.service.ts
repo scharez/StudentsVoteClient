@@ -9,6 +9,8 @@ export class DataService {
 
   constructor() { }
 
+  public invalidCounter: number;
+
   public showToolBar = true;
   public showDialog = true;
   public candidatesS: Kandidaten[] = [];

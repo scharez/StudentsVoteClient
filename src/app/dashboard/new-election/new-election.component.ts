@@ -11,14 +11,35 @@ import {HttpService} from '../../services/http.service';
 export class NewElectionComponent implements OnInit {
   constructor(private httpService: HttpService) { }
 
+  date: Date;
+
   ngOnInit() {
   }
 
   newElection() {
-    this.httpService.newElection();
+
+    const obj = {
+      date: this.date,
+      electionType: "WAHL"
+    };
+
+    const json = JSON.stringify(obj);
+
+    console.log(json)
+
+    this.httpService.newElection(json);
   }
 
   runOff() {
-    this.httpService.runOff();
+
+    const obj = {
+      date: this.date,
+      electionType: "STICHWAHL"
+    };
+
+    const json = JSON.stringify(obj);
+
+
+    this.httpService.runOff(json);
   }
 }
