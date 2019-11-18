@@ -66,7 +66,7 @@ export class VotingresultsComponent implements OnInit {
   constructor(httpService: HttpService) {
     this.httpService = httpService;
 
-    this.meinDatum = formatDate(new Date(), 'DD/MM/YYYY', 'en');
+    this.meinDatum = formatDate(new Date(), 'dd/MM/yyyy', 'en');
     console.log(this.meinDatum);
   }
 
@@ -78,6 +78,7 @@ export class VotingresultsComponent implements OnInit {
   openHttpService() {
     this.myRequest.date = this.meinDatum;
     console.log(this.myRequest);
+
     this.httpService.getSchoolClassResults(this.myRequest).subscribe((res) => this.parseData(res));
   }
 
