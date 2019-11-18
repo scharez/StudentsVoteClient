@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ClassSettings} from './classSettings';
 import {MatDialog} from '@angular/material';
+import {HttpService} from '../../../../services/http.service';
 
 
 @Component({
@@ -16,15 +17,19 @@ export class ElectedClassesComponent implements OnInit {
   dialog: MatDialog;
   myClass: string;
 
-  constructor(dialog: MatDialog) {
+  constructor(dialog: MatDialog, private httpService: HttpService) {
     this.dialog = dialog;
   }
 
   ngOnInit() {
-
+    this.httpService.getFinishedClasses().subscribe((classesjson) => this.farther(classesjson));
   }
 
-  editClasses(getClass: string){
+  farther(classesjson) {
+    alert(classesjson);
+  }
+
+  editClasses(getClass: string) {
     this.choosenClass(getClass);
   }
 

@@ -82,7 +82,9 @@ export class CreateCandidateComponent implements OnInit {
 
   /*Herunterladen von schon eingetragenen Schülern*/
   dowloadStudents() {
-    this.httpService.getCandidates().subscribe();
+    this.httpService.getCandidates().subscribe(existingcandidates => function (existingcandidates) {
+      alert("hey");
+    });
   }
 
   /*Schüler wird mit seinen Daten in Array gespeichert*/
@@ -120,30 +122,27 @@ export class CreateCandidateComponent implements OnInit {
     this.candidate.firstname = this.studentNew.firstname;
     this.candidate.lastname = this.studentNew.lastname;
     alert(this.studentNew.position);
-    this.httpService.createCandidate(this.candidate).subscribe();
+    this.httpService.createCandidate(this.candidate).subscribe(candidateinfo => this.gettingTime(candidateinfo));
 
-    this.httpService.getCurrentVoteDate().subscribe(data => function () {
-      this.date = data
-      console.log(this.date);
+  }
 
-      this.candidateplus.username = this.studentNew.username;
-      this.candidateplus.planneddate = this.date;
-      this.candidateplus.electionType = this.cposition;
-      this.candidateplus.schoolClassName = this.studentNew.candidateClass;
-      this.candidateplus.file = null;
-      this.candidateplus.electionPromis = this.studentNew.electionPromise;
+  gettingTime(candidateinfo) {
+    alert(candidateinfo);
+    this.httpService.getCurrentVoteDate().subscribe(data => this.setrestCandidateInfo(data));
+  }
 
-      this.httpService.createCandidature(this.candidateplus).subscribe(function () {
+  setrestCandidateInfo(data) {
+    this.date = data;
+    console.log('election date: ' + this.date);
 
-        console.log(dataString);
-        console.log(this.ret);
-        console.log('yeah');
-        alert('Kandidat erstellt!');
+    this.candidateplus.username = this.studentNew.username;
+    this.candidateplus.planneddate = this.date;
+    this.candidateplus.electionType = this.cposition;
+    this.candidateplus.schoolClassName = this.studentNew.candidateClass;
+    this.candidateplus.file = null;
+    this.candidateplus.electionPromis = this.studentNew.electionPromise;
 
-      });
-
-    });
-
+    this.httpService.createCandidature(this.candidateplus).subscribe(data2 => alert(data2));
 
   }
 

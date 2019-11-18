@@ -35,12 +35,12 @@ export class ClassSettings implements OnInit {
 
 
   onClick() {
-   /* if (data.name === '') {
+    if (this.data.name === '') {
       location.reload();
     } else {
       this.dialogRef.close();
-      //this.httpService.deleteClass(data.name).subscribe((resClass) => this.ausgabe(resClass));
-    }*/
+      this.httpService.deleteClass(this.data.name).subscribe((resClass) => this.ausgabe(resClass));
+    }
   }
 
   ausgabe(resClass: string) {
