@@ -20,12 +20,12 @@ export class NewElectionComponent implements OnInit {
 
     const obj = {
       date: this.date,
-      electionType: "WAHL"
+      electionType: 'WAHL'
     };
 
     const json = JSON.stringify(obj);
 
-    console.log(json)
+    console.log(json);
 
     this.httpService.newElection(json);
   }
@@ -34,12 +34,12 @@ export class NewElectionComponent implements OnInit {
 
     const obj = {
       date: this.date,
-      electionType: "STICHWAHL"
+      electionType: 'STICHWAHL'
     };
 
     const json = JSON.stringify(obj);
 
 
-    this.httpService.runOff(json);
+    this.httpService.newElection(json);
   }
 }

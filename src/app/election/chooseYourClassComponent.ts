@@ -33,7 +33,7 @@ export class ChooseYourClassComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.httpService.getClasses().subscribe((resClasses) => this.loadClass(resClasses));
+    this.httpService.getVotingClasses().subscribe((resClasses) => this.loadClass(resClasses));
   }
 
   onNoClick(): void {

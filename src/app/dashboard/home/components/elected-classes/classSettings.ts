@@ -7,7 +7,7 @@ import {HttpService} from '../../../../services/http.service';
 
 @Component({
   selector: 'app-classSettings',
-  templateUrl: 'classSettings.html',
+  templateUrl: 'classSettings.html'
 })
 export class ClassSettings implements OnInit {
 

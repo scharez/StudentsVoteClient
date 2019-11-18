@@ -22,10 +22,6 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/login', user);
   }
 
-  setCandidate(dataString: Student) {
-    return this.http.post('http://localhost:8080/rest/sv/setCandidate', dataString);
-  }
-
   sendPoints(punkteString: Punkte[]) {
     return this.http.post('http://localhost:8080/rest/sv/parseJson', punkteString);
   }
@@ -47,7 +43,7 @@ export class HttpService {
   }
 
   getSchoolClassResults(myRequest: VotingResultPunkte) {
-    return this.http.get('http://localhost:8080/rest/sv/getSchoolClassResults', );
+    return this.http.get('http://localhost:8080/rest/sv/getSchoolClassResults');
   }
 
   beginElection() {
@@ -72,16 +68,16 @@ export class HttpService {
     this.http.post('http://localhost:8080/rest/sv/createElection', json);
   }
 
-  runOff(json: string) {
-    this.http.post('http://localhost:8080/rest/sv/runOff', json);
+  getFinishedClasses() {
+    return this.http.get('http://localhost:8080/rest/sv/getFinishedClasses');
   }
 
-  getClasses(){
-    return this.http.get('http://localhost:8080/rest/sv/');
+  getVotingClasses() {
+    return this.http.get('http://localhost:8080/rest/sv/getVotingClasses');
   }
 
   createCandidate(candidate: User2) {
-    return this.http.post('http://localhost:8080/rest/sv/setCandidate', candidate);
+    return this.http.post('http://localhost:8080/rest/sv/createCandidate', candidate);
   }
 
   getCurrentVoteDate() {
@@ -89,6 +85,6 @@ export class HttpService {
   }
 
   createCandidature(candidateplus: User3) {
-    return this.http.post('http://localhost:8080/rest/sv/createCandidature');
+    return this.http.post('http://localhost:8080/rest/sv/createCandidature', candidateplus);
   }
 }
