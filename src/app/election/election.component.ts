@@ -218,8 +218,6 @@ export class ElectionComponent implements OnInit, AfterViewInit {
 
     this.voteAgain();
 
-    this.httpService.persistCVs().subscribe();
-
     const dialogRef = this.dialog.open(FinishedComponent, {
       width: '250px'
     });

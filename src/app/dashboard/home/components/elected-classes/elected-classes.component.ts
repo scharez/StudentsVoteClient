@@ -11,7 +11,7 @@ import {HttpService} from '../../../../services/http.service';
 })
 export class ElectedClassesComponent implements OnInit {
 
-  classes =  ["4AHITM", "5BHIF", "1AHEL", "3AHIF", "5AHITM", "2AHBG"];    //new Array<String>();
+  classes =  [];    //new Array<String>();
 
   /* Pop-Up Window*/
   dialog: MatDialog;
@@ -22,11 +22,14 @@ export class ElectedClassesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.httpService.getFinishedClasses().subscribe((classesjson) => this.farther(classesjson));
+    this.httpService.getFinishedClasses().subscribe((classesjson) => this.further(classesjson));
   }
 
-  farther(classesjson) {
-    alert(classesjson);
+  further(classesjson) {
+    for (let i = 0; i < classesjson.length; i++) {
+        this.classes.push(classesjson[i].name)
+    }
+
   }
 
   editClasses(getClass: string) {

@@ -38,7 +38,7 @@ export class VotingresultsComponent implements OnInit {
   klassen = '[{"klasse": "nicht gewählt", "score": 36}, {"klasse": "5ahitm", "score": 1}, {"klasse": "3ahitm", "score": 1}]';
 
 
-  //JSON als welches wir die Anfrage an den Server schicken
+  //  JSON als welches wir die Anfrage an den Server schicken
   meinDatum = '';
   myRequest: VotingResultPunkte = new VotingResultPunkte();
 
