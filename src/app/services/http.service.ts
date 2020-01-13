@@ -60,8 +60,16 @@ export class HttpService {
     return this.http.post('http://localhost:8080/rest/sv/uploadCSV', formData);
   }
 
-  deleteClass(className: string) {
-     return this.http.post('http://localhost:8080/rest/sv/deleteClass');
+  deleteClass(meinDatum: string) {
+     return this.http.post(`http://localhost:8080/rest/sv/deleteClass/${meinDatum}`);
+  }
+
+  deleteCandidate(matrikelnummer: string) {
+    return this.http.post(`http://localhost:8080/rest/sv/deleteCandidate/${matrikelnummer}`);
+  }
+
+  updateCandidate(candidate: Student) {
+  this.http.post('http://localhost:8080/rest/sv/updateCandidate', candidate);
   }
 
   newElection(json: string) {

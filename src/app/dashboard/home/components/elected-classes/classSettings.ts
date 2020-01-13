@@ -4,14 +4,17 @@ import {ClassData} from '../../../../ClassData';
 import {Router} from '@angular/router';
 import {DataService} from '../../../../services/data.service';
 import {HttpService} from '../../../../services/http.service';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-classSettings',
-  templateUrl: 'classSettings.html'
+  templateUrl: 'classSettings.html',
 })
 export class ClassSettings implements OnInit {
 
   getClass: string = '';
+  meinDatum: string  = '';
+
 
   constructor(
     public dialogRef: MatDialogRef<ClassSettings>,
@@ -35,10 +38,13 @@ export class ClassSettings implements OnInit {
 
 
   onClick() {
+    this.meinDatum = (formatDate(new Date(), 'dd/MM/yyyy', 'en')).toString();
+    console.log(this.meinDatum);
     this.dialogRef.close();
-    this.httpService.deleteClass(this.data.name).subscribe((resClass) => this.ausgabe(resClass));
+    this.httpService.deleteClass(this.meinDatum).subscribe((resClass) => this.ausgabe(resClass));
     //Scharinger Methode zum abspeichern der klassen die falsch gevoted haben --> 15.11.2019
-    this.router.navigate(['election'], {queryParams: {klasse: this.data.name}});
+    this.router.navigate(['election'],{queryParams: {klasse : this.data.name}});
+
   }
 
   ausgabe(resClass: string) {

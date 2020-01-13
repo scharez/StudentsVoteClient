@@ -8,9 +8,7 @@ export class KandidatenEingang {
     public department: string = '',
     public picture: string = '',
     public electionPromise: string = '',
-    public position: string = '',
-    public candicateVotes: string = ''
-
+    public position: string = ''
   ) {
   }
 

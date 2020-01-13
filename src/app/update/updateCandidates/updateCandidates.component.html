@@ -1,0 +1,23 @@
+<div *ngFor="let candidate of candidates; let i = index">
+
+  <!-- Beginn Matcard -->
+  <mat-card class="mat-card candidates" class="mat-card-schulsprecher" (click)="getCandidate(candidate)">
+
+    <!--Inhalt von Mathcad-->
+    <mat-card-content>
+
+    {{candidate.position}}
+
+    <br>
+
+      <div class="name">{{candidate.firstname}} {{candidate.lastname}}</div>
+
+    </mat-card-content>
+
+  </mat-card>
+  <!-- Ende Matcard -->
+
+
+
+
+</div>

@@ -1,0 +1,127 @@
+/*Dashboard 'Überlayout'  --------------------------------------------------------------------------------------*/
+* {
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+/*Dashboard Header  --------------------------------------------------------------------------------------*/
+h1 {
+  margin-top: 1.5%;
+  margin-bottom: 0.6%;
+}
+
+h2 {
+  margin-top: 1.5%;
+  margin-bottom: 0%;
+}
+
+hr {
+  width: 80%;
+}
+
+/*Dashboard Header  --------------------------------------------------------------------------------------*/
+.addButton {
+  width: 50px;
+  height: 50px;
+  font-size: 160%;
+  margin: 2% auto 3% 48%;
+}
+
+
+/*Dashboard Layout Mat-Cards --------------------------------------------------------------------------------------*/
+.mat-card {
+  width: 30%;
+  background-color: white;
+  margin: 2% auto 4% 10%;
+  float: left;
+}
+
+/*Dashboard Layout Mat-Cards einzelne Karten--------------------------------------------------------------------------------------*/
+
+
+/*
+#schueler1 {
+  background: indigo;
+}
+
+#schueler2 {
+  background: beige;
+}
+
+#schueler3 {
+  background: brown;
+}
+
+#schueler2 {
+  background: lightgreen;
+}*/
+
+
+/*Dashboard Text auf Mat-Cards --------------------------------------------------------------------------------------*/
+.uploadedFile {
+  height: 160px;
+  width: auto;
+  float: right;
+  margin: 10% -6% auto auto;
+}
+
+.chooseFile {
+  margin: 2% 2% 2% auto;
+  float: right;
+  height: 60%;
+  width: auto;
+  padding: 1%;
+  font-size: 80%;
+}
+
+.schueler_text {
+  padding-top: 6%;
+}
+
+
+.alignData{
+  width: 80%;
+  margin: auto;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  margin-bottom: 4%;
+}
+
+.example-full-width {
+  max-height: 180px;
+}
+
+#selectFile{
+  margin: auto;
+}
+
+#uploadFile{
+  margin-left: 2%;
+}
+
+
+/*Dashboard Image auf Mat-Cards --------------------------------------------------------------------------------------*/
+
+/*Dashboard Send auf Mat-Cards ---------------------------------------------------------------------------------------*/
+.sendButton {
+  margin-right: 2%;
+}
+
+.candidates{
+  float: none;
+}
+

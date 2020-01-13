@@ -18,10 +18,11 @@ import {NewElectionComponent} from '../dashboard/new-election/new-election.compo
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'election', component: ElectionComponent, canActivate: [RoleguardService], data: {expectedRoles: ['ADMIN', 'Teacher']}},
-  {path: 'info', component: InfoComponent, canActivate: [AuthGuardService]},
+  {path: 'update', component: UpdateComponent},
+  {path: 'election', component: ElectionComponent, /*canActivate: [RoleguardService],*/ data: {expectedRoles: ['ADMIN', 'Teacher']}},
+  {path: 'info', component: InfoComponent, /*canActivate: [AuthGuardService]*/},
   {
-    path: 'dashboard', component: DashboardComponent, canActivate: [RoleguardService],
+    path: 'dashboard', component: DashboardComponent, /*canActivate: [RoleguardService],*/
     data: {
       expectedRoles: ['ADMIN']
     },

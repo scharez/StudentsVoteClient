@@ -15,6 +15,8 @@ import {ElectionComponent} from './election/election.component';
 import {ElectSettingsComponent} from './dashboard/home/components/elect-settings/elect-settings.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {CreateComponent} from './dashboard/create/create.component';
+import {UpdateComponent} from './update/update.component';
+import {UpdateCandidatesComponent} from './update/updateCandidates/updateCandidates.component';
 import {ProfilsettingsComponent} from './dashboard/profilsettings/profilsettings.component';
 import {SideNavComponent} from './dashboard/side-nav/side-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
@@ -67,8 +69,10 @@ import { UploadCsvComponent } from './dashboard/home/components/upload-csv/uploa
     FinishedComponent,
     NewElectionComponent,
     ElectedClassesComponent,
+    UploadCsvComponent,
     ClassSettings,
-    UploadCsvComponent
+    UpdateComponent,
+    UpdateCandidatesComponent
   ],
   imports: [
     BrowserModule,

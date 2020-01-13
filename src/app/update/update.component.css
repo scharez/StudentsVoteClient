@@ -1,0 +1,124 @@
+/*Dashboard 'Überlayout'  --------------------------------------------------------------------------------------*/
+* {
+  margin: auto;
+  justify-content: left;
+  text-align: left;
+}
+
+/*Dashboard Header  --------------------------------------------------------------------------------------*/
+h1 {
+  margin-top: 1.5%;
+  margin-bottom: 0.6%;
+}
+
+h2 {
+  margin-top: 1.5%;
+  margin-bottom: 0%;
+}
+
+hr {
+  width: 80%;
+}
+
+/*Dashboard Header  --------------------------------------------------------------------------------------*/
+.addButton {
+  width: 50px;
+  height: 50px;
+  font-size: 160%;
+  margin: 2% auto 3% 48%;
+}
+
+
+/*Dashboard Layout Mat-Cards --------------------------------------------------------------------------------------*/
+.mat-card {
+  width: 30%;
+  min-height: 450px; /*************************AENDERN*/
+  background-color: white;
+  margin: 2% 5% 4% 10%;
+  float: right;
+}
+
+.mat-card-content{
+  text-align: left;
+}
+
+/*Dashboard Text auf Mat-Cards --------------------------------------------------------------------------------------*/
+.uploadedFile {
+  height: 160px;
+  width: auto;
+  float: right;
+  margin: 10% -6% auto auto;
+}
+
+.chooseFile {
+  margin: 2% 2% 2% auto;
+  float: right;
+  height: 60%;
+  width: auto;
+  padding: 1%;
+  font-size: 80%;
+}
+
+.schueler_text {
+  padding-top: 6%;
+}
+
+
+.alignData{
+  width: 80%;
+  margin: auto;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  min-height: 190px;
+  max-height: 200px;
+  margin-bottom: 4%;
+}
+
+.example-full-width {
+  max-height: 180px;
+}
+
+#selectFile{
+  margin: auto;
+}
+
+#uploadFile{
+  margin-left: 2%;
+}
+
+
+/*Dashboard Image auf Mat-Cards --------------------------------------------------------------------------------------*/
+
+/*Dashboard Send auf Mat-Cards ---------------------------------------------------------------------------------------*/
+.sendButton {
+  margin-right: 2%;
+}
+
+
+.name{
+  margin-left: 5%;
+}
+
+.candidates{
+  text-align: left;
+  justify-content: left;
+  float:none !important;
+  margin-right: 35%;
+}
+
+.matCardLayout{
+  float: right;
+}

@@ -1,0 +1,78 @@
+
+<updateCandidates class="candidates"></updateCandidates>
+
+    <!-- Beginn Matcard -->
+    <mat-card class="mat-card matCardLayout" class="mat-card-schulsprecher" [id]="schuelerId(i)">
+
+      <!--Inhalt von Mathcad-->
+      <mat-card-content>
+
+        <div class="schueler_text">
+
+          <!--Vorname-->
+          <mat-form-field class="example-full-width" class="alignData">
+            <input matInput required placeholder="Vorname" [(ngModel)]="firstName">
+          </mat-form-field>
+          <br>
+
+          <!--Nachname-->
+          <mat-form-field class="example-full-width" class="alignData">
+            <input matInput required placeholder="Nachname" [(ngModel)]="lastName">
+          </mat-form-field>
+          <br>
+
+          <!--Choose Zweig-->
+          <mat-form-field class="example-full-width" class="alignData">
+            <mat-select required placeholder="Department" [(ngModel)]="sDepartment" (ngModelChange)="getDepartment()">
+              <mat-option
+                *ngFor="let option of options" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+
+          <!--Choose Klasse-->
+            <mat-form-field class="alignData">
+              <mat-select required placeholder="Klasse" [(ngModel)]="sClass">
+                <mat-option *ngFor="let class of classes" [value]="class">
+                  {{class}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          <!--Matrikelnummer-->
+          <mat-form-field class="example-full-width" class="alignData">
+            <input matInput required minlength="8" maxlength="8" placeholder="Matrikelnummer" [(ngModel)]="sMatrikelNr">
+          </mat-form-field>
+          <br>
+
+          <!--Position-->
+          <mat-form-field class="alignData">
+            <mat-select required placeholder="Position" [(ngModel)]="cposition">
+              <mat-option *ngFor="let position of positions" [value]="position">
+                {{position}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!--write Wahlversprechen-->
+        <div>
+          <mat-form-field class="example-full-width" class="alignData">
+            <textarea matInput autosize required placeholder="Wahlversprechen" [(ngModel)]="sWahlversprechen"></textarea>
+          </mat-form-field>
+        </div>
+        <br>
+
+        <!--Daten absenden-->
+        <button mat-raised-button class="sendButton" (click)="updateCandidates()">Update</button>
+        <button mat-raised-button class="sendButton" (click)="deleteCandidates()">Löschen</button>
+
+        <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+
+    </mat-card>
+    <!-- Ende Matcard -->
+
+

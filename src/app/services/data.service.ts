@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {EventEmitter, Injectable, OnInit} from '@angular/core';
 import {KandidatenEingang} from '../KandidatenEingang';
 import {Kandidaten} from '../Kandidaten';
 
@@ -15,4 +15,6 @@ export class DataService {
   public showDialog = true;
   public candidatesS: Kandidaten[] = [];
   public candidatesA: Kandidaten[] = [];
+
+  public candidateEmitter: EventEmitter<KandidatenEingang> = new EventEmitter();
 }
