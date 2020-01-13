@@ -13,6 +13,7 @@ import {AuthService} from '../services/auth.service';
 import {ElectSettingsComponent} from '../dashboard/home/components/elect-settings/elect-settings.component';
 import {VotingresultsComponent} from '../dashboard/home/components/votingresults/votingresults.component';
 import {NewElectionComponent} from '../dashboard/new-election/new-election.component';
+import {UpdateComponent} from '../update/update.component';
 /*import {FinalScoreComponent} from '../election/final-score/final-score.component';*/
 
 const routes: Routes = [

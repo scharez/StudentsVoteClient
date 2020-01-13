@@ -1,8 +1,9 @@
+<button mat-stroked-button (click)="neuErstellen()" class="neuButton">Neu erstellen</button>
 
 <updateCandidates class="candidates"></updateCandidates>
 
     <!-- Beginn Matcard -->
-    <mat-card class="mat-card matCardLayout" class="mat-card-schulsprecher" [id]="schuelerId(i)">
+    <mat-card class="mat-card matCardLayout mat-card-schulsprecher">
 
       <!--Inhalt von Mathcad-->
       <mat-card-content>
@@ -66,10 +67,9 @@
         <br>
 
         <!--Daten absenden-->
-        <button mat-raised-button class="sendButton" (click)="updateCandidates()">Update</button>
+        <button mat-raised-button class="sendButton" (click)="updateCandidates()">Speichern</button>
         <button mat-raised-button class="sendButton" (click)="deleteCandidates()">Löschen</button>
 
-        <mat-spinner [value]="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
       </mat-card-content>
 
     </mat-card>

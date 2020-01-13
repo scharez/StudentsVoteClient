@@ -122,3 +122,17 @@ hr {
 .matCardLayout{
   float: right;
 }
+
+.mat-card-schulsprecher{
+  margin-top: 4%;
+  margin-right: 15%;
+  margin-left: 0%;
+  float: right;
+}
+
+.neuButton{
+  margin-left: 7%;
+  font-size: 15px;
+  margin-top: 6%;
+
+}

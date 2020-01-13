@@ -93,7 +93,6 @@ export class UpdateComponent implements OnInit {
     this.sWahlversprechen = candidate.electionPromise;
     this.cposition = candidate.position;
     console.log(this.sClass);
-
     this.getDepartment();
 
   }
@@ -230,5 +229,16 @@ export class UpdateComponent implements OnInit {
     if(this.sMatrikelNr !== '' && this.sMatrikelNr !== undefined && this.sMatrikelNr !== null){
       this.httpService.deleteCandidate(this.sMatrikelNr).subscribe(res => console.log(res));
     }
+  }
+
+  neuErstellen() {
+    this.firstName = '';
+    this.lastName = '';
+    this.sDepartment = '';
+    this.sClass = '';
+    this.sMatrikelNr = '';
+    this.sWahlversprechen = '';
+    this.sImage = '';
+    this.cposition = '';
   }
 }

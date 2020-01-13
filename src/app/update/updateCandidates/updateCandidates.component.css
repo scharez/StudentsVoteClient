@@ -31,7 +31,7 @@ hr {
 
 /*Dashboard Layout Mat-Cards --------------------------------------------------------------------------------------*/
 .mat-card {
-  width: 30%;
+  width: 50%;
   background-color: white;
   margin: 2% auto 4% 10%;
   float: left;
@@ -125,3 +125,22 @@ hr {
   float: none;
 }
 
+.updateCandidate{
+  width:40%;
+  height:750px;
+  margin-left: 5%;
+  margin-top: 5%;
+  overflow: scroll;
+  float:left;
+}
+
+.candidate{
+  cursor: pointer;
+}
+
+.neuButton{
+  margin-left: 7%;
+  font-size: 15px;
+  margin-top: 5%;
+
+}

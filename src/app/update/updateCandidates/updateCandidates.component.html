@@ -1,23 +1,25 @@
-<div *ngFor="let candidate of candidates; let i = index">
+<div class="updateCandidate">
+  <div *ngFor="let candidate of candidates; let i = index" class="candidate">
 
-  <!-- Beginn Matcard -->
-  <mat-card class="mat-card candidates" class="mat-card-schulsprecher" (click)="getCandidate(candidate)">
+    <!-- Beginn Matcard -->
+    <mat-card class="mat-card candidates" class="mat-card-schulsprecher" (click)="getCandidate(candidate)">
 
-    <!--Inhalt von Mathcad-->
-    <mat-card-content>
+      <!--Inhalt von Mathcad-->
+      <mat-card-content>
 
-    {{candidate.position}}
+      {{candidate.position}}
 
-    <br>
+      <br>
 
-      <div class="name">{{candidate.firstname}} {{candidate.lastname}}</div>
+        <div class="name">{{candidate.firstname}} {{candidate.lastname}}</div>
 
-    </mat-card-content>
+      </mat-card-content>
 
-  </mat-card>
-  <!-- Ende Matcard -->
-
-
+    </mat-card>
+    <!-- Ende Matcard -->
 
 
+
+
+  </div>
 </div>
